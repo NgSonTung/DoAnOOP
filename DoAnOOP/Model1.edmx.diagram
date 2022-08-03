@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc92c687a1b84273b0248c74a541755c" Name="Diagram1">
+        <EntityTypeShape EntityType="doAnModel.Account" Width="1.5" PointX="4.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="doAnModel.BienLai" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="doAnModel.HocVien" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="doAnModel.Lop" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="doAnModel.MonHoc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="doAnModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="doAnModel.Thi" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="doAnModel.FK__BienLai__MaHocVi__7E188EBC" ManuallyRouted="false" />
+        <AssociationConnector Association="doAnModel.FK__Thi__MaHocVien__03D16812" ManuallyRouted="false" />
+        <AssociationConnector Association="doAnModel.FK__Lop__MaMonHoc__06ADD4BD" ManuallyRouted="false" />
+        <AssociationConnector Association="doAnModel.FK__Thi__MaMonHoc__02DD43D9" ManuallyRouted="false" />
+        <AssociationConnector Association="doAnModel.ThamGia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
