@@ -87,6 +87,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="PControl\ControlClass.cs" />
+    <Compile Include="PControl\ControlMonHoc.cs" />
     <Compile Include="PView\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
