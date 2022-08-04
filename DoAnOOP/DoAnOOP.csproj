@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -86,19 +87,20 @@
     <Compile Include="MonHoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PControl\HocVienCTR.cs" />
     <Compile Include="PControl\ControlClass.cs" />
     <Compile Include="PControl\ControlMonHoc.cs" />
     <Compile Include="PView\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PView\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PView\FAdmin.Designer.cs">
+      <DependentUpon>FAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="PView\Form2.cs">
+    <Compile Include="PView\FManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PView\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="PView\FManage.Designer.cs">
+      <DependentUpon>FManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,11 +116,11 @@
     <Compile Include="Thi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PView\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="PView\FAdmin.resx">
+      <DependentUpon>FAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PView\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="PView\FManage.resx">
+      <DependentUpon>FManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
