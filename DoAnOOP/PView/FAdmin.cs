@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace DoAnOOP
 {
-    public partial class Form1 : Form
+    public partial class FAdmin : Form
     {
-        public Form1()
+        public FAdmin()
         {
             InitializeComponent();
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FManage f = new FManage();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
         }
     }
 }
