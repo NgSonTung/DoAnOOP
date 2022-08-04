@@ -18,6 +18,10 @@ namespace DoAnOOP
         Lop lop = null;
         List<Lop> dslop;
 
+        // Khoi tao controller Mon Hoc
+        ControlMonHoc ctrlMH = new ControlMonHoc();
+        MonHoc mh = null;
+        List<MonHoc> dsmh;
         public FManage()
         {
             InitializeComponent();
@@ -25,7 +29,29 @@ namespace DoAnOOP
             dslop = ctrlLop.FindLop();
             lop = dslop[0];
             loadDSLop(dslop);
+            LoadDataLop(lop);
+            LoadDSCbMH();
         }
+
+        #region cap thuc (binding data tu dgv vao txt)
+
+        void LoadDataLop(Lop lop)
+        {
+            txtidLop.Text = lop.MaLop;
+            txtTenLop.Text = lop.TenLop;
+            txtHocPhi.Text = lop.HocPhi.ToString();
+            dtpNKG.Value = (DateTime)lop.NgayKhaiGiang;
+            /*dtpTKB.Value = s.TKB;*/
+            nmrHocPhan.Value = lop.HocPhan;
+            lop_monCB.SelectedItem = lop.MaMonHoc;
+        }
+
+        void LoadDataIdMH(MonHoc mh)
+        {
+            maMonTXT.Text = mh.MaMonHoc;
+        }
+
+        #endregion
 
         private void tabPage4_Click(object sender, EventArgs e)
         {
@@ -117,27 +143,18 @@ namespace DoAnOOP
 
         private void themlopBTN_Click(object sender, EventArgs e)
         {
-
+            Lop blop = new Lop { MaLop = txtidLop.Text, TenLop = txtTenLop.Text, NgayKhaiGiang = dtpNKG.Value };
         }
 
         private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Lay gia tri vi tri
             int i = dgvLop.CurrentCell.RowIndex;
-            string showLop = dgvLop.Rows[i].Cells[0] + "";
+            string malop = dgvLop.Rows[i].Cells[0].Value + "";
 
             // Show thong tin lop dang chon
-            Lop s = ctrlLop.DefineLop(showLop);
-            if (s != null)
-            {
-                txtidLop.Text = s.MaLop;
-                txtTenLop.Text = s.TenLop;
-                txtHocPhi.Text = s.HocPhi.ToString();
-                dtpNKG.Value = (DateTime)s.NgayKhaiGiang;
-                /*dtpTKB.Value = s.TKB;*/
-                nmrHocPhan.Value = s.HocPhan;
-                lop_monCB.SelectedItem = s.MaMonHoc;
-            }
+            lop = dslop.Where(t => t.MaLop == malop).ToList()[0];
+            LoadDataLop(lop);
         }
 
         private void themhvBTN_Click(object sender, EventArgs e)

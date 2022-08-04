@@ -87,10 +87,10 @@
     <Compile Include="MonHoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PControl\ControlMonHoc.cs" />
     <Compile Include="PControl\HocVienCTR.cs" />
     <Compile Include="PControl\ControlClass.cs" />
-    <Compile Include="PControl\ControlMonHoc.cs" />
-    <Compile Include="PView\Form1.cs">
+    <Compile Include="PView\FAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PView\FAdmin.Designer.cs">
