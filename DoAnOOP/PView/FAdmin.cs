@@ -24,5 +24,10 @@ namespace DoAnOOP
             f.Closed += (s, args) => this.Close();
             f.Show();
         }
+
+        private void FAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

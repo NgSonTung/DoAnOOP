@@ -29,11 +29,48 @@ namespace DoAnOOP
             dslop = ctrlLop.FindLop();
             lop = dslop[0];
             loadDSLop(dslop);
-            LoadDataLop(lop);
             LoadDSCbMH();
+            LoadDSMonHoc();
+
         }
 
         #region cap thuc (binding data tu dgv vao txt)
+
+        void LoadDSMonHoc()
+        {
+            var list = from s in ctrlMH.FindAllMH()
+                       select new
+                       {
+                           s.MaMonHoc,
+                           s.TenMonHoc,
+                           s.SoTietLyThuyet,
+                           s.SoTietThucHanh
+                       };
+            if (ctrlMH.FindAllMH().Count != 0)
+            LoadBindingMH(ctrlMH.FindAllMH()[0]);
+            dgvMon.DataSource = list.ToList();
+        }
+
+        void LoadBindingMH(MonHoc mh)
+        {
+            maMonTXT.Text = mh.MaMonHoc;
+            tenMonTXT.Text = mh.TenMonHoc;
+            lythuyetMonNUM.Value = mh.SoTietLyThuyet;
+            thuchanhMonNUM.Value = mh.SoTietThucHanh;
+        }
+
+        void LoadDSMonHoc(List<MonHoc> lstMH)
+        {
+            var lst = from s in lstMH
+                      select new
+                      {
+                          s.MaMonHoc,
+                          s.TenMonHoc,
+                          s.SoTietLyThuyet,
+                          s.SoTietThucHanh
+                      };
+            dgvMon.DataSource = lst.ToList();
+        }
 
         void LoadDataLop(Lop lop)
         {
@@ -48,7 +85,7 @@ namespace DoAnOOP
 
         void LoadDataIdMH(MonHoc mh)
         {
-            maMonTXT.Text = mh.MaMonHoc;
+            lop_monCB.DataSource = mh.TenMonHoc;
         }
 
         #endregion
@@ -84,7 +121,7 @@ namespace DoAnOOP
         {
             var list = from s in l select new { s.MaHocVien, s.HoTen, s.NgaySinh, s.NoiSinh, s.NgheNghiep };
             if (ctrHV.FindAll().Count != 0)
-                loadHV(ctrHV.FindAll()[0]);
+            loadHV(ctrHV.FindAll()[0]);
             dgvHV.DataSource = list.ToList();
         }
 
@@ -97,6 +134,7 @@ namespace DoAnOOP
             nghenghiephvTXT.Text = hv.NgheNghiep;
         }
 
+        // TAB Lop
         void loadDSLop(List<Lop> lst)
         {
             var rs = from s in lst
@@ -110,15 +148,34 @@ namespace DoAnOOP
                          s.HocPhi,
                          s.MaMonHoc
                      };
-
             dgvLop.DataSource = rs.ToList();
+        }
+
+        void LoadDSLop()
+        {
+            var list = from s in ctrlLop.FindLop()
+                       select new
+                       {
+                           s.MaLop,
+                           s.TenLop,
+                           s.NgayKhaiGiang,
+                           s.TKB,
+                           s.HocPhan,
+                           s.HocPhi,
+                           s.MaMonHoc
+                       };
+            if (ctrlLop.FindLop().Count != 0)
+                LoadDataLop(ctrlLop.FindLop()[0]);
+            dgvLop.DataSource = list.ToList();
         }
 
         void LoadDSCbMH()
         {
-            List<MonHoc> dsmonhoc = new List<MonHoc>();
+            List<MonHoc> dsmonhoc = ctrlMH.FindAllMH();
             lop_monCB.DataSource = dsmonhoc;
         }
+
+        // END TAB LOP
 
         private void capnhatlopBTN_Click(object sender, EventArgs e)
         {
@@ -130,20 +187,35 @@ namespace DoAnOOP
             s.MaLop = txtidLop.Text;
             s.TenLop = txtTenLop.Text;
             s.NgayKhaiGiang = dtpNKG.Value.Date;
-            /*s.TKB = dtpTKB.Value.Date;*/
+        /*    s.TKB = dtpTKB.Value.Date;*/
             s.HocPhan = int.Parse(nmrHocPhan.Value+"");
             s.HocPhi = float.Parse(txtHocPhi.Text);
-            s.MaMonHoc = lop_monCB.Text;
-
             ctrlLop.update(s);
-            loadDSLop(dslop);
-
-
+            LoadDSLop();
         }
 
         private void themlopBTN_Click(object sender, EventArgs e)
         {
-            Lop blop = new Lop { MaLop = txtidLop.Text, TenLop = txtTenLop.Text, NgayKhaiGiang = dtpNKG.Value };
+            Lop check = ctrlLop.DefineLop(txtidLop.Text);
+            if (check == null)
+            {
+                try
+                {
+                    Lop blop = new Lop {
+                                    MaLop = txtidLop.Text,
+                                    TenLop = txtTenLop.Text,
+                                    NgayKhaiGiang = dtpNKG.Value,
+                                    HocPhan = (int)nmrHocPhan.Value,
+                                    HocPhi = float.Parse(txtHocPhi.Text),
+                    };
+                    ctrlLop.add(blop);      
+                    LoadDSLop();
+                }
+                catch 
+                {
+                    MessageBox.Show("Trung ma lop");
+                }
+            }
         }
 
         private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -155,6 +227,7 @@ namespace DoAnOOP
             // Show thong tin lop dang chon
             lop = dslop.Where(t => t.MaLop == malop).ToList()[0];
             LoadDataLop(lop);
+
         }
 
         private void themhvBTN_Click(object sender, EventArgs e)
@@ -283,6 +356,42 @@ namespace DoAnOOP
             FAdmin f = new FAdmin();
             f.Closed += (s, args) => this.Close();
             f.Show();
+        }
+
+        private void xoalopBTN_Click(object sender, EventArgs e)
+        {
+            int index = dgvLop.CurrentCell.RowIndex;
+            string idlop = dgvLop.Rows[index].Cells[0].Value + "";
+            ctrlLop.delete(ctrlLop.DefineLop(idlop));
+            LoadDSLop();
+        }
+
+        private void btnAsc_Click(object sender, EventArgs e)
+        {
+            /*LoadDSLop(ctrlLop.Asc(ctrlLop.FindLop()));*/
+        }
+
+        private void dgvMon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvMon.CurrentCell.RowIndex;
+            string mamh = dgvMon.Rows[index].Cells[0].Value + "";
+            if(ctrlMH.FindMH(mamh) != null)
+            {
+                LoadBindingMH(ctrlMH.FindMH(mamh));
+            }
+              
+        }
+
+        private void themMonBTN_Click(object sender, EventArgs e)
+        {
+            MonHoc mh = new MonHoc {
+                MaMonHoc = maMonTXT.Text,
+                TenMonHoc = tenMonTXT.Text,
+                SoTietLyThuyet = (int)lythuyetMonNUM.Value,
+                SoTietThucHanh = (int)thuchanhMonNUM.Value
+            };
+            ctrlMH.Add(mh);
+            LoadDSMonHoc();
         }
     }
 }

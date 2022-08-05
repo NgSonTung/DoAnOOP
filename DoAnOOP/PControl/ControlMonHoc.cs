@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DoAnOOP.PControl;
 using System.Windows.Forms;
+using System.Data.Entity.Migrations;
 
 namespace DoAnOOP.PControl
 {
@@ -21,6 +22,45 @@ namespace DoAnOOP.PControl
         public MonHoc FindMH(string mh)
         {
             return db.MonHocs.Find(mh);
+        }
+
+        public void Add(MonHoc mh)
+        {
+            try
+            {
+                db.MonHocs.Add(mh);
+                db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Không thêm được");
+            }
+        }
+
+        public void Delete(MonHoc mh)
+        {
+            try
+            {
+                db.MonHocs.Remove(mh);
+                db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Không xóa được");
+            }
+        }
+
+        public void Update(MonHoc mh)
+        {
+            try
+            {
+                db.MonHocs.AddOrUpdate(mh);
+                db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Không cập nhật được");
+            }
         }
     }
 }

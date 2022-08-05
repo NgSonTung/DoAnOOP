@@ -34,8 +34,15 @@ namespace DoAnOOP.PControl
 
         public void delete(Lop lop)
         {
-            db.Lops.Remove(lop);
-            db.SaveChanges();
+            try
+            {
+                db.Lops.Remove(lop);
+                db.SaveChanges();
+            }
+            catch 
+            {
+                MessageBox.Show("Khong xoa duoc");
+            }
         }
 
         public void update(Lop lop)
@@ -48,5 +55,11 @@ namespace DoAnOOP.PControl
         {
             return db.Lops.Find(s);
         }
+
+        public List<Lop> Asc(List<Lop> lop)
+        {
+            return lop.OrderBy(lp => lp.NgayKhaiGiang).ToList();
+        }
+
     }
 }

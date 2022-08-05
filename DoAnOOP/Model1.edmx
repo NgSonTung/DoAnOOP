@@ -81,7 +81,7 @@
           <Property Name="MaHocVien" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="DiemThi" Type="float" Nullable="false" />
         </EntityType>
-        <Association Name="FK__BienLai__MaHocVi__7E188EBC">
+        <Association Name="FK__BienLai__MaHocVi__286302EC">
           <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
           <End Role="BienLai" Type="Self.BienLai" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +93,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Lop__MaMonHoc__06ADD4BD">
+        <Association Name="FK__Lop__MaMonHoc__30F848ED">
           <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
           <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
           <ReferentialConstraint>
@@ -105,7 +105,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThamGia__MaHocVi__098A4168">
+        <Association Name="FK__ThamGia__MaHocVi__33D4B598">
           <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
           <End Role="ThamGia" Type="Self.ThamGia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -117,7 +117,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThamGia__MaLop__0A7E65A1">
+        <Association Name="FK__ThamGia__MaLop__34C8D9D1">
           <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
           <End Role="ThamGia" Type="Self.ThamGia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -129,7 +129,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Thi__MaHocVien__03D16812">
+        <Association Name="FK__Thi__MaHocVien__2E1BDC42">
           <End Role="HocVien" Type="Self.HocVien" Multiplicity="1" />
           <End Role="Thi" Type="Self.Thi" Multiplicity="*" />
           <ReferentialConstraint>
@@ -141,7 +141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Thi__MaMonHoc__02DD43D9">
+        <Association Name="FK__Thi__MaMonHoc__2D27B809">
           <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="1" />
           <End Role="Thi" Type="Self.Thi" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,9 +154,6 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="fuConvertToUnsign1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-          <Parameter Name="strInput" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -196,27 +193,27 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThamGia" EntityType="Self.ThamGia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Thi" EntityType="Self.Thi" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BienLai__MaHocVi__7E188EBC" Association="Self.FK__BienLai__MaHocVi__7E188EBC">
+          <AssociationSet Name="FK__BienLai__MaHocVi__286302EC" Association="Self.FK__BienLai__MaHocVi__286302EC">
             <End Role="HocVien" EntitySet="HocVien" />
             <End Role="BienLai" EntitySet="BienLai" />
           </AssociationSet>
-          <AssociationSet Name="FK__Lop__MaMonHoc__06ADD4BD" Association="Self.FK__Lop__MaMonHoc__06ADD4BD">
+          <AssociationSet Name="FK__Lop__MaMonHoc__30F848ED" Association="Self.FK__Lop__MaMonHoc__30F848ED">
             <End Role="MonHoc" EntitySet="MonHoc" />
             <End Role="Lop" EntitySet="Lop" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThamGia__MaHocVi__098A4168" Association="Self.FK__ThamGia__MaHocVi__098A4168">
+          <AssociationSet Name="FK__ThamGia__MaHocVi__33D4B598" Association="Self.FK__ThamGia__MaHocVi__33D4B598">
             <End Role="HocVien" EntitySet="HocVien" />
             <End Role="ThamGia" EntitySet="ThamGia" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThamGia__MaLop__0A7E65A1" Association="Self.FK__ThamGia__MaLop__0A7E65A1">
+          <AssociationSet Name="FK__ThamGia__MaLop__34C8D9D1" Association="Self.FK__ThamGia__MaLop__34C8D9D1">
             <End Role="Lop" EntitySet="Lop" />
             <End Role="ThamGia" EntitySet="ThamGia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Thi__MaHocVien__03D16812" Association="Self.FK__Thi__MaHocVien__03D16812">
+          <AssociationSet Name="FK__Thi__MaHocVien__2E1BDC42" Association="Self.FK__Thi__MaHocVien__2E1BDC42">
             <End Role="HocVien" EntitySet="HocVien" />
             <End Role="Thi" EntitySet="Thi" />
           </AssociationSet>
-          <AssociationSet Name="FK__Thi__MaMonHoc__02DD43D9" Association="Self.FK__Thi__MaMonHoc__02DD43D9">
+          <AssociationSet Name="FK__Thi__MaMonHoc__2D27B809" Association="Self.FK__Thi__MaMonHoc__2D27B809">
             <End Role="MonHoc" EntitySet="MonHoc" />
             <End Role="Thi" EntitySet="Thi" />
           </AssociationSet>

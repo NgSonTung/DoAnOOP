@@ -123,6 +123,7 @@
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.dgvBienLai = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.btnAsc = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrHocPhan)).BeginInit();
@@ -161,7 +162,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(8, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 16);
+            this.label8.Size = new System.Drawing.Size(37, 16);
             this.label8.TabIndex = 1;
             this.label8.Text = "TKB";
             // 
@@ -176,10 +177,12 @@
             // 
             // dtpTKB
             // 
+            this.dtpTKB.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpTKB.Location = new System.Drawing.Point(133, 4);
             this.dtpTKB.Name = "dtpTKB";
             this.dtpTKB.Size = new System.Drawing.Size(193, 24);
             this.dtpTKB.TabIndex = 3;
+            this.dtpTKB.Value = new System.DateTime(2022, 8, 5, 13, 57, 0, 0);
             // 
             // label7
             // 
@@ -188,7 +191,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 16);
+            this.label7.Size = new System.Drawing.Size(74, 16);
             this.label7.TabIndex = 1;
             this.label7.Text = "Học phần";
             // 
@@ -215,7 +218,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(8, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 16);
+            this.label5.Size = new System.Drawing.Size(121, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "Ngày khai giảng";
             // 
@@ -242,7 +245,7 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(8, 6);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 16);
+            this.label18.Size = new System.Drawing.Size(37, 16);
             this.label18.TabIndex = 21;
             this.label18.Text = "Môn";
             // 
@@ -261,7 +264,7 @@
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(8, 6);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 16);
+            this.label17.Size = new System.Drawing.Size(61, 16);
             this.label17.TabIndex = 19;
             this.label17.Text = "Học phí";
             // 
@@ -308,7 +311,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(8, 7);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 16);
+            this.label12.Size = new System.Drawing.Size(55, 16);
             this.label12.TabIndex = 1;
             this.label12.Text = "Mã lớp";
             // 
@@ -344,7 +347,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(8, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
+            this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "Tên lớp";
             // 
@@ -491,7 +494,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 16);
+            this.label2.Size = new System.Drawing.Size(91, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã môn học";
             // 
@@ -529,7 +532,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(8, 7);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 16);
+            this.label14.Size = new System.Drawing.Size(96, 16);
             this.label14.TabIndex = 1;
             this.label14.Text = "Tiết lý thuyết";
             this.label14.Click += new System.EventHandler(this.label14_Click);
@@ -557,7 +560,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(8, 7);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(103, 16);
+            this.label16.Size = new System.Drawing.Size(104, 16);
             this.label16.TabIndex = 1;
             this.label16.Text = "Tiết thực hành";
             // 
@@ -577,7 +580,7 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(8, 9);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 16);
+            this.label19.Size = new System.Drawing.Size(68, 16);
             this.label19.TabIndex = 1;
             this.label19.Text = "Tên môn";
             // 
@@ -640,6 +643,7 @@
             this.themMonBTN.TabIndex = 15;
             this.themMonBTN.Text = "Thêm";
             this.themMonBTN.UseVisualStyleBackColor = false;
+            this.themMonBTN.Click += new System.EventHandler(this.themMonBTN_Click);
             // 
             // dgvMon
             // 
@@ -651,6 +655,7 @@
             this.dgvMon.RowHeadersWidth = 51;
             this.dgvMon.Size = new System.Drawing.Size(753, 394);
             this.dgvMon.TabIndex = 29;
+            this.dgvMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMon_CellClick);
             // 
             // timkiemlopTXT
             // 
@@ -675,18 +680,19 @@
             // 
             this.xoalopBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.xoalopBTN.ForeColor = System.Drawing.Color.White;
-            this.xoalopBTN.Location = new System.Drawing.Point(139, 21);
+            this.xoalopBTN.Location = new System.Drawing.Point(129, 21);
             this.xoalopBTN.Name = "xoalopBTN";
             this.xoalopBTN.Size = new System.Drawing.Size(97, 35);
             this.xoalopBTN.TabIndex = 1;
             this.xoalopBTN.Text = "Xóa";
             this.xoalopBTN.UseVisualStyleBackColor = false;
+            this.xoalopBTN.Click += new System.EventHandler(this.xoalopBTN_Click);
             // 
             // capnhatlopBTN
             // 
             this.capnhatlopBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.capnhatlopBTN.ForeColor = System.Drawing.Color.White;
-            this.capnhatlopBTN.Location = new System.Drawing.Point(253, 21);
+            this.capnhatlopBTN.Location = new System.Drawing.Point(232, 21);
             this.capnhatlopBTN.Name = "capnhatlopBTN";
             this.capnhatlopBTN.Size = new System.Drawing.Size(97, 35);
             this.capnhatlopBTN.TabIndex = 2;
@@ -765,7 +771,7 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(913, 384);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 16);
+            this.label13.Size = new System.Drawing.Size(83, 16);
             this.label13.TabIndex = 25;
             this.label13.Text = "Hướng dẫn";
             // 
@@ -818,7 +824,7 @@
             this.lopSV.ForeColor = System.Drawing.Color.White;
             this.lopSV.Location = new System.Drawing.Point(20, 6);
             this.lopSV.Name = "lopSV";
-            this.lopSV.Size = new System.Drawing.Size(95, 16);
+            this.lopSV.Size = new System.Drawing.Size(96, 16);
             this.lopSV.TabIndex = 24;
             this.lopSV.Text = "Nghề nghiệp";
             // 
@@ -852,7 +858,7 @@
             this.DienthoaiSV.ForeColor = System.Drawing.Color.White;
             this.DienthoaiSV.Location = new System.Drawing.Point(20, 10);
             this.DienthoaiSV.Name = "DienthoaiSV";
-            this.DienthoaiSV.Size = new System.Drawing.Size(63, 16);
+            this.DienthoaiSV.Size = new System.Drawing.Size(64, 16);
             this.DienthoaiSV.TabIndex = 23;
             this.DienthoaiSV.Text = "Nơi sinh";
             // 
@@ -886,7 +892,7 @@
             this.KhoaSV.ForeColor = System.Drawing.Color.White;
             this.KhoaSV.Location = new System.Drawing.Point(20, 7);
             this.KhoaSV.Name = "KhoaSV";
-            this.KhoaSV.Size = new System.Drawing.Size(52, 16);
+            this.KhoaSV.Size = new System.Drawing.Size(53, 16);
             this.KhoaSV.TabIndex = 21;
             this.KhoaSV.Text = "Họ tên";
             // 
@@ -914,7 +920,7 @@
             this.NameSV.ForeColor = System.Drawing.Color.White;
             this.NameSV.Location = new System.Drawing.Point(20, 7);
             this.NameSV.Name = "NameSV";
-            this.NameSV.Size = new System.Drawing.Size(76, 16);
+            this.NameSV.Size = new System.Drawing.Size(77, 16);
             this.NameSV.TabIndex = 22;
             this.NameSV.Text = "Ngày sinh";
             // 
@@ -934,7 +940,7 @@
             this.MSSVid.ForeColor = System.Drawing.Color.White;
             this.MSSVid.Location = new System.Drawing.Point(20, 7);
             this.MSSVid.Name = "MSSVid";
-            this.MSSVid.Size = new System.Drawing.Size(90, 16);
+            this.MSSVid.Size = new System.Drawing.Size(91, 16);
             this.MSSVid.TabIndex = 20;
             this.MSSVid.Text = "Mã học viên";
             // 
@@ -1026,6 +1032,7 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.tabPage5.Controls.Add(this.btnAsc);
             this.tabPage5.Controls.Add(this.panel15);
             this.tabPage5.Controls.Add(this.xemLopBTN);
             this.tabPage5.Controls.Add(this.panel13);
@@ -1185,6 +1192,18 @@
             this.button3.TabIndex = 49;
             this.button3.Text = "X";
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // btnAsc
+            // 
+            this.btnAsc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.btnAsc.ForeColor = System.Drawing.Color.White;
+            this.btnAsc.Location = new System.Drawing.Point(335, 21);
+            this.btnAsc.Name = "btnAsc";
+            this.btnAsc.Size = new System.Drawing.Size(97, 35);
+            this.btnAsc.TabIndex = 15;
+            this.btnAsc.Text = "Sắp xếp";
+            this.btnAsc.UseVisualStyleBackColor = false;
+            this.btnAsc.Click += new System.EventHandler(this.btnAsc_Click);
             // 
             // FManage
             // 
@@ -1354,5 +1373,6 @@
         private System.Windows.Forms.DataGridView dgvHV;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox huongDanHVTXT;
+        private System.Windows.Forms.Button btnAsc;
     }
 }
