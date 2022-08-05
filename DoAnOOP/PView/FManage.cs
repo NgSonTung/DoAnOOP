@@ -12,8 +12,9 @@ using DoAnOOP.PControl;
 namespace DoAnOOP
 {
     public partial class FManage : Form
-    {
-        HocVienCTR ctrHV = new HocVienCTR();
+    {   
+        ControlHocVien ctrHV = new ControlHocVien();
+        ControlBienLai ctrBL = new ControlBienLai();
         ControlClass ctrlLop = new ControlClass();
         Lop lop = null;
         List<Lop> dslop;
@@ -29,6 +30,7 @@ namespace DoAnOOP
             dslop = ctrlLop.FindLop();
             lop = dslop[0];
             loadDSLop(dslop);
+            loadDSBL();
             LoadDSCbMH();
             LoadDSMonHoc();
 
@@ -109,6 +111,18 @@ namespace DoAnOOP
         {
 
         }
+
+        void loadDSBL()
+        {
+            var list = from s in ctrBL.FindAll() select new {s.MaBL, s.NgayDong, s.SoTien, s.HocVien};
+            dgvBienLai.DataSource = list.ToList();
+        }
+        void loadDSBL(List<BienLai> l)
+        {
+            var list = from s in l select new { s.MaBL, s.NgayDong, s.SoTien, s.HocVien };
+                dgvBienLai.DataSource = list.ToList();
+        }
+
         void loadDSHV()
         {
             var list = from s in ctrHV.FindAll() select new {s.MaHocVien , s.HoTen, s.NgaySinh, s.NoiSinh, s.NgheNghiep };
@@ -121,7 +135,7 @@ namespace DoAnOOP
         {
             var list = from s in l select new { s.MaHocVien, s.HoTen, s.NgaySinh, s.NoiSinh, s.NgheNghiep };
             if (ctrHV.FindAll().Count != 0)
-            loadHV(ctrHV.FindAll()[0]);
+                loadHV(ctrHV.FindAll()[0]);
             dgvHV.DataSource = list.ToList();
         }
 
@@ -392,6 +406,71 @@ namespace DoAnOOP
             };
             ctrlMH.Add(mh);
             LoadDSMonHoc();
+        }
+
+        private void hienThiBienLaiBTN_Click(object sender, EventArgs e)
+        {
+            loadDSBL(ctrBL.FindBL(dateFrom.Value, dateTo.Value));
+        }
+
+        private void timKiemBienLaiBTN_Click(object sender, EventArgs e)
+        {   
+            loadDSBL(ctrBL.SearchBL(timKiemBienLaiTXT.Text));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadDSBL();
+        }
+
+        private void sapXepBLBTN_Click(object sender, EventArgs e)
+        {
+            loadDSBL(ctrBL.DescBL(ctrBL.FindAll()));
+        }
+
+        private void hienThiBienLaiBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hiển thị danh sách biên lai trong khoảng ngày đã chọn";
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hiển thị danh sách toàn bộ biên lai";
+        }
+
+        private void timKiemBienLaiBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hiển thị danh sách biên lai theo mã biên lai hoặc mã học viên";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hienThiBienLaiBTN_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void timKiemBienLaiBTN_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void sapXepBLBTN_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void sapXepBLBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanBLTXT.Text = "Sắp xếp danh sách từ ngày gần nhất";
         }
     }
 }

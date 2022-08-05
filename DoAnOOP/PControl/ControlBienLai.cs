@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Data.Linq.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,21 +8,21 @@ using System.Windows.Forms;
 
 namespace DoAnOOP.PControl
 {
-    internal class HocVienCTR
+    internal class ControlBienLai
     {
         doAnEntities db = ControlDataBase.qlhocvien;
 
-        public List<HocVien> FindAll()
+        public List<BienLai> FindAll()
         {
-            var hvList = from s in db.HocViens select s;
-            return hvList.ToList();
+            var blList = from s in db.BienLais select s;
+            return blList.ToList();
         }
 
-        public void Add(HocVien hv)
+        public void Add(BienLai bl)
         {
             try
             {
-                db.HocViens.Add(hv);
+                db.BienLais.Add(bl);
                 db.SaveChanges();
             }
             catch
@@ -32,11 +31,11 @@ namespace DoAnOOP.PControl
             }
         }
 
-        public void Delete(HocVien hv)
+        public void Delete(BienLai bl)
         {
             try
             {
-                db.HocViens.Remove(hv);
+                db.BienLais.Remove(bl);
                 db.SaveChanges();
             }
             catch
@@ -45,11 +44,11 @@ namespace DoAnOOP.PControl
             }
         }
 
-        public void Update(HocVien hv)
+        public void Update(BienLai bl)
         {
             try
             {
-                db.HocViens.AddOrUpdate(hv);
+                db.BienLais.AddOrUpdate(bl);
                 db.SaveChanges();
             }
             catch
@@ -58,27 +57,24 @@ namespace DoAnOOP.PControl
             }
         }
 
-        public HocVien FindHV(string s)
+        public List<BienLai> FindBL(DateTime date1, DateTime date2)
         {
-            return db.HocViens.Find(s);
+            return (from s in FindAll().ToList() where s.NgayDong > date1 && s.NgayDong < date2 select s).ToList();
         }
 
-        public List<HocVien> AscHV(List<HocVien> list)
+        public List<BienLai> DescBL(List<BienLai> list)
         {
-            return list.OrderBy(hv => hv.NgaySinh).ToList();
+            return list.OrderByDescending(hv => hv.NgayDong).ToList();
         }
 
-        public List<HocVien> SearchHV(string search)
+        public List<BienLai> SearchBL(string search)
         {
-            List<HocVien> listId = (from s in FindAll().ToList() where s.MaHocVien.Contains(search) select s).ToList();
-            List<HocVien> listName = (from s in FindAll().ToList() where s.HoTen.Contains(search) select s).ToList();
-            List<HocVien> listBorn = (from s in FindAll().ToList() where s.NoiSinh.Contains(search) select s).ToList();
+            List<BienLai> listId = (from s in FindAll().ToList() where s.MaBL.Contains(search) select s).ToList();
+            List<BienLai> listName = (from s in FindAll().ToList() where s.MaHocVien.Contains(search) select s).ToList();
             if (listId.Count > 0)
                 return listId;
             else if (listName.Count > 0)
                 return listName;
-            else if (listBorn.Count > 0)
-                return listBorn;
             else return FindAll().ToList();
         }
     }

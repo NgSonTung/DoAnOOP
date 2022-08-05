@@ -30,10 +30,5 @@ namespace DoAnOOP
         public virtual ICollection<Lop> Lops { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Thi> This { get; set; }
-
-        public override string ToString()
-        {
-            return TenMonHoc;
-        }
     }
 }
