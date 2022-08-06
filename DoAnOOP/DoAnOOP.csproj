@@ -87,6 +87,7 @@
     <Compile Include="MonHoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PControl\ControlAccount.cs" />
     <Compile Include="PControl\ControlBienLai.cs" />
     <Compile Include="PControl\ControlMonHoc.cs" />
     <Compile Include="PControl\ControlHocVien.cs" />
@@ -105,6 +106,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PView\FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PView\FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -120,6 +127,9 @@
     <EmbeddedResource Include="PView\FAdmin.resx">
       <DependentUpon>FAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PView\FLogin.resx">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PView\FManage.resx">
       <DependentUpon>FManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +141,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -164,6 +175,23 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\blackboard.png" />
+    <Content Include="Resources\graduated.png" />
+    <Content Include="Resources\graduation-hat.png" />
+    <Content Include="Resources\information.png" />
+    <Content Include="Resources\keys.png" />
+    <Content Include="Resources\login.png" />
+    <Content Include="Resources\logo.png" />
+    <Content Include="Resources\motel.png" />
+    <Content Include="Resources\motel1.png" />
+    <Content Include="Resources\motel2.png" />
+    <Content Include="Resources\padlock.png" />
+    <Content Include="Resources\profile.png" />
+    <Content Include="Resources\school.png" />
+    <Content Include="Resources\technical-support.png" />
+    <Content Include="Resources\user.png" />
+    <Content Include="Resources\write.png" />
+    <Content Include="Resources\write1.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -171,7 +199,6 @@
   <ItemGroup>
     <Folder Include="PModel\" />
     <Folder Include="PUtil\" />
-    <Folder Include="PView\PControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
