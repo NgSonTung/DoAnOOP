@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DoAnOOP.PControl;
 using System.Windows.Forms;
 using System.Data.Entity.Migrations;
+using DoAnOOP.PView;
 
 namespace DoAnOOP.PControl
 {
@@ -61,6 +62,18 @@ namespace DoAnOOP.PControl
             {
                 MessageBox.Show("Không cập nhật được");
             }
+        }
+
+        public List<MonHoc> SubjectSearching(string search)
+        {
+            List<MonHoc> listId = (from s in FindAllMH().ToList() where s.MaMonHoc.Contains(search) select s).ToList();
+            List<MonHoc> listName = (from s in FindAllMH().ToList() where s.TenMonHoc.Contains(search) select s).ToList();
+
+            if (listId.Count > 0)
+                return listId;
+            else if (listName.Count > 0)
+                return listName;
+            else return FindAllMH().ToList();
         }
     }
 }
