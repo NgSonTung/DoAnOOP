@@ -61,5 +61,9 @@ namespace DoAnOOP.PControl
             return lop.OrderBy(lp => lp.NgayKhaiGiang).ToList();
         }
 
+        public List<Lop> findLopKG( DateTime dt )
+        {
+            return db.Lops.Where(t => t.NgayKhaiGiang == dt.Date).ToList();
+        }
     }
 }

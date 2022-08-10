@@ -91,6 +91,7 @@
     <Compile Include="PControl\ControlMonHoc.cs" />
     <Compile Include="PControl\ControlHocVien.cs" />
     <Compile Include="PControl\ControlClass.cs" />
+    <Compile Include="PControl\].cs" />
     <Compile Include="PView\FAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,9 +110,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Thi.cs">
