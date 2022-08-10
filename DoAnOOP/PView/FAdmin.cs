@@ -1,13 +1,9 @@
-﻿using System;
+﻿using DoAnOOP.PControl;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DoAnOOP.PControl;
 namespace DoAnOOP
 {
     public partial class FAdmin : Form
@@ -35,9 +31,6 @@ namespace DoAnOOP
 
         void loadFindKG()
         {
-
-
-
             var lst = ctrClass.findLopKG(khaiGiangDP.Value);
             List<HocVien> hvs = new List<HocVien>();
             foreach (var l in lst)
@@ -45,23 +38,52 @@ namespace DoAnOOP
                 hvs.AddRange(l.HocViens.ToList());
                 //addrange add can list 
             }
-
-            //var rs = from t in lst select new { t.HocViens};
-            
-            //foreach (List<HocVien> i in rs.ToList())
-            //{
-            //    foreach (var j in i)
-            //    {
-
-            //    }
-            //}
             dataGridView1.DataSource = hvs.ToList();
-            
-        }
 
+        }
+        void loadFindHvByMaLop(string s)
+        {
+            var lst = ctrClass.findLopByMaLop(s);
+            List<HocVien> hvs = new List<HocVien>();
+            foreach (var l in lst)
+            {
+                hvs.AddRange(l.HocViens.ToList());
+            }
+            dataGridView1.DataSource = hvs.ToList();
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             loadFindKG();
+        }
+
+        private void LapDsHvCuaMotLop_Click(object sender, EventArgs e)
+        {
+            if (maLopTXT.Text == " ")
+            {
+                return;
+            }
+            else loadFindHvByMaLop(maLopTXT.Text.ToUpper());
+        }
+
+        private void ChoBietSLHVKGKhoaNgayNaoDo_Click(object sender, EventArgs e)
+        {
+            var lst = ctrClass.findLopKG(khaiGiangDP.Value);
+            var rs = from t in lst
+                     select new
+                     {
+                       TenLop  = t.TenLop,
+                       NgayKhaiGiang =  t.NgayKhaiGiang,
+                       SoHocVien = t.HocViens.Count
+                     };
+
+            List<HocVien> hvs = new List<HocVien>();
+            foreach (var l in lst)
+            {
+                hvs.AddRange(l.HocViens.ToList());
+            }
+            test1.Text = hvs.Count.ToString();
+            dataGridView1.DataSource = rs.ToList();
         }
     }
 }

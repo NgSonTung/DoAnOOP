@@ -65,5 +65,9 @@ namespace DoAnOOP.PControl
         {
             return db.Lops.Where(t => t.NgayKhaiGiang == dt.Date).ToList();
         }
+        public List<Lop> findLopByMaLop(string s)
+        {
+            return db.Lops.Where(t => t.MaLop == s).ToList();
+        }
     }
 }
