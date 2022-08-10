@@ -62,7 +62,10 @@ namespace DoAnOOP.PControl
         {
             return db.HocViens.Find(s);
         }
-
+        public List<HocVien> findHV(string mahv)
+        {
+            return db.HocViens.Where(t => t.MaHocVien == mahv).ToList();
+        }
         public List<HocVien> AscHV(List<HocVien> list)
         {
             return list.OrderBy(hv => hv.NgaySinh).ToList();
@@ -81,5 +84,6 @@ namespace DoAnOOP.PControl
                 return listBorn;
             else return FindAll().ToList();
         }
+        
     }
 }

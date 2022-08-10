@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="doAnModel.HocVien" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="doAnModel.Lop" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="doAnModel.MonHoc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="doAnModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="doAnModel.Thi" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="doAnModel.FK__BienLai__MaHocVi__7E188EBC" ManuallyRouted="false" />
         <AssociationConnector Association="doAnModel.FK__Thi__MaHocVien__03D16812" ManuallyRouted="false" />
