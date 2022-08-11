@@ -39,7 +39,7 @@ namespace DoAnOOP.PControl
                 db.Lops.Remove(lop);
                 db.SaveChanges();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Khong xoa duoc");
             }
@@ -56,9 +56,22 @@ namespace DoAnOOP.PControl
             return db.Lops.Find(s);
         }
 
-        public List<Lop> Asc(List<Lop> lop)
+        public List<Lop> AscLop(List<Lop> lop)
         {
             return lop.OrderBy(lp => lp.NgayKhaiGiang).ToList();
+        }
+
+        public List<Lop> TimKiemLop(string search)
+        {
+            List<Lop> listName = (from s in FindLop().ToList() where s.TenLop.Contains(search) select s).ToList();
+            List<Lop> listId = (from s in FindLop().ToList() where s.MaLop.Contains(search) select s).ToList();
+
+            if (listName.Count != 0)
+                return listName;
+            else if (listId.Count != 0)
+                return listId;
+            else
+                return FindLop().ToList();
         }
 
     }

@@ -27,9 +27,8 @@ namespace DoAnOOP
         {
             InitializeComponent();
             loadDSHV();
-            dslop = ctrlLop.FindLop();
-            lop = dslop[0];
-            loadDSLop(dslop);
+            LoadDSLop();
+            /*LoadDSLopCB();*/
             loadDSBL();
             LoadDSCbMH();
             LoadDSMonHoc();
@@ -46,7 +45,7 @@ namespace DoAnOOP
                            s.MaMonHoc,
                            s.TenMonHoc,
                            s.SoTietLyThuyet,
-                           s.SoTietThucHanh
+                           s.SoTietThucHanh,
                        };
             if (ctrlMH.FindAllMH().Count != 0)
             LoadBindingMH(ctrlMH.FindAllMH()[0]);
@@ -82,7 +81,7 @@ namespace DoAnOOP
             dtpNKG.Value = (DateTime)lop.NgayKhaiGiang;
             /*dtpTKB.Value = s.TKB;*/
             nmrHocPhan.Value = lop.HocPhan;
-            lop_monCB.SelectedItem = lop.MaMonHoc;
+            lop_monCB.Text = lop.MonHoc.TenMonHoc;
         }
 
         void LoadDataIdMH(MonHoc mh)
@@ -148,6 +147,25 @@ namespace DoAnOOP
             nghenghiephvTXT.Text = hv.NgheNghiep;
         }
 
+        void LoadDSLop()
+        {
+            var list = from s in ctrlLop.FindLop()
+                       select new
+                       {
+                           s.MaLop,
+                           s.TenLop,
+                           s.NgayKhaiGiang,
+                           s.TKB,
+                           s.HocPhan,
+                           s.HocPhi,
+                           s.MaMonHoc,
+                           s.MonHoc.TenMonHoc
+                       };
+
+            if (ctrlLop.FindLop().Count != 0)
+            LoadDataLop(ctrlLop.FindLop()[0]);
+            dgvLop.DataSource = list.ToList();
+        }
         // TAB Lop
         void loadDSLop(List<Lop> lst)
         {
@@ -160,33 +178,35 @@ namespace DoAnOOP
                          s.NgayKhaiGiang,
                          s.HocPhan,
                          s.HocPhi,
-                         s.MaMonHoc
+                         s.MaMonHoc,
+                         s.MonHoc.TenMonHoc
                      };
+
+            if (ctrlLop.FindLop().Count != 0)
+            LoadDataLop(ctrlLop.FindLop()[0]);
             dgvLop.DataSource = rs.ToList();
         }
 
-        void LoadDSLop()
+
+        void LoadDSLopCB()
         {
-            var list = from s in ctrlLop.FindLop()
-                       select new
-                       {
-                           s.MaLop,
-                           s.TenLop,
-                           s.NgayKhaiGiang,
-                           s.TKB,
-                           s.HocPhan,
-                           s.HocPhi,
-                           s.MaMonHoc
-                       };
-            if (ctrlLop.FindLop().Count != 0)
-                LoadDataLop(ctrlLop.FindLop()[0]);
-            dgvLop.DataSource = list.ToList();
+            var lpcb = from s in ctrlMH.FindAllMH() select new { s.TenMonHoc };
+            if (ctrlMH.FindAllMH().Count != 0)
+                BindingCBMH(ctrlMH.FindAllMH()[0]);
+            dgvLop.DataSource = lpcb.ToList();
+        }
+
+        void BindingCBMH(MonHoc mh)
+        {
+            lop_monCB.Text = mh.TenMonHoc;
         }
 
         void LoadDSCbMH()
         {
             List<MonHoc> dsmonhoc = ctrlMH.FindAllMH();
             lop_monCB.DataSource = dsmonhoc;
+            
+            
         }
 
         // END TAB LOP
@@ -216,11 +236,13 @@ namespace DoAnOOP
                 try
                 {
                     Lop blop = new Lop {
-                                    MaLop = txtidLop.Text,
-                                    TenLop = txtTenLop.Text,
-                                    NgayKhaiGiang = dtpNKG.Value,
-                                    HocPhan = (int)nmrHocPhan.Value,
-                                    HocPhi = float.Parse(txtHocPhi.Text),
+                        MaLop = txtidLop.Text,
+                        TenLop = txtTenLop.Text,
+                        NgayKhaiGiang = dtpNKG.Value,
+                        HocPhan = (int)nmrHocPhan.Value,
+                        HocPhi = float.Parse(txtHocPhi.Text),
+                        MaMonHoc = (lop_monCB.SelectedItem as MonHoc).MaMonHoc
+                        // ép kiểu giá trị cmb và lấy mã môn học dựa trên giá trị cmb
                     };
                     ctrlLop.add(blop);      
                     LoadDSLop();
@@ -239,8 +261,15 @@ namespace DoAnOOP
             string malop = dgvLop.Rows[i].Cells[0].Value + "";
 
             // Show thong tin lop dang chon
-            lop = dslop.Where(t => t.MaLop == malop).ToList()[0];
-            LoadDataLop(lop);
+            if (ctrlLop.DefineLop(malop) != null)
+            {
+                LoadDataLop(ctrlLop.DefineLop(malop));
+            }
+
+            /*string mamh = dgvLop.Rows[i].Cells["MaMonHoc"].Value + "";
+
+            lop_monCB.Text = mamh;*/
+
         }
 
         private void themhvBTN_Click(object sender, EventArgs e)
@@ -381,7 +410,7 @@ namespace DoAnOOP
 
         private void btnAsc_Click(object sender, EventArgs e)
         {
-            /*LoadDSLop(ctrlLop.Asc(ctrlLop.FindLop()));*/
+            loadDSLop(ctrlLop.AscLop(ctrlLop.FindLop()));
         }
 
         private void dgvMon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -472,9 +501,116 @@ namespace DoAnOOP
             huongDanBLTXT.Text = "Sắp xếp danh sách từ ngày gần nhất";
         }
 
+        private void xoaMonBTN_Click(object sender, EventArgs e)
+        {
+            int index = dgvMon.CurrentCell.RowIndex;
+            string mamh = dgvMon.Rows[index].Cells[0].Value + "";
+            ctrlMH.Delete(ctrlMH.FindMH(mamh));
+            LoadDSMonHoc();
+        }
+
+        private void capNhatMon_Click(object sender, EventArgs e)
+        {
+            int index = dgvMon.CurrentCell.RowIndex;
+            string mamh = dgvMon.Rows[index].Cells[0].Value + "";
+
+            MonHoc mh = ctrlMH.FindMH(mamh);
+            mh.MaMonHoc = maMonTXT.Text;
+            mh.TenMonHoc = tenMonTXT.Text;
+            mh.SoTietLyThuyet = (int)lythuyetMonNUM.Value;
+            mh.SoTietThucHanh = (int)thuchanhMonNUM.Value;
+            ctrlMH.Update(mh);
+            LoadDSMonHoc();
+        }
+
+        private void timKiemMonBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSMonHoc(ctrlMH.SubjectSearching(timKiemMonTXT.Text));
+        }
+
+        private void xemMonBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSMonHoc();
+        }
+
         private void timkiemlopBTN_Click(object sender, EventArgs e)
         {
+            loadDSLop(ctrlLop.TimKiemLop(timkiemlopTXT.Text));
+        }
 
+        private void huongDanHVTXT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void themlopBTN_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void themlopBTN_MouseLeave(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void xoalopBTN_MouseHover(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Xóa lớp trong danh sách";
+        }
+
+        private void xoalopBTN_MouseLeave(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void capnhatlopBTN_MouseHover(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Cập nhật danh sách lớp";
+        }
+
+        private void capnhatlopBTN_MouseLeave(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void btnAsc_MouseHover(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Sắp xếp lớp theo thứ tự";
+        }
+
+        private void btnAsc_MouseLeave(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void timkiemlopBTN_MouseHover(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Tìm kiếm lớp";
+        }
+
+        private void timkiemlopBTN_MouseLeave(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
+
+        }
+
+        private void xemLopBTN_MouseHover(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Xem tất cả lớp trong danh sách";
+        }
+
+        private void xemLopBTN_MouseLeave(object sender, EventArgs e)
+        {
+            txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void xemLopBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSLop();
         }
     }
 }
