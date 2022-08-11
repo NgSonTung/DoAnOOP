@@ -113,20 +113,20 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnAsc = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.sapXepBLBTN = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.huongDanBLTXT = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timKiemBienLaiTXT = new System.Windows.Forms.TextBox();
+            this.timKiemBienLaiBTN = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.hienThiBienLaiBTN = new System.Windows.Forms.Button();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.dgvBienLai = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.timKiemBienLaiBTN = new System.Windows.Forms.Button();
-            this.timKiemBienLaiTXT = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.huongDanBLTXT = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.sapXepBLBTN = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrHocPhan)).BeginInit();
@@ -715,6 +715,7 @@
             this.timkiemlopBTN.TabIndex = 4;
             this.timkiemlopBTN.Text = "Tìm kiếm";
             this.timkiemlopBTN.UseVisualStyleBackColor = false;
+            this.timkiemlopBTN.Click += new System.EventHandler(this.timkiemlopBTN_Click);
             // 
             // xoalopBTN
             // 
@@ -1161,6 +1162,112 @@
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Biên lai";
             // 
+            // sapXepBLBTN
+            // 
+            this.sapXepBLBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.sapXepBLBTN.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sapXepBLBTN.ForeColor = System.Drawing.Color.White;
+            this.sapXepBLBTN.Location = new System.Drawing.Point(44, 306);
+            this.sapXepBLBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sapXepBLBTN.Name = "sapXepBLBTN";
+            this.sapXepBLBTN.Size = new System.Drawing.Size(311, 43);
+            this.sapXepBLBTN.TabIndex = 64;
+            this.sapXepBLBTN.Text = "Sắp xếp biên lai";
+            this.sapXepBLBTN.UseVisualStyleBackColor = false;
+            this.sapXepBLBTN.Click += new System.EventHandler(this.sapXepBLBTN_Click);
+            this.sapXepBLBTN.MouseLeave += new System.EventHandler(this.sapXepBLBTN_MouseLeave);
+            this.sapXepBLBTN.MouseHover += new System.EventHandler(this.sapXepBLBTN_MouseHover);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(149, 361);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(99, 20);
+            this.label15.TabIndex = 63;
+            this.label15.Text = "Hướng dẫn";
+            // 
+            // huongDanBLTXT
+            // 
+            this.huongDanBLTXT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.huongDanBLTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.huongDanBLTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.huongDanBLTXT.Location = new System.Drawing.Point(43, 385);
+            this.huongDanBLTXT.Margin = new System.Windows.Forms.Padding(4);
+            this.huongDanBLTXT.Multiline = true;
+            this.huongDanBLTXT.Name = "huongDanBLTXT";
+            this.huongDanBLTXT.Size = new System.Drawing.Size(310, 150);
+            this.huongDanBLTXT.TabIndex = 62;
+            this.huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+            this.huongDanBLTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(44, 247);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(311, 43);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "Hiển thị tất cả biên lai";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            // 
+            // timKiemBienLaiTXT
+            // 
+            this.timKiemBienLaiTXT.Location = new System.Drawing.Point(44, 568);
+            this.timKiemBienLaiTXT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.timKiemBienLaiTXT.Name = "timKiemBienLaiTXT";
+            this.timKiemBienLaiTXT.Size = new System.Drawing.Size(311, 29);
+            this.timKiemBienLaiTXT.TabIndex = 60;
+            // 
+            // timKiemBienLaiBTN
+            // 
+            this.timKiemBienLaiBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.timKiemBienLaiBTN.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timKiemBienLaiBTN.ForeColor = System.Drawing.Color.White;
+            this.timKiemBienLaiBTN.Location = new System.Drawing.Point(44, 602);
+            this.timKiemBienLaiBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.timKiemBienLaiBTN.Name = "timKiemBienLaiBTN";
+            this.timKiemBienLaiBTN.Size = new System.Drawing.Size(311, 43);
+            this.timKiemBienLaiBTN.TabIndex = 59;
+            this.timKiemBienLaiBTN.Text = "Tìm kiếm";
+            this.timKiemBienLaiBTN.UseVisualStyleBackColor = false;
+            this.timKiemBienLaiBTN.Click += new System.EventHandler(this.timKiemBienLaiBTN_Click);
+            this.timKiemBienLaiBTN.MouseLeave += new System.EventHandler(this.timKiemBienLaiBTN_MouseLeave);
+            this.timKiemBienLaiBTN.MouseHover += new System.EventHandler(this.timKiemBienLaiBTN_MouseHover);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(39, 143);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 22);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "Day end";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(39, 97);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 22);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Day begin";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -1170,7 +1277,7 @@
             this.label11.Location = new System.Drawing.Point(20, 26);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(203, 50);
+            this.label11.Size = new System.Drawing.Size(162, 40);
             this.label11.TabIndex = 56;
             this.label11.Text = "IT Center";
             // 
@@ -1243,112 +1350,6 @@
             this.button3.TabIndex = 49;
             this.button3.Text = "X";
             this.button3.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(39, 97);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 22);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Day begin";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(39, 143);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 22);
-            this.label4.TabIndex = 58;
-            this.label4.Text = "Day end";
-            // 
-            // timKiemBienLaiBTN
-            // 
-            this.timKiemBienLaiBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.timKiemBienLaiBTN.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timKiemBienLaiBTN.ForeColor = System.Drawing.Color.White;
-            this.timKiemBienLaiBTN.Location = new System.Drawing.Point(44, 602);
-            this.timKiemBienLaiBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.timKiemBienLaiBTN.Name = "timKiemBienLaiBTN";
-            this.timKiemBienLaiBTN.Size = new System.Drawing.Size(311, 43);
-            this.timKiemBienLaiBTN.TabIndex = 59;
-            this.timKiemBienLaiBTN.Text = "Tìm kiếm";
-            this.timKiemBienLaiBTN.UseVisualStyleBackColor = false;
-            this.timKiemBienLaiBTN.Click += new System.EventHandler(this.timKiemBienLaiBTN_Click);
-            this.timKiemBienLaiBTN.MouseLeave += new System.EventHandler(this.timKiemBienLaiBTN_MouseLeave);
-            this.timKiemBienLaiBTN.MouseHover += new System.EventHandler(this.timKiemBienLaiBTN_MouseHover);
-            // 
-            // timKiemBienLaiTXT
-            // 
-            this.timKiemBienLaiTXT.Location = new System.Drawing.Point(44, 568);
-            this.timKiemBienLaiTXT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.timKiemBienLaiTXT.Name = "timKiemBienLaiTXT";
-            this.timKiemBienLaiTXT.Size = new System.Drawing.Size(311, 29);
-            this.timKiemBienLaiTXT.TabIndex = 60;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(44, 247);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(311, 43);
-            this.button1.TabIndex = 61;
-            this.button1.Text = "Hiển thị tất cả biên lai";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
-            // 
-            // huongDanBLTXT
-            // 
-            this.huongDanBLTXT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.huongDanBLTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.huongDanBLTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.huongDanBLTXT.Location = new System.Drawing.Point(43, 385);
-            this.huongDanBLTXT.Margin = new System.Windows.Forms.Padding(4);
-            this.huongDanBLTXT.Multiline = true;
-            this.huongDanBLTXT.Name = "huongDanBLTXT";
-            this.huongDanBLTXT.Size = new System.Drawing.Size(310, 150);
-            this.huongDanBLTXT.TabIndex = 62;
-            this.huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
-            this.huongDanBLTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(149, 361);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 20);
-            this.label15.TabIndex = 63;
-            this.label15.Text = "Hướng dẫn";
-            // 
-            // sapXepBLBTN
-            // 
-            this.sapXepBLBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.sapXepBLBTN.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sapXepBLBTN.ForeColor = System.Drawing.Color.White;
-            this.sapXepBLBTN.Location = new System.Drawing.Point(44, 306);
-            this.sapXepBLBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sapXepBLBTN.Name = "sapXepBLBTN";
-            this.sapXepBLBTN.Size = new System.Drawing.Size(311, 43);
-            this.sapXepBLBTN.TabIndex = 64;
-            this.sapXepBLBTN.Text = "Sắp xếp biên lai";
-            this.sapXepBLBTN.UseVisualStyleBackColor = false;
-            this.sapXepBLBTN.Click += new System.EventHandler(this.sapXepBLBTN_Click);
-            this.sapXepBLBTN.MouseLeave += new System.EventHandler(this.sapXepBLBTN_MouseLeave);
-            this.sapXepBLBTN.MouseHover += new System.EventHandler(this.sapXepBLBTN_MouseHover);
             // 
             // FManage
             // 

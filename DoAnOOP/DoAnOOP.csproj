@@ -118,9 +118,6 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Thi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

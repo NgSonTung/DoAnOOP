@@ -241,7 +241,6 @@ namespace DoAnOOP
             // Show thong tin lop dang chon
             lop = dslop.Where(t => t.MaLop == malop).ToList()[0];
             LoadDataLop(lop);
-
         }
 
         private void themhvBTN_Click(object sender, EventArgs e)
@@ -471,6 +470,11 @@ namespace DoAnOOP
         private void sapXepBLBTN_MouseHover(object sender, EventArgs e)
         {
             huongDanBLTXT.Text = "Sắp xếp danh sách từ ngày gần nhất";
+        }
+
+        private void timkiemlopBTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
