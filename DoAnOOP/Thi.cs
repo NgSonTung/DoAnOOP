@@ -14,8 +14,8 @@ namespace DoAnOOP
     
     public partial class Thi
     {
-        public string MaMonHoc { get; set; }
-        public string MaHocVien { get; set; }
+        public int MaMonHoc { get; set; }
+        public int MaHocVien { get; set; }
         public double DiemThi { get; set; }
     
         public virtual HocVien HocVien { get; set; }

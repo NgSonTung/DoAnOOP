@@ -14,10 +14,10 @@ namespace DoAnOOP
     
     public partial class BienLai
     {
-        public string MaBL { get; set; }
+        public int MaBL { get; set; }
         public System.DateTime NgayDong { get; set; }
         public double SoTien { get; set; }
-        public string MaHocVien { get; set; }
+        public int MaHocVien { get; set; }
     
         public virtual HocVien HocVien { get; set; }
     }

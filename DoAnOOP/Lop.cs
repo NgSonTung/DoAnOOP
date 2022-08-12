@@ -20,13 +20,13 @@ namespace DoAnOOP
             this.HocViens = new HashSet<HocVien>();
         }
     
-        public string MaLop { get; set; }
+        public int MaLop { get; set; }
         public string TenLop { get; set; }
         public System.TimeSpan TKB { get; set; }
         public System.DateTime NgayKhaiGiang { get; set; }
         public int HocPhan { get; set; }
         public double HocPhi { get; set; }
-        public string MaMonHoc { get; set; }
+        public Nullable<int> MaMonHoc { get; set; }
     
         public virtual MonHoc MonHoc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

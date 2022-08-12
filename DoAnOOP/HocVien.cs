@@ -22,7 +22,7 @@ namespace DoAnOOP
             this.Lops = new HashSet<Lop>();
         }
     
-        public string MaHocVien { get; set; }
+        public int MaHocVien { get; set; }
         public string HoTen { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string NoiSinh { get; set; }

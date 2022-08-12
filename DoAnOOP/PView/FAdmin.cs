@@ -59,9 +59,9 @@ namespace DoAnOOP
 
         private void LapDsHvCuaMotLop_Click(object sender, EventArgs e)
         {
-            if (maLopTXT.Text == " ")
+            if (maLopTXT.Text == "")
             {
-                return;
+                MessageBox.Show("Hãy nhập mã lớp");
             }
             else loadFindHvByMaLop(maLopTXT.Text.ToUpper());
         }
@@ -84,6 +84,11 @@ namespace DoAnOOP
             }
             test1.Text = hvs.Count.ToString();
             dataGridView1.DataSource = rs.ToList();
+        }
+
+        private void huyDangKyBTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

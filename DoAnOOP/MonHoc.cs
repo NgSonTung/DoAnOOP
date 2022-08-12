@@ -21,7 +21,7 @@ namespace DoAnOOP
             this.This = new HashSet<Thi>();
         }
     
-        public string MaMonHoc { get; set; }
+        public int MaMonHoc { get; set; }
         public string TenMonHoc { get; set; }
         public int SoTietLyThuyet { get; set; }
         public int SoTietThucHanh { get; set; }
@@ -30,10 +30,5 @@ namespace DoAnOOP
         public virtual ICollection<Lop> Lops { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Thi> This { get; set; }
-
-        public override string ToString()
-        {
-            return TenMonHoc;
-        }
     }
 }

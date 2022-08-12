@@ -5,24 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fc92c687a1b84273b0248c74a541755c" Name="Diagram1">
-        <EntityTypeShape EntityType="doAnModel.Account" Width="1.5" PointX="5.5" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="doAnModel.BienLai" Width="1.5" PointX="3.25" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="doAnModel.HocVien" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="doAnModel.Lop" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="doAnModel.MonHoc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="doAnModel.Thi" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <AssociationConnector Association="doAnModel.FK__BienLai__MaHocVi__7E188EBC" ManuallyRouted="false" />
-        <AssociationConnector Association="doAnModel.FK__Thi__MaHocVien__03D16812" ManuallyRouted="false" />
-        <AssociationConnector Association="doAnModel.FK__Lop__MaMonHoc__06ADD4BD" ManuallyRouted="false" />
-        <AssociationConnector Association="doAnModel.FK__Thi__MaMonHoc__02DD43D9" ManuallyRouted="false" />
-        <AssociationConnector Association="doAnModel.ThamGia" ManuallyRouted="true" >
-          <ConnectorPoint PointX="2.25" PointY="5.359375" />
-          <ConnectorPoint PointX="3.4875" PointY="5.359375" />
-          <ConnectorPoint PointX="3.4875" PointY="4.9302081316709518" />
-          <ConnectorPoint PointX="4.7625" PointY="4.9302081316709518" />
-          <ConnectorPoint PointX="4.7625" PointY="5.359375" />
-          <ConnectorPoint PointX="6" PointY="5.359375" />
-        </AssociationConnector>
+        <EntityTypeShape EntityType="doAnModel.Account" Width="1.5" PointX="2.75" PointY="1.25" />
+        <EntityTypeShape EntityType="doAnModel.BienLai" Width="1.5" PointX="3" PointY="7.625" />
+        <EntityTypeShape EntityType="doAnModel.HocVien" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="doAnModel.Lop" Width="1.5" PointX="6" PointY="4.5" />
+        <EntityTypeShape EntityType="doAnModel.MonHoc" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doAnModel.Thi" Width="1.5" PointX="3" PointY="4.875" />
+        <AssociationConnector Association="doAnModel.FK__BienLai__MaHocVi__234A136B" />
+        <AssociationConnector Association="doAnModel.FK__Thi__MaHocVien__2902ECC1" />
+        <AssociationConnector Association="doAnModel.FK__Lop__MaMonHoc__2BDF596C" />
+        <AssociationConnector Association="doAnModel.FK__Thi__MaMonHoc__280EC888" />
+        <AssociationConnector Association="doAnModel.ThamGia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
