@@ -17,6 +17,7 @@ namespace DoAnOOP
         public int MaMonHoc { get; set; }
         public int MaHocVien { get; set; }
         public double DiemThi { get; set; }
+        public System.DateTime NgayThi { get; set; }
     
         public virtual HocVien HocVien { get; set; }
         public virtual MonHoc MonHoc { get; set; }

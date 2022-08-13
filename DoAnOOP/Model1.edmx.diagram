@@ -16,6 +16,7 @@
         <AssociationConnector Association="doAnModel.FK__Lop__MaMonHoc__2BDF596C" />
         <AssociationConnector Association="doAnModel.FK__Thi__MaMonHoc__280EC888" />
         <AssociationConnector Association="doAnModel.ThamGia" />
+        <AssociationConnector Association="doAnModel.FK__BienLai__MaLop__6EA14102" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

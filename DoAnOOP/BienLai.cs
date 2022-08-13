@@ -18,7 +18,9 @@ namespace DoAnOOP
         public System.DateTime NgayDong { get; set; }
         public double SoTien { get; set; }
         public int MaHocVien { get; set; }
+        public int MaLop { get; set; }
     
         public virtual HocVien HocVien { get; set; }
+        public virtual Lop Lop { get; set; }
     }
 }

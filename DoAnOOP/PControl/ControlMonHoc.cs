@@ -22,7 +22,7 @@ namespace DoAnOOP.PControl
 
         public MonHoc FindMH(string mh)
         {
-            return db.MonHocs.Find(mh);
+            return db.MonHocs.Find(int.Parse(mh));
         }
 
         public void Add(MonHoc mh)
@@ -31,6 +31,7 @@ namespace DoAnOOP.PControl
             {
                 db.MonHocs.Add(mh);
                 db.SaveChanges();
+                MessageBox.Show("Thêm thành công");
             }
             catch
             {
@@ -44,6 +45,7 @@ namespace DoAnOOP.PControl
             {
                 db.MonHocs.Remove(mh);
                 db.SaveChanges();
+                MessageBox.Show("Xóa thành công");
             }
             catch
             {
@@ -57,6 +59,7 @@ namespace DoAnOOP.PControl
             {
                 db.MonHocs.AddOrUpdate(mh);
                 db.SaveChanges();
+                MessageBox.Show("Cập nhật thành công");
             }
             catch
             {
@@ -66,14 +69,23 @@ namespace DoAnOOP.PControl
 
         public List<MonHoc> SubjectSearching(string search)
         {
-            List<MonHoc> listId = (from s in FindAllMH().ToList() where s.MaMonHoc.Contains(search) select s).ToList();
+            List<MonHoc> listId = (from s in FindAllMH().ToList() where s.MaMonHoc.ToString().Contains(search) select s).ToList();
             List<MonHoc> listName = (from s in FindAllMH().ToList() where s.TenMonHoc.Contains(search) select s).ToList();
-
-            if (listId.Count > 0)
-                return listId;
-            else if (listName.Count > 0)
+            if (listName.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listName.Count} kết quả");
                 return listName;
-            else return FindAllMH().ToList();
+            }
+            else if (listId.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listId.Count} kết quả");
+                return listId;
+            }
+            else
+            {
+                MessageBox.Show($"Không có kết quả");
+                return FindAllMH().ToList();
+            }
         }
     }
 }

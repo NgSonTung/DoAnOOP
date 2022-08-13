@@ -87,6 +87,7 @@
     <Compile Include="MonHoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PControl\ControlThi.cs" />
     <Compile Include="PControl\ControlAccount.cs" />
     <Compile Include="PControl\ControlBienLai.cs" />
     <Compile Include="PControl\ControlMonHoc.cs" />

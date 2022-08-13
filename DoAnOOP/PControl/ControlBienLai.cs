@@ -18,12 +18,14 @@ namespace DoAnOOP.PControl
             return blList.ToList();
         }
 
-        public void Add(BienLai bl)
-        {
+        private void Add(HocVien hv, double hocPhi)
+        {   
+            BienLai bl = new BienLai {NgayDong = DateTime.Now, SoTien = hocPhi, MaHocVien = hv.MaHocVien };
             try
             {
                 db.BienLais.Add(bl);
                 db.SaveChanges();
+                MessageBox.Show("Thêm thành công");
             }
             catch
             {
@@ -31,30 +33,9 @@ namespace DoAnOOP.PControl
             }
         }
 
-        public void Delete(BienLai bl)
+        public void HuyDangKy(List<HocVien> l, Lop lop)/*tao bien lai + huy thi*/
         {
-            try
-            {
-                db.BienLais.Remove(bl);
-                db.SaveChanges();
-            }
-            catch
-            {
-                MessageBox.Show("Không xóa được");
-            }
-        }
-
-        public void Update(BienLai bl)
-        {
-            try
-            {
-                db.BienLais.AddOrUpdate(bl);
-                db.SaveChanges();
-            }
-            catch
-            {
-                MessageBox.Show("Không cập nhật được");
-            }
+            
         }
 
         public List<BienLai> FindBL(DateTime date1, DateTime date2)
@@ -69,13 +50,23 @@ namespace DoAnOOP.PControl
 
         public List<BienLai> SearchBL(string search)
         {
-            List<BienLai> listId = (from s in FindAll().ToList() where s.MaBL.Contains(search) select s).ToList();
-            List<BienLai> listName = (from s in FindAll().ToList() where s.MaHocVien.Contains(search) select s).ToList();
+            List<BienLai> listId = (from s in FindAll().ToList() where s.MaBL.ToString().Contains(search) select s).ToList();
+            List<BienLai> listName = (from s in FindAll().ToList() where s.MaHocVien.ToString().Contains(search) select s).ToList();
             if (listId.Count > 0)
+            {
+                MessageBox.Show($"Tìm được {listId.Count} kết quả");
                 return listId;
+            }
             else if (listName.Count > 0)
+            {
+                MessageBox.Show($"Tìm được {listName.Count} kết quả");
                 return listName;
-            else return FindAll().ToList();
+            }
+            else
+            {
+                MessageBox.Show($"Không có kết quả");
+                return FindAll().ToList();
+            }
         }
     }
 }

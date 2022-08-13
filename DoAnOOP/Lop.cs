@@ -18,6 +18,7 @@ namespace DoAnOOP
         public Lop()
         {
             this.HocViens = new HashSet<HocVien>();
+            this.BienLais = new HashSet<BienLai>();
         }
     
         public int MaLop { get; set; }
@@ -31,5 +32,7 @@ namespace DoAnOOP
         public virtual MonHoc MonHoc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HocVien> HocViens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BienLai> BienLais { get; set; }
     }
 }

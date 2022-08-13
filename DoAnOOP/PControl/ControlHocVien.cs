@@ -25,6 +25,7 @@ namespace DoAnOOP.PControl
             {
                 db.HocViens.Add(hv);
                 db.SaveChanges();
+                MessageBox.Show("Thêm thành công");
             }
             catch
             {
@@ -38,6 +39,7 @@ namespace DoAnOOP.PControl
             {
                 db.HocViens.Remove(hv);
                 db.SaveChanges();
+                MessageBox.Show("Xóa thành công");
             }
             catch
             {
@@ -51,6 +53,7 @@ namespace DoAnOOP.PControl
             {
                 db.HocViens.AddOrUpdate(hv);
                 db.SaveChanges();
+                MessageBox.Show("Cập nhật thành công");
             }
             catch
             {
@@ -60,12 +63,9 @@ namespace DoAnOOP.PControl
 
         public HocVien FindHV(string s)
         {
-            return db.HocViens.Find(s);
+            return db.HocViens.Find(int.Parse(s));
         }
-        public List<HocVien> findHV(string mahv)
-        {
-            return db.HocViens.Where(t => t.MaHocVien == mahv).ToList();
-        }
+
         public List<HocVien> AscHV(List<HocVien> list)
         {
             return list.OrderBy(hv => hv.NgaySinh).ToList();
@@ -73,16 +73,29 @@ namespace DoAnOOP.PControl
 
         public List<HocVien> SearchHV(string search)
         {
-            List<HocVien> listId = (from s in FindAll().ToList() where s.MaHocVien.Contains(search) select s).ToList();
+            List<HocVien> listId = (from s in FindAll().ToList() where s.MaHocVien.ToString().Contains(search) select s).ToList();
             List<HocVien> listName = (from s in FindAll().ToList() where s.HoTen.Contains(search) select s).ToList();
             List<HocVien> listBorn = (from s in FindAll().ToList() where s.NoiSinh.Contains(search) select s).ToList();
             if (listId.Count > 0)
+            {
+                MessageBox.Show($"Tìm được {listId.Count} kết quả");
                 return listId;
+            }
             else if (listName.Count > 0)
+            {
+                MessageBox.Show($"Tìm được {listName.Count} kết quả");
                 return listName;
+            }
             else if (listBorn.Count > 0)
+            {
+                MessageBox.Show($"Tìm được {listBorn.Count} kết quả");
                 return listBorn;
-            else return FindAll().ToList();
+            }
+            else
+            {
+                MessageBox.Show($"Không có kết quả");
+                return FindAll().ToList();
+            }
         }
         
     }

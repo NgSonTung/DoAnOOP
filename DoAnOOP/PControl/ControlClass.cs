@@ -19,10 +19,11 @@ namespace DoAnOOP.PControl
             {
                 db.Lops.Add(lop);
                 db.SaveChanges();
+                MessageBox.Show("Thêm thành công");
             }
             catch
             {
-                return;
+                MessageBox.Show("Không thêm được");
             }
         }
 
@@ -33,45 +34,73 @@ namespace DoAnOOP.PControl
         }
 
         public void delete(Lop lop)
-        {
-            try
+        {   
+            if (lop.HocViens.Count > 0)
             {
-                db.Lops.Remove(lop);
-                db.SaveChanges();
+                DialogResult dialogResult = MessageBox.Show("Lớp đang có học viên, tiếp tục xóa sẽ hủy lớp của học viên", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    
+                }
             }
-            catch
+            else
             {
-                MessageBox.Show("Khong xoa duoc");
+                try
+                {
+                    db.Lops.Remove(lop);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa thành công");
+                }
+                catch
+                {
+                    MessageBox.Show("Không xóa được");
+                }
             }
         }
 
         public void update(Lop lop)
         {
-            db.Lops.AddOrUpdate(lop);
-            db.SaveChanges();
+            try
+            {
+                db.Lops.AddOrUpdate(lop);
+                db.SaveChanges();
+                MessageBox.Show("Cập nhật thành công");
+            }
+            catch
+            {
+                MessageBox.Show("Không cập nhật được");
+            }
         }
 
         public Lop DefineLop(string s)
         {
-            return db.Lops.Find(s);
+            return db.Lops.Find(int.Parse(s));
         }
 
         public List<Lop> AscLop(List<Lop> lop)
         {
-            return lop.OrderBy(lp => lp.NgayKhaiGiang).ToList();
+            return lop.OrderByDescending(lp => lp.NgayKhaiGiang).ToList();
         }
 
         public List<Lop> TimKiemLop(string search)
         {
             List<Lop> listName = (from s in FindLop().ToList() where s.TenLop.Contains(search) select s).ToList();
-            List<Lop> listId = (from s in FindLop().ToList() where s.MaLop.Contains(search) select s).ToList();
-
+            List<Lop> listId = (from s in FindLop().ToList() where s.MaLop.ToString().Contains(search) select s).ToList();
             if (listName.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listName.Count} kết quả");
                 return listName;
+            }
             else if (listId.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listId.Count} kết quả");
                 return listId;
-            else
+            }
+            else 
+            {
+                MessageBox.Show($"Không có kết quả");
                 return FindLop().ToList();
+            }
         }
         public List<Lop> findLopKG(DateTime dt)
         {
@@ -79,7 +108,7 @@ namespace DoAnOOP.PControl
         }
         public List<Lop> findLopByMaLop(string s)
         {
-            return db.Lops.Where(t => t.MaLop == s).ToList();
+            return db.Lops.Where(t => t.MaLop.ToString() == s).ToList();
         }
     }
 }
