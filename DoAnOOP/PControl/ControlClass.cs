@@ -11,7 +11,6 @@ namespace DoAnOOP.PControl
     class ControlClass
     {
         doAnEntities db = ControlDataBase.qlhocvien;
-
         public void add(Lop lop)
         {
             try
@@ -34,11 +33,15 @@ namespace DoAnOOP.PControl
 
         public void delete(Lop lop)
         {   
-            if (lop.HocViens.Count > 0)
+            if (lop.HocViens.Count > 0 || lop.BienLais.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Lớp đang có học viên, tiếp tục xóa sẽ hủy lớp của học viên", "", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Lớp đang có học viên, tiếp tục xóa sẽ hủy lớp của học viên và biên lai có liên quan", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    ControlThamGia ctrThamGia = new ControlThamGia();
+                    ctrThamGia.RemoveHVBLTheoLop(lop.MaLop);
+                    db.Lops.Remove(lop);
+                    db.SaveChanges();
                 }
             }
             else
@@ -46,6 +49,7 @@ namespace DoAnOOP.PControl
                 try
                 {
                     db.Lops.Remove(lop);
+                    
                     db.SaveChanges();
                     MessageBox.Show("Xóa thành công");
                 }

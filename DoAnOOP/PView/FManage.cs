@@ -156,7 +156,8 @@ namespace DoAnOOP
         void LoadDSLop()
         {
             var list = from s in ctrlLop.FindLop()
-                        select new
+                       where s.MaMonHoc != null
+                       select new
                         {
                             s.MaLop,
                             s.TenLop,
@@ -167,6 +168,7 @@ namespace DoAnOOP
                             s.MaMonHoc,
                             s.MonHoc.TenMonHoc
                         };
+            
             if (ctrlLop.FindLop().Count != 0)
                 LoadDataLop(ctrlLop.FindLop()[0]);
             dgvLop.DataSource = list.ToList();

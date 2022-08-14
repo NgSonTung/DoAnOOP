@@ -33,6 +33,16 @@ namespace DoAnOOP.PControl
             }
         }
 
+        public void DeleteBLtheoLop(Lop lop)
+        {   
+            List<BienLai> l = FindAll().Where(x => x.Lop == lop).ToList();
+            foreach (var bl in l)
+            {
+                db.BienLais.Remove(bl);
+                db.SaveChanges();
+            }
+        }
+
         public List<BienLai> FindBL(DateTime date1, DateTime date2)
         {
             return (from s in FindAll().ToList() where s.NgayDong > date1 && s.NgayDong < date2 select s).ToList();
