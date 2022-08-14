@@ -40,7 +40,6 @@ namespace DoAnOOP.PControl
                 DialogResult dialogResult = MessageBox.Show("Lớp đang có học viên, tiếp tục xóa sẽ hủy lớp của học viên", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    
                 }
             }
             else

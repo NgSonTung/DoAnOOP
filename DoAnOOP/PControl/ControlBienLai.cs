@@ -33,11 +33,6 @@ namespace DoAnOOP.PControl
             }
         }
 
-        public void HuyDangKy(List<HocVien> l, Lop lop)/*tao bien lai + huy thi*/
-        {
-            
-        }
-
         public List<BienLai> FindBL(DateTime date1, DateTime date2)
         {
             return (from s in FindAll().ToList() where s.NgayDong > date1 && s.NgayDong < date2 select s).ToList();
