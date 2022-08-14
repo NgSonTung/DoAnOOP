@@ -63,7 +63,14 @@ namespace DoAnOOP.PControl
 
         public HocVien FindHV(string s)
         {
-            return db.HocViens.Find(int.Parse(s));
+            try
+            {
+                return db.HocViens.Find(int.Parse(s));
+            }
+            catch 
+            {
+                return db.HocViens.Find(int.Parse("1"));
+            }
         }
 
         public List<HocVien> AscHV(List<HocVien> list)
@@ -98,5 +105,6 @@ namespace DoAnOOP.PControl
             }
         }
         
+    
     }
 }

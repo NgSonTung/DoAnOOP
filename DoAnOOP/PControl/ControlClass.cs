@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnOOP.PControl;
-
+using System.Data.Entity.Migrations;
 namespace DoAnOOP.PControl
 {
     class ControlClass
@@ -109,6 +108,14 @@ namespace DoAnOOP.PControl
         public List<Lop> findLopByMaLop(string s)
         {
             return db.Lops.Where(t => t.MaLop.ToString() == s).ToList();
+        }
+        public Lop findInfoLop(int malop)
+        {
+            return db.Lops.Find(malop); 
+        }
+        public void addmore()
+        {
+          // db.Lops.a
         }
     }
 }
