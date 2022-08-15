@@ -110,5 +110,29 @@ namespace DoAnOOP.PView
         {
             LoadDSAccount();
         }
+
+        private void managerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FAdmin f = new FAdmin();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FLogin f = new FLogin();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
+
+        private void manageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FManage f = new FManage();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DoAnOOP.PControl;
+using DoAnOOP.PView;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -186,6 +187,22 @@ namespace DoAnOOP
         private void cbmahv_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadInforHV(cbmahv.SelectedItem.ToString());
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FAccount f = new FAccount();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FLogin f = new FLogin();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
         }
     }
 }

@@ -43,6 +43,17 @@ namespace DoAnOOP.PControl
             }
         }
 
+        public double TongDoanhThu()
+        {
+            double result = 0;
+            List<BienLai> l = FindAll().ToList();
+            foreach (var bl in l)
+            {
+                result += bl.SoTien;
+            }
+            return result;
+        }
+
         public List<BienLai> FindBL(DateTime date1, DateTime date2)
         {
             return (from s in FindAll().ToList() where s.NgayDong > date1 && s.NgayDong < date2 select s).ToList();

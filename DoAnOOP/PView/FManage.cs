@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnOOP.PControl;
+using DoAnOOP.PView;
 
 namespace DoAnOOP
 {
@@ -30,6 +31,7 @@ namespace DoAnOOP
             dgvHV.Columns[0].Visible = false;
             dgvLop.Columns[0].Visible = false;
             dgvMon.Columns[0].Visible = false;
+            doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu());
         }
 
         #region cap thuc (binding data tu dgv vao txt)
@@ -683,6 +685,22 @@ namespace DoAnOOP
         private void dgvHV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void manageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FAccount f = new FAccount();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FLogin f = new FLogin();
+            f.Closed += (s, args) => this.Close();
+            f.Show();
         }
     }
 }
