@@ -83,6 +83,7 @@ namespace DoAnOOP.PView
             this.dgvAccount.RowHeadersWidth = 51;
             this.dgvAccount.Size = new System.Drawing.Size(753, 457);
             this.dgvAccount.TabIndex = 29;
+            this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick_1);
             // 
             // themAccBTN
             // 
@@ -94,6 +95,7 @@ namespace DoAnOOP.PView
             this.themAccBTN.TabIndex = 15;
             this.themAccBTN.Text = "Thêm";
             this.themAccBTN.UseVisualStyleBackColor = false;
+            this.themAccBTN.Click += new System.EventHandler(this.themAccBTN_Click_1);
             // 
             // capNhatAcc
             // 
@@ -105,6 +107,7 @@ namespace DoAnOOP.PView
             this.capNhatAcc.TabIndex = 17;
             this.capNhatAcc.Text = "Cập Nhật";
             this.capNhatAcc.UseVisualStyleBackColor = false;
+            this.capNhatAcc.Click += new System.EventHandler(this.capNhatAcc_Click);
             // 
             // xoaAccBTN
             // 
@@ -116,6 +119,7 @@ namespace DoAnOOP.PView
             this.xoaAccBTN.TabIndex = 16;
             this.xoaAccBTN.Text = "Xóa";
             this.xoaAccBTN.UseVisualStyleBackColor = false;
+            this.xoaAccBTN.Click += new System.EventHandler(this.xoaAccBTN_Click);
             // 
             // timKiemAccBTN
             // 
@@ -141,6 +145,7 @@ namespace DoAnOOP.PView
             // 
             this.IdAccTXT.Location = new System.Drawing.Point(125, 4);
             this.IdAccTXT.Name = "IdAccTXT";
+            this.IdAccTXT.ReadOnly = true;
             this.IdAccTXT.Size = new System.Drawing.Size(188, 24);
             this.IdAccTXT.TabIndex = 0;
             // 
@@ -219,6 +224,7 @@ namespace DoAnOOP.PView
             this.xemAccBTN.TabIndex = 20;
             this.xemAccBTN.Text = "Xem";
             this.xemAccBTN.UseVisualStyleBackColor = false;
+            this.xemAccBTN.Click += new System.EventHandler(this.xemAccBTN_Click);
             // 
             // timkiemAccTXT
             // 

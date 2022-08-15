@@ -16,6 +16,8 @@ namespace DoAnOOP.PView
         public FAccount()
         {
             InitializeComponent();
+            LoadDSAccount();
+            dgvAccount.Columns[0].Visible = false;
         }
 
 
@@ -55,11 +57,22 @@ namespace DoAnOOP.PView
             }
         }
 
-        private void themAccBTN_Click(object sender, EventArgs e)
+        private void dgvAccount_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (IdAccTXT.Text != "" && userNameTXT.Text != "" && PassTXT.Text != null && AuthTXT.Text != null)
+            int index = dgvAccount.CurrentCell.RowIndex;
+            string ma = dgvAccount.Rows[index].Cells[0].Value + "";
+
+            if (ControlAccount.DefineAcc(ma) != null)
             {
-                Account acc = new Account { MaTaiKhoan = int.Parse(IdAccTXT.Text), UserName = userNameTXT.Text, Password = PassTXT.Text, Auth = int.Parse(PassTXT.Text) };
+                LoadAcc(ControlAccount.DefineAcc(ma));
+            }
+        }
+
+        private void themAccBTN_Click_1(object sender, EventArgs e)
+        {
+            if (userNameTXT.Text != "" && PassTXT.Text != null && AuthTXT.Text != null)
+            {
+                Account acc = new Account {UserName = userNameTXT.Text, Password = PassTXT.Text, Auth = int.Parse(PassTXT.Text) };
                 ControlAccount.Add(acc);
                 LoadDSAccount();
                 IdAccTXT.Clear();
@@ -69,6 +82,33 @@ namespace DoAnOOP.PView
             }
             else
                 MessageBox.Show("Hãy nhập lại thông tin");
+        }
+
+        private void xoaAccBTN_Click(object sender, EventArgs e)
+        {
+            int index = dgvAccount.CurrentCell.RowIndex;
+            string maacc = dgvAccount.Rows[index].Cells[0].Value + "";
+
+            ControlAccount.Delete(ControlAccount.DefineAcc(maacc));
+            LoadDSAccount();
+        }
+
+        private void capNhatAcc_Click(object sender, EventArgs e)
+        {
+            int index = dgvAccount.CurrentCell.RowIndex;
+            string idacc = dgvAccount.Rows[index].Cells[0].Value + "";
+
+            Account acc = ControlAccount.DefineAcc(idacc);
+            acc.UserName = userNameTXT.Text;
+            acc.Password = PassTXT.Text;
+            acc.Auth = int.Parse(AuthTXT.Text);
+            ControlAccount.Update(acc);
+            LoadDSAccount();
+        }
+
+        private void xemAccBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSAccount();
         }
     }
 }

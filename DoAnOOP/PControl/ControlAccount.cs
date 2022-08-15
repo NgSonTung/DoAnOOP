@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,35 @@ namespace DoAnOOP.PControl
             {
                 MessageBox.Show("Them Account That Bai");
             }
+        }
+
+        public static void Delete(Account acc)
+        {
+            try
+            {
+                db.Accounts.Remove(acc);
+                db.SaveChanges();
+                MessageBox.Show("Xoa thanh cong");
+            }
+            catch 
+            {
+                MessageBox.Show("Xoa khong thanh cong");
+            }
+        }
+
+        public static void Update(Account acc)
+        {
+            try
+            {
+                db.Accounts.AddOrUpdate(acc);
+                db.SaveChanges();
+                MessageBox.Show("Cap nhat thanh cong");
+            }
+            catch 
+            {
+                MessageBox.Show("Cap nhat khong thanh cong");
+            } 
+
         }
     }
 }

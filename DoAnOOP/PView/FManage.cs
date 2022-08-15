@@ -679,5 +679,10 @@ namespace DoAnOOP
         {
 
         }
+
+        private void dgvHV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
