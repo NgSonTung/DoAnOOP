@@ -97,6 +97,12 @@
     <Compile Include="PControl\ControlMonHoc.cs" />
     <Compile Include="PControl\ControlHocVien.cs" />
     <Compile Include="PControl\ControlClass.cs" />
+    <Compile Include="PView\FAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PView\FAccount.Designer.cs">
+      <DependentUpon>FAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="PView\FAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="Thi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PView\FAccount.resx">
+      <DependentUpon>FAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PView\FAdmin.resx">
       <DependentUpon>FAdmin.cs</DependentUpon>
     </EmbeddedResource>
