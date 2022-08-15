@@ -100,6 +100,7 @@ namespace DoAnOOP
             hoTenTXT.Text = hv.HoTen;
             ngaySinhDP.Value = hv.NgaySinh;
             ngheNghiepTXT.Text = hv.NgheNghiep;
+            noiSinhTXT.Text = hv.NoiSinh;
 
         }
         private void ChoBietSLHVKGKhoaNgayNaoDo_Click(object sender, EventArgs e)
@@ -135,7 +136,8 @@ namespace DoAnOOP
         }
         private void huyDangKyBTN_Click(object sender, EventArgs e)
         {
-
+            ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
+            loadCbMaLop();
         }
 
         private void dangKyBTN_Click(object sender, EventArgs e)

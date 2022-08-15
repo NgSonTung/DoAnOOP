@@ -42,19 +42,26 @@ namespace DoAnOOP.PControl
         }
 
         public void RemoveLopTheoHV(string mahv, string malop)
-        {
-            try
-            {
+        {   
                 HocVien hv = ctrHV.FindHV(mahv);
                 Lop lop = ctrClass.DefineLop(malop);
-                lop.HocViens.Add(hv);
-                db.SaveChanges();
-                MessageBox.Show("Xóa thành công");
-            }
-            catch
+            if (hv.Lops.Where(x => x.MaLop == int.Parse(malop)).ToList().Count == 0)
             {
-                MessageBox.Show("Không xóa được");
+                MessageBox.Show("Học viên không học lớp này");
+            }
+            else
+            {
+                try
+                {
+                    hv.Lops.Remove(lop);
+                    db.SaveChanges();
+                    MessageBox.Show("Hủy đăng ký thành công");
+                }
+                catch
+                {
+                    MessageBox.Show("Không hủy đăng ký được");
 
+                }
             }
         }
     }
