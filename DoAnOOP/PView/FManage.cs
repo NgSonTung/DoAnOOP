@@ -37,6 +37,7 @@ namespace DoAnOOP
             dgvThi.Columns[1].Visible = false;
             doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu());
             ControlThi.FindAll();
+            CheckAuth();    
         }
 
         #region cap thuc (binding data tu dgv vao txt)
@@ -124,7 +125,7 @@ namespace DoAnOOP
         {
 
         }
-        
+
         void LoadDiem(Thi thi)
         {
             Mon_ThiCB.SelectedItem = ctrlMH.FindMH(thi.MaMonHoc + "");
@@ -795,6 +796,13 @@ namespace DoAnOOP
             }
             else
                 MessageBox.Show("Học viên chưa có điểm");
+        }
+        void CheckAuth()
+        {
+            if (ControlAccount.Account.Auth == 1) /* auth = 1 thi la admin*/
+                manageAccountsToolStripMenuItem.Enabled = true;
+            else
+                manageAccountsToolStripMenuItem.Enabled = false;
         }
     }
 }

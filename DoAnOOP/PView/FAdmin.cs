@@ -18,6 +18,7 @@ namespace DoAnOOP
             InitializeComponent();
             //loadAutocomplete();
             loadCbMaLop();
+            CheckAuth();
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,6 +206,14 @@ namespace DoAnOOP
             FLogin f = new FLogin();
             f.Closed += (s, args) => this.Close();
             f.Show();
+        }
+
+        void CheckAuth()
+        {
+            if (ControlAccount.Account.Auth == 1) /* auth = 1 thi la admin*/
+                toolStripMenuItem1.Enabled = true;
+            else
+                toolStripMenuItem1.Enabled = false;
         }
     }
 }

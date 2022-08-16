@@ -30,6 +30,7 @@ namespace DoAnOOP.PView
         {
             if (ControlAccount.Login(textBox1.Text, textBox2.Text))
             {
+                ControlAccount.Account = ControlAccount.db.Accounts.FirstOrDefault(x => x.UserName == textBox1.Text && x.Password == textBox2.Text);
                 this.Hide();
                 FAdmin f = new FAdmin();
                 f.Closed += (s, args) => this.Close();

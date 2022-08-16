@@ -11,6 +11,9 @@ namespace DoAnOOP.PControl
     internal class ControlAccount
     {
         public static doAnEntities db = ControlDataBase.qlhocvien;
+        private static Account account;
+
+        public static Account Account { get => account; set => account = value; }
 
         public static List<Account> FindAll()
         {

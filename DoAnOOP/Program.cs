@@ -1,4 +1,5 @@
 ﻿using DoAnOOP.PView;
+using DoAnOOP.PControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace DoAnOOP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FAccount());
+            Application.Run(new FLogin());
         }
     }
 }
