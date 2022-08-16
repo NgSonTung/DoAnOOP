@@ -83,5 +83,27 @@ namespace DoAnOOP.PControl
             } 
 
         }
+
+        public static List<Account> AccountSearching(string search)
+        {
+            List<Account> listUName = (from s in FindAll().ToList() where s.UserName.Contains(search) select s).ToList();
+            List<Account> listAuth = (from s in FindAll().ToList() where s.Auth.ToString().Contains(search) select s).ToList();
+
+            if (listUName.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listUName.Count} kết quả");
+                return listUName;
+            }
+            else if (listAuth.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listAuth.Count} kết quả");
+                return listAuth;
+            }
+            else
+            {
+                MessageBox.Show($"Không có kết quả");
+                return FindAll().ToList();
+            }
+        }
     }
 }
