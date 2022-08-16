@@ -134,5 +134,60 @@ namespace DoAnOOP.PView
             f.Closed += (s, args) => this.Close();
             f.Show();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timKiemAccBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSAccount(ControlAccount.AccountSearching(timkiemAccTXT.Text));
+        }
+
+        private void themAccBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Thêm Account";
+        }
+
+        private void themAccBTN_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void xoaAccBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Xóa Account";
+        }
+
+        private void xoaAccBTN_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void capNhatAcc_MouseHover(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Cập nhật Account";
+        }
+
+        private void capNhatAcc_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void timKiemAccBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Tìm kiếm Account";
+        }
+
+        private void timKiemAccBTN_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void xemAccBTN_MouseHover(object sender, EventArgs e)
+        {
+
+        }
     }
 }

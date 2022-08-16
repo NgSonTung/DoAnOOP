@@ -17,7 +17,7 @@ namespace DoAnOOP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FManage());
+            Application.Run(new FAccount());
         }
     }
 }
