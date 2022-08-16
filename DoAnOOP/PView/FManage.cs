@@ -28,10 +28,15 @@ namespace DoAnOOP
             loadDSBL();
             LoadDSCbMH();
             LoadDSMonHoc();
+            LoadDSDiem();
+            LoadCBDiem();
             dgvHV.Columns[0].Visible = false;
             dgvLop.Columns[0].Visible = false;
             dgvMon.Columns[0].Visible = false;
+            dgvThi.Columns[0].Visible = false;
+            dgvThi.Columns[1].Visible = false;
             doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu());
+            ControlThi.FindAll();
         }
 
         #region cap thuc (binding data tu dgv vao txt)
@@ -119,6 +124,30 @@ namespace DoAnOOP
         {
 
         }
+        
+        void LoadDiem(Thi thi)
+        {
+            Mon_ThiCB.SelectedItem = ctrlMH.FindMH(thi.MaMonHoc + "");
+            HV_ThiCB.SelectedItem = ctrHV.FindHV(thi.MaHocVien + "");
+            DiemThiNUM.Value = (decimal)thi.DiemThi;
+            ThiDP.Value = thi.NgayThi;
+        }
+
+        void LoadDSDiem()
+        {
+            var list = from s in ControlThi.FindAll() select new {s.HocVien.MaHocVien, s.MonHoc.MaMonHoc, s.HocVien.HoTen, s.MonHoc.TenMonHoc, s.DiemThi, s.NgayThi};
+            dgvThi.DataSource = list.ToList();
+        }
+
+        void LoadCBDiem()
+        {
+            List<MonHoc> lMon = ctrlMH.FindAllMH();
+            Mon_ThiCB.DataSource = lMon;
+            Mon_ThiCB.DisplayMember = "TenMonHoc";
+            List<HocVien> lHV = ctrHV.FindAll();
+            HV_ThiCB.DataSource = lHV;
+            HV_ThiCB.DisplayMember = "HoTen";
+        }
 
         void loadDSBL()
         {
@@ -205,8 +234,7 @@ namespace DoAnOOP
         {
             List<MonHoc> dsmonhoc = ctrlMH.FindAllMH();
             lop_monCB.DataSource = dsmonhoc;
-            
-            
+            lop_monCB.DisplayMember = "TenMon";
         }
 
         // END TAB LOP
@@ -701,6 +729,72 @@ namespace DoAnOOP
             FLogin f = new FLogin();
             f.Closed += (s, args) => this.Close();
             f.Show();
+        }
+
+        private void ThemThiBTN_Click(object sender, EventArgs e)
+        {
+            int maHV = (HV_ThiCB.SelectedItem as HocVien).MaHocVien;
+            int maMH = (Mon_ThiCB.SelectedItem as MonHoc).MaMonHoc;
+            if (ControlThi.FindThi(maHV, maMH) == null)
+            {   
+                if(!ControlThamGia.CheckLopTheoHV(maHV, maMH))
+                {
+                    MessageBox.Show("Học viên không học môn này");
+
+                }
+                else
+                {
+                    Thi thi = new Thi
+                    {
+                        MaMonHoc = maMH,
+                        MaHocVien = maHV,
+                        DiemThi = double.Parse(DiemThiNUM.Value.ToString()),
+                        NgayThi = ThiDP.Value,
+                    };
+                    ControlThi.Add(thi);
+                    ControlThamGia.RemoveLopTheoMonHV(maHV, maMH);
+                    LoadDSDiem();
+                }
+            }
+            else
+                MessageBox.Show("Học viên đã có điểm");
+        }
+
+        private void dgvThi_SelectionChanged(object sender, EventArgs e)
+        {
+            int i = dgvThi.CurrentCell.RowIndex;
+            int maHV = (int)dgvThi.Rows[i].Cells[0].Value;
+            int maMH = (int)dgvThi.Rows[i].Cells[1].Value;
+            LoadDiem(ControlThi.FindThi(maHV, maMH));
+        }
+
+        private void XoaThiBTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CapNhatThiBTN_Click(object sender, EventArgs e)
+        {
+            int maHV = (HV_ThiCB.SelectedItem as HocVien).MaHocVien;
+            int maMH = (Mon_ThiCB.SelectedItem as MonHoc).MaMonHoc;
+            if (ControlThi.FindThi(maHV, maMH) != null)
+            {
+                if (!ControlThamGia.CheckLopTheoHV(maHV, maMH))
+                {
+                    MessageBox.Show("Học viên không học môn này");
+
+                }
+                else
+                {
+                    Thi thi = ControlThi.FindThi(maHV, maMH);
+                    thi.DiemThi = double.Parse(DiemThiNUM.Value.ToString());
+                    thi.NgayThi = ThiDP.Value;
+                    ControlThi.Update(thi);
+                    LoadDSDiem();
+                }
+            }
+            else
+                MessageBox.Show("Học viên chưa có điểm");
         }
     }
 }

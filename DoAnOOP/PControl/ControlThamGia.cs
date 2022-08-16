@@ -12,7 +12,7 @@ namespace DoAnOOP.PControl
         ControlClass ctrClass = new ControlClass();
         ControlHocVien ctrHV = new ControlHocVien();
         ControlBienLai ctrBL = new ControlBienLai();
-        doAnEntities db = ControlDataBase.qlhocvien;
+        static doAnEntities db = ControlDataBase.qlhocvien;
         public void addHsToLop(string mahv, string malop)
         {
             HocVien hv = ctrHV.FindHV(mahv);
@@ -63,6 +63,40 @@ namespace DoAnOOP.PControl
 
                 }
             }
+        }
+
+        public static void RemoveLopTheoMonHV(int maHV, int maMon)
+        {
+            HocVien hv = db.HocViens.FirstOrDefault(x => x.MaHocVien == maHV);
+            MonHoc mon = db.MonHocs.FirstOrDefault(x => x.MaMonHoc == maMon);
+            if (!CheckLopTheoHV(maHV, maMon))
+            {
+                MessageBox.Show("Học viên không học môn này");
+            }
+            else
+            {
+                try
+                {
+                    Lop lop = db.Lops.FirstOrDefault(x => x.MaMonHoc == maMon);
+                    hv.Lops.Remove(lop);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    MessageBox.Show("Không hủy đăng ký lớp của học viên được");
+
+                }
+            }
+        }
+
+        public static bool CheckLopTheoHV(int maHV, int maMon)
+        {
+            var hv = db.HocViens.FirstOrDefault(x => x.MaHocVien == maHV);
+            if (hv.Lops.Where(x => x.MaMonHoc == maMon).Count() == 0)
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }
