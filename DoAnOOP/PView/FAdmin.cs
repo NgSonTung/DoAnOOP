@@ -2,6 +2,7 @@
 using DoAnOOP.PView;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,13 +13,14 @@ namespace DoAnOOP
         ControlClass ctrClass = new ControlClass();
         ControlHocVien ctrHV = new ControlHocVien();
         ControlThamGia ctrTG = new ControlThamGia();
-        
+        ControlBienLai ctrBL = new ControlBienLai();
         public FAdmin()
         {
             InitializeComponent();
             //loadAutocomplete();
             loadCbMaLop();
             CheckAuth();
+           // loadDGVAD();
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,12 +56,12 @@ namespace DoAnOOP
             {
                 hvs.AddRange(l.HocViens.ToList());
             }
-            dataGridView1.DataSource = hvs.ToList();
+            dgvAD.DataSource = hvs.ToList();
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = loadFindKG();
+            dgvAD.DataSource = loadFindKG();
         }
 
         private void LapDsHvCuaMotLop_Click(object sender, EventArgs e)
@@ -104,6 +106,11 @@ namespace DoAnOOP
             noiSinhTXT.Text = hv.NoiSinh;
 
         }
+        void loadDGVAD()
+        {
+            var hv = from t in ctrHV.FindAll() select t;
+            dgvAD.DataSource = hv.ToList();
+        }
         private void ChoBietSLHVKGKhoaNgayNaoDo_Click(object sender, EventArgs e)
         {
             var lst = ctrClass.findLopKG(khaiGiangDP.Value);
@@ -121,7 +128,7 @@ namespace DoAnOOP
                 hvs.AddRange(l.HocViens.ToList());
             }
             test1.Text = hvs.Count.ToString();
-            dataGridView1.DataSource = rs.ToList();
+            dgvAD.DataSource = rs.ToList();
         }
         void loadAutocomplete()
         {
@@ -132,13 +139,14 @@ namespace DoAnOOP
             lst.AddRange(rs);
 
             hoTenTXT.AutoCompleteCustomSource = lst;
-            dataGridView1.DataSource = lst;
+            dgvAD.DataSource = lst;
             //maHvTXT.AutoCompleteCustomSource = lst;
         }
         private void huyDangKyBTN_Click(object sender, EventArgs e)
         {
             ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
             loadCbMaLop();
+
         }
 
         private void dangKyBTN_Click(object sender, EventArgs e)
@@ -151,8 +159,9 @@ namespace DoAnOOP
             }
             else
             {
-                MessageBox.Show("Đăng kí thành công !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ctrTG.addHsToLop(cbmahv.SelectedItem.ToString(), maLopcb.SelectedItem.ToString());
+                HocVien hv = ctrHV.FindHV(cbmahv.SelectedItem.ToString());
+                ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
             }
 
         }

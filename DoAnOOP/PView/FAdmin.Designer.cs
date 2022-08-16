@@ -82,10 +82,10 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.Montxt = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAD = new System.Windows.Forms.DataGridView();
             this.test1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTongSL = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,7 +99,7 @@
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,6 +215,7 @@
             this.noiSinhTXT.Location = new System.Drawing.Point(127, 7);
             this.noiSinhTXT.Multiline = true;
             this.noiSinhTXT.Name = "noiSinhTXT";
+            this.noiSinhTXT.ReadOnly = true;
             this.noiSinhTXT.Size = new System.Drawing.Size(279, 26);
             this.noiSinhTXT.TabIndex = 4;
             // 
@@ -314,7 +315,7 @@
             this.dangKyBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dangKyBTN.ForeColor = System.Drawing.Color.White;
             this.dangKyBTN.Location = new System.Drawing.Point(260, 353);
-            this.dangKyBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dangKyBTN.Margin = new System.Windows.Forms.Padding(2);
             this.dangKyBTN.Name = "dangKyBTN";
             this.dangKyBTN.Size = new System.Drawing.Size(134, 33);
             this.dangKyBTN.TabIndex = 56;
@@ -328,7 +329,7 @@
             this.huyDangKyBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.huyDangKyBTN.ForeColor = System.Drawing.Color.White;
             this.huyDangKyBTN.Location = new System.Drawing.Point(407, 353);
-            this.huyDangKyBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.huyDangKyBTN.Margin = new System.Windows.Forms.Padding(2);
             this.huyDangKyBTN.Name = "huyDangKyBTN";
             this.huyDangKyBTN.Size = new System.Drawing.Size(134, 33);
             this.huyDangKyBTN.TabIndex = 57;
@@ -368,6 +369,7 @@
             this.ngheNghiepTXT.Location = new System.Drawing.Point(127, 8);
             this.ngheNghiepTXT.Multiline = true;
             this.ngheNghiepTXT.Name = "ngheNghiepTXT";
+            this.ngheNghiepTXT.ReadOnly = true;
             this.ngheNghiepTXT.Size = new System.Drawing.Size(279, 26);
             this.ngheNghiepTXT.TabIndex = 5;
             // 
@@ -398,6 +400,7 @@
             this.hocPhanTXT.Location = new System.Drawing.Point(127, 8);
             this.hocPhanTXT.Multiline = true;
             this.hocPhanTXT.Name = "hocPhanTXT";
+            this.hocPhanTXT.ReadOnly = true;
             this.hocPhanTXT.Size = new System.Drawing.Size(279, 26);
             this.hocPhanTXT.TabIndex = 5;
             // 
@@ -457,6 +460,7 @@
             this.hocPhiTXT.Location = new System.Drawing.Point(127, 7);
             this.hocPhiTXT.Multiline = true;
             this.hocPhiTXT.Name = "hocPhiTXT";
+            this.hocPhiTXT.ReadOnly = true;
             this.hocPhiTXT.Size = new System.Drawing.Size(279, 26);
             this.hocPhiTXT.TabIndex = 4;
             // 
@@ -571,7 +575,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(733, 353);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 33);
             this.button1.TabIndex = 68;
@@ -585,7 +589,7 @@
             this.LapDsHvCuaMotLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LapDsHvCuaMotLop.ForeColor = System.Drawing.Color.White;
             this.LapDsHvCuaMotLop.Location = new System.Drawing.Point(878, 353);
-            this.LapDsHvCuaMotLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LapDsHvCuaMotLop.Margin = new System.Windows.Forms.Padding(2);
             this.LapDsHvCuaMotLop.Name = "LapDsHvCuaMotLop";
             this.LapDsHvCuaMotLop.Size = new System.Drawing.Size(125, 33);
             this.LapDsHvCuaMotLop.TabIndex = 69;
@@ -599,7 +603,7 @@
             this.ChoBietSLHVKGKhoaNgayNaoDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChoBietSLHVKGKhoaNgayNaoDo.ForeColor = System.Drawing.Color.White;
             this.ChoBietSLHVKGKhoaNgayNaoDo.Location = new System.Drawing.Point(1023, 353);
-            this.ChoBietSLHVKGKhoaNgayNaoDo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChoBietSLHVKGKhoaNgayNaoDo.Margin = new System.Windows.Forms.Padding(2);
             this.ChoBietSLHVKGKhoaNgayNaoDo.Name = "ChoBietSLHVKGKhoaNgayNaoDo";
             this.ChoBietSLHVKGKhoaNgayNaoDo.Size = new System.Drawing.Size(125, 33);
             this.ChoBietSLHVKGKhoaNgayNaoDo.TabIndex = 70;
@@ -651,6 +655,7 @@
             // 
             this.Montxt.Location = new System.Drawing.Point(127, 9);
             this.Montxt.Name = "Montxt";
+            this.Montxt.ReadOnly = true;
             this.Montxt.Size = new System.Drawing.Size(279, 20);
             this.Montxt.TabIndex = 1;
             // 
@@ -666,16 +671,16 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Môn";
             // 
-            // dataGridView1
+            // dgvAD
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(260, 403);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(886, 295);
-            this.dataGridView1.TabIndex = 71;
+            this.dgvAD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.dgvAD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAD.Location = new System.Drawing.Point(260, 403);
+            this.dgvAD.Name = "dgvAD";
+            this.dgvAD.RowHeadersWidth = 51;
+            this.dgvAD.Size = new System.Drawing.Size(886, 295);
+            this.dgvAD.TabIndex = 71;
             // 
             // test1
             // 
@@ -699,13 +704,14 @@
             this.pictureBox1.TabIndex = 73;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // txtTongSL
             // 
-            this.textBox1.Location = new System.Drawing.Point(380, 308);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(279, 26);
-            this.textBox1.TabIndex = 6;
+            this.txtTongSL.Location = new System.Drawing.Point(380, 308);
+            this.txtTongSL.Multiline = true;
+            this.txtTongSL.Name = "txtTongSL";
+            this.txtTongSL.ReadOnly = true;
+            this.txtTongSL.Size = new System.Drawing.Size(279, 26);
+            this.txtTongSL.TabIndex = 6;
             // 
             // FAdmin
             // 
@@ -713,9 +719,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.ClientSize = new System.Drawing.Size(1177, 733);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTongSL);
             this.Controls.Add(this.test1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAD);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.ChoBietSLHVKGKhoaNgayNaoDo);
@@ -771,7 +777,7 @@
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -829,14 +835,14 @@
         private System.Windows.Forms.DateTimePicker tkbDP;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAD;
         private System.Windows.Forms.Label test1;
         private System.Windows.Forms.ComboBox maLopcb;
         private System.Windows.Forms.TextBox Montxt;
         private System.Windows.Forms.ComboBox cbmahv;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTongSL;
     }
 }
 

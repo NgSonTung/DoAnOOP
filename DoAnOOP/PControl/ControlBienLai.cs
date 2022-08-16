@@ -32,7 +32,19 @@ namespace DoAnOOP.PControl
                 MessageBox.Show("Không thêm được");
             }
         }
-
+        public void AddBLDK(HocVien hv, double hocPhi, int malop)
+        {
+            BienLai bl = new BienLai { NgayDong = DateTime.Now, SoTien = hocPhi, MaHocVien = hv.MaHocVien,MaLop = malop };
+            try
+            {
+                db.BienLais.Add(bl);
+                db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Không thể tạo biên lai cho học phần này !! Hãy thử lại","Thông báo !",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
         public void DeleteBLtheoLop(Lop lop)
         {   
             List<BienLai> l = FindAll().Where(x => x.Lop == lop).ToList();

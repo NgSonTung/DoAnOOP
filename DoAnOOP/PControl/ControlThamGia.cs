@@ -15,10 +15,22 @@ namespace DoAnOOP.PControl
         static doAnEntities db = ControlDataBase.qlhocvien;
         public void addHsToLop(string mahv, string malop)
         {
-            HocVien hv = ctrHV.FindHV(mahv);
-            Lop lop = ctrClass.DefineLop(malop);
-            hv.Lops.Add(lop);
-            db.SaveChanges();
+           
+            try
+            {
+                HocVien hv = ctrHV.FindHV(mahv);
+                Lop lop = ctrClass.DefineLop(malop);
+                hv.Lops.Add(lop);
+                db.SaveChanges();
+                MessageBox.Show("Đăng kí thành công !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch 
+            {
+
+                MessageBox.Show("Đăng kí không thành công !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
         public void RemoveHVBLTheoLop(int malop)
