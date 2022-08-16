@@ -140,6 +140,12 @@ namespace DoAnOOP
             dgvThi.DataSource = list.ToList();
         }
 
+        void LoadDSDiem(List<Thi> thi)
+        {
+            var list = from s in thi select new { s.HocVien.MaHocVien, s.MonHoc.MaMonHoc, s.HocVien.HoTen, s.MonHoc.TenMonHoc, s.DiemThi, s.NgayThi };
+            dgvThi.DataSource = list.ToList();
+        }
+
         void LoadCBDiem()
         {
             List<MonHoc> lMon = ctrlMH.FindAllMH();
@@ -803,6 +809,56 @@ namespace DoAnOOP
                 manageAccountsToolStripMenuItem.Enabled = true;
             else
                 manageAccountsToolStripMenuItem.Enabled = false;
+        }
+
+        private void TimKiemThiBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSDiem(ControlThi.Search(TimKiemThiTXT.Text));
+        }
+
+        private void XemThiBTN_Click(object sender, EventArgs e)
+        {
+            LoadDSDiem();
+        }
+
+        private void ThemThiBTN_MouseHover(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Nhập điểm thi và hủy đăng ký môn cho học viên";
+        }
+
+        private void CapNhatThiBTN_MouseHover(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Cập nhật điểm thi của học viên";
+        }
+
+        private void TimKiemThiBTN_MouseHover(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Lọc danh sách điểm theo tên học viên hoặc tên môn học";
+        }
+
+        private void XemThiBTN_MouseHover(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Hiển thị toàn bộ danh sách điểm";
+        }
+
+        private void ThemThiBTN_MouseLeave(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void CapNhatThiBTN_MouseLeave(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void TimKiemThiBTN_MouseLeave(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void XemThiBTN_MouseLeave(object sender, EventArgs e)
+        {
+            HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
         }
     }
 }

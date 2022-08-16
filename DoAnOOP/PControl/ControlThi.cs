@@ -66,5 +66,26 @@ namespace DoAnOOP.PControl
                 MessageBox.Show("Không cập nhật được");
             }
         }
+
+        public static List<Thi> Search(string search)
+        {
+            List<Thi> listId = (from s in FindAll().ToList() where s.HocVien.HoTen.ToString().Contains(search) select s).ToList();
+            List<Thi> listName = (from s in FindAll().ToList() where s.MonHoc.TenMonHoc.Contains(search) select s).ToList();
+            if (listName.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listName.Count} kết quả");
+                return listName;
+            }
+            else if (listId.Count != 0)
+            {
+                MessageBox.Show($"Tìm được {listId.Count} kết quả");
+                return listId;
+            }
+            else
+            {
+                MessageBox.Show($"Không có kết quả");
+                return FindAll().ToList();
+            }
+        }
     }
 }

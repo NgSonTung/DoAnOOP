@@ -470,9 +470,9 @@
             this.tabPage1.Controls.Add(this.themMonBTN);
             this.tabPage1.Controls.Add(this.dgvMon);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1147, 580);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Môn học";
@@ -791,7 +791,7 @@
             this.tabPage4.Controls.Add(this.themhvBTN);
             this.tabPage4.Location = new System.Drawing.Point(4, 27);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1147, 580);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = " Học viên";
@@ -840,7 +840,7 @@
             this.panel9.Controls.Add(this.nghenghiephvTXT);
             this.panel9.Controls.Add(this.lopSV);
             this.panel9.Location = new System.Drawing.Point(796, 288);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(315, 31);
             this.panel9.TabIndex = 12;
@@ -1059,7 +1059,7 @@
             this.tabPage5.Controls.Add(this.dgvLop);
             this.tabPage5.Location = new System.Drawing.Point(4, 27);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1147, 580);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Lớp";
@@ -1132,7 +1132,7 @@
             this.doanhThuTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doanhThuTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.doanhThuTXT.Location = new System.Drawing.Point(283, 79);
-            this.doanhThuTXT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doanhThuTXT.Margin = new System.Windows.Forms.Padding(4);
             this.doanhThuTXT.Multiline = true;
             this.doanhThuTXT.Name = "doanhThuTXT";
             this.doanhThuTXT.Size = new System.Drawing.Size(820, 41);
@@ -1146,7 +1146,7 @@
             this.sapXepBLBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sapXepBLBTN.ForeColor = System.Drawing.Color.White;
             this.sapXepBLBTN.Location = new System.Drawing.Point(33, 249);
-            this.sapXepBLBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sapXepBLBTN.Margin = new System.Windows.Forms.Padding(2);
             this.sapXepBLBTN.Name = "sapXepBLBTN";
             this.sapXepBLBTN.Size = new System.Drawing.Size(233, 35);
             this.sapXepBLBTN.TabIndex = 64;
@@ -1174,7 +1174,7 @@
             this.huongDanBLTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.huongDanBLTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.huongDanBLTXT.Location = new System.Drawing.Point(32, 313);
-            this.huongDanBLTXT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.huongDanBLTXT.Margin = new System.Windows.Forms.Padding(4);
             this.huongDanBLTXT.Multiline = true;
             this.huongDanBLTXT.Name = "huongDanBLTXT";
             this.huongDanBLTXT.Size = new System.Drawing.Size(234, 123);
@@ -1188,7 +1188,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(33, 201);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 35);
             this.button1.TabIndex = 61;
@@ -1201,7 +1201,7 @@
             // timKiemBienLaiTXT
             // 
             this.timKiemBienLaiTXT.Location = new System.Drawing.Point(33, 462);
-            this.timKiemBienLaiTXT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.timKiemBienLaiTXT.Margin = new System.Windows.Forms.Padding(2);
             this.timKiemBienLaiTXT.Name = "timKiemBienLaiTXT";
             this.timKiemBienLaiTXT.Size = new System.Drawing.Size(234, 24);
             this.timKiemBienLaiTXT.TabIndex = 60;
@@ -1212,7 +1212,7 @@
             this.timKiemBienLaiBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timKiemBienLaiBTN.ForeColor = System.Drawing.Color.White;
             this.timKiemBienLaiBTN.Location = new System.Drawing.Point(33, 489);
-            this.timKiemBienLaiBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.timKiemBienLaiBTN.Margin = new System.Windows.Forms.Padding(2);
             this.timKiemBienLaiBTN.Name = "timKiemBienLaiBTN";
             this.timKiemBienLaiBTN.Size = new System.Drawing.Size(233, 35);
             this.timKiemBienLaiBTN.TabIndex = 59;
@@ -1264,7 +1264,7 @@
             this.dateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTo.Location = new System.Drawing.Point(115, 116);
-            this.dateTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTo.Margin = new System.Windows.Forms.Padding(2);
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(151, 24);
             this.dateTo.TabIndex = 53;
@@ -1276,7 +1276,7 @@
             this.hienThiBienLaiBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hienThiBienLaiBTN.ForeColor = System.Drawing.Color.White;
             this.hienThiBienLaiBTN.Location = new System.Drawing.Point(33, 154);
-            this.hienThiBienLaiBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hienThiBienLaiBTN.Margin = new System.Windows.Forms.Padding(2);
             this.hienThiBienLaiBTN.Name = "hienThiBienLaiBTN";
             this.hienThiBienLaiBTN.Size = new System.Drawing.Size(233, 35);
             this.hienThiBienLaiBTN.TabIndex = 54;
@@ -1294,7 +1294,7 @@
             this.dateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateFrom.Location = new System.Drawing.Point(115, 79);
-            this.dateFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(151, 24);
             this.dateFrom.TabIndex = 52;
@@ -1328,9 +1328,9 @@
             this.tabPage3.Controls.Add(this.ThemThiBTN);
             this.tabPage3.Controls.Add(this.dgvThi);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(1147, 580);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Điểm Thi";
@@ -1348,7 +1348,7 @@
             // 
             this.ThiDP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.ThiDP.Location = new System.Drawing.Point(125, 6);
-            this.ThiDP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ThiDP.Margin = new System.Windows.Forms.Padding(2);
             this.ThiDP.Name = "ThiDP";
             this.ThiDP.Size = new System.Drawing.Size(187, 24);
             this.ThiDP.TabIndex = 2;
@@ -1398,6 +1398,9 @@
             this.XemThiBTN.TabIndex = 37;
             this.XemThiBTN.Text = "Xem";
             this.XemThiBTN.UseVisualStyleBackColor = false;
+            this.XemThiBTN.Click += new System.EventHandler(this.XemThiBTN_Click);
+            this.XemThiBTN.MouseLeave += new System.EventHandler(this.XemThiBTN_MouseLeave);
+            this.XemThiBTN.MouseHover += new System.EventHandler(this.XemThiBTN_MouseHover);
             // 
             // panel1
             // 
@@ -1412,7 +1415,7 @@
             // 
             this.HV_ThiCB.FormattingEnabled = true;
             this.HV_ThiCB.Location = new System.Drawing.Point(125, 6);
-            this.HV_ThiCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HV_ThiCB.Margin = new System.Windows.Forms.Padding(2);
             this.HV_ThiCB.Name = "HV_ThiCB";
             this.HV_ThiCB.Size = new System.Drawing.Size(188, 26);
             this.HV_ThiCB.TabIndex = 44;
@@ -1479,7 +1482,7 @@
             // 
             this.Mon_ThiCB.FormattingEnabled = true;
             this.Mon_ThiCB.Location = new System.Drawing.Point(124, 5);
-            this.Mon_ThiCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Mon_ThiCB.Margin = new System.Windows.Forms.Padding(2);
             this.Mon_ThiCB.Name = "Mon_ThiCB";
             this.Mon_ThiCB.Size = new System.Drawing.Size(188, 26);
             this.Mon_ThiCB.TabIndex = 45;
@@ -1512,6 +1515,9 @@
             this.TimKiemThiBTN.TabIndex = 36;
             this.TimKiemThiBTN.Text = "Tìm kiếm";
             this.TimKiemThiBTN.UseVisualStyleBackColor = false;
+            this.TimKiemThiBTN.Click += new System.EventHandler(this.TimKiemThiBTN_Click);
+            this.TimKiemThiBTN.MouseLeave += new System.EventHandler(this.TimKiemThiBTN_MouseLeave);
+            this.TimKiemThiBTN.MouseHover += new System.EventHandler(this.TimKiemThiBTN_MouseHover);
             // 
             // CapNhatThiBTN
             // 
@@ -1524,6 +1530,8 @@
             this.CapNhatThiBTN.Text = "Cập Nhật";
             this.CapNhatThiBTN.UseVisualStyleBackColor = false;
             this.CapNhatThiBTN.Click += new System.EventHandler(this.CapNhatThiBTN_Click);
+            this.CapNhatThiBTN.MouseLeave += new System.EventHandler(this.CapNhatThiBTN_MouseLeave);
+            this.CapNhatThiBTN.MouseHover += new System.EventHandler(this.CapNhatThiBTN_MouseHover);
             // 
             // ThemThiBTN
             // 
@@ -1536,6 +1544,8 @@
             this.ThemThiBTN.Text = "Thêm";
             this.ThemThiBTN.UseVisualStyleBackColor = false;
             this.ThemThiBTN.Click += new System.EventHandler(this.ThemThiBTN_Click);
+            this.ThemThiBTN.MouseLeave += new System.EventHandler(this.ThemThiBTN_MouseLeave);
+            this.ThemThiBTN.MouseHover += new System.EventHandler(this.ThemThiBTN_MouseHover);
             // 
             // dgvThi
             // 
