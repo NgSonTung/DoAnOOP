@@ -29,54 +29,90 @@ namespace DoAnOOP.PView
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtHelp = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.huongDanMonTXT = new System.Windows.Forms.TextBox();
-            this.timkiemAccTXT = new System.Windows.Forms.TextBox();
-            this.xemAccBTN = new System.Windows.Forms.Button();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.userNameTXT = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.PassTXT = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.IdAccTXT = new System.Windows.Forms.TextBox();
-            this.timKiemAccBTN = new System.Windows.Forms.Button();
-            this.xoaAccBTN = new System.Windows.Forms.Button();
-            this.capNhatAcc = new System.Windows.Forms.Button();
-            this.themAccBTN = new System.Windows.Forms.Button();
-            this.dgvAccount = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtHelp = new System.Windows.Forms.TabControl();
+            this.dgvAccount = new System.Windows.Forms.DataGridView();
+            this.themAccBTN = new System.Windows.Forms.Button();
+            this.capNhatAcc = new System.Windows.Forms.Button();
+            this.xoaAccBTN = new System.Windows.Forms.Button();
+            this.timKiemAccBTN = new System.Windows.Forms.Button();
+            this.IdAccTXT = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.PassTXT = new System.Windows.Forms.TextBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.userNameTXT = new System.Windows.Forms.TextBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.xemAccBTN = new System.Windows.Forms.Button();
+            this.timkiemAccTXT = new System.Windows.Forms.TextBox();
+            this.huongDanMonTXT = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbmAuth = new System.Windows.Forms.ComboBox();
-            this.txtHelp.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.txtHelp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
+            this.panel23.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtHelp
+            // menuStrip1
             // 
-            this.txtHelp.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtHelp.Controls.Add(this.tabPage1);
-            this.txtHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHelp.Location = new System.Drawing.Point(2, 37);
-            this.txtHelp.Multiline = true;
-            this.txtHelp.Name = "txtHelp";
-            this.txtHelp.SelectedIndex = 0;
-            this.txtHelp.Size = new System.Drawing.Size(1155, 611);
-            this.txtHelp.TabIndex = 53;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(28)))), ((int)(((byte)(104)))));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.managerToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.manageAccountsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 10, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1155, 32);
+            this.menuStrip1.TabIndex = 54;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // managerToolStripMenuItem
+            // 
+            this.managerToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.managerToolStripMenuItem.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
+            this.managerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
+            this.managerToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.managerToolStripMenuItem.Text = "Admin";
+            this.managerToolStripMenuItem.Click += new System.EventHandler(this.managerToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(96, 20);
+            this.toolStripMenuItem1.Text = "Logout";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // manageAccountsToolStripMenuItem
+            // 
+            this.manageAccountsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.manageAccountsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.manageAccountsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.manageAccountsToolStripMenuItem.Name = "manageAccountsToolStripMenuItem";
+            this.manageAccountsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 4, 0);
+            this.manageAccountsToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.manageAccountsToolStripMenuItem.Text = "Manage Data";
+            this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.manageAccountsToolStripMenuItem_Click);
             // 
             // tabPage1
             // 
@@ -103,193 +139,29 @@ namespace DoAnOOP.PView
             this.tabPage1.Text = "Account";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // panel1
+            // txtHelp
             // 
-            this.panel1.Controls.Add(this.cbmAuth);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(796, 280);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 31);
-            this.panel1.TabIndex = 25;
+            this.txtHelp.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtHelp.Controls.Add(this.tabPage1);
+            this.txtHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHelp.Location = new System.Drawing.Point(2, 38);
+            this.txtHelp.Multiline = true;
+            this.txtHelp.Name = "txtHelp";
+            this.txtHelp.SelectedIndex = 0;
+            this.txtHelp.Size = new System.Drawing.Size(1155, 611);
+            this.txtHelp.TabIndex = 53;
             // 
-            // label1
+            // dgvAccount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Auth";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(918, 418);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(83, 16);
-            this.label20.TabIndex = 31;
-            this.label20.Text = "Hướng dẫn";
-            // 
-            // huongDanMonTXT
-            // 
-            this.huongDanMonTXT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.huongDanMonTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.huongDanMonTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.huongDanMonTXT.Location = new System.Drawing.Point(796, 437);
-            this.huongDanMonTXT.Multiline = true;
-            this.huongDanMonTXT.Name = "huongDanMonTXT";
-            this.huongDanMonTXT.Size = new System.Drawing.Size(316, 104);
-            this.huongDanMonTXT.TabIndex = 30;
-            this.huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
-            this.huongDanMonTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // timkiemAccTXT
-            // 
-            this.timkiemAccTXT.Location = new System.Drawing.Point(796, 84);
-            this.timkiemAccTXT.Name = "timkiemAccTXT";
-            this.timkiemAccTXT.Size = new System.Drawing.Size(316, 24);
-            this.timkiemAccTXT.TabIndex = 18;
-            // 
-            // xemAccBTN
-            // 
-            this.xemAccBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.xemAccBTN.ForeColor = System.Drawing.Color.White;
-            this.xemAccBTN.Location = new System.Drawing.Point(961, 117);
-            this.xemAccBTN.Name = "xemAccBTN";
-            this.xemAccBTN.Size = new System.Drawing.Size(151, 35);
-            this.xemAccBTN.TabIndex = 20;
-            this.xemAccBTN.Text = "Xem";
-            this.xemAccBTN.UseVisualStyleBackColor = false;
-            this.xemAccBTN.Click += new System.EventHandler(this.xemAccBTN_Click);
-            this.xemAccBTN.MouseHover += new System.EventHandler(this.xemAccBTN_MouseHover);
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.userNameTXT);
-            this.panel20.Controls.Add(this.label14);
-            this.panel20.Location = new System.Drawing.Point(796, 202);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(316, 31);
-            this.panel20.TabIndex = 23;
-            // 
-            // userNameTXT
-            // 
-            this.userNameTXT.Location = new System.Drawing.Point(128, 4);
-            this.userNameTXT.Name = "userNameTXT";
-            this.userNameTXT.Size = new System.Drawing.Size(188, 24);
-            this.userNameTXT.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(8, 7);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 16);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Tài Khoản";
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.PassTXT);
-            this.panel22.Controls.Add(this.label16);
-            this.panel22.Location = new System.Drawing.Point(796, 243);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(316, 31);
-            this.panel22.TabIndex = 24;
-            // 
-            // PassTXT
-            // 
-            this.PassTXT.Location = new System.Drawing.Point(128, 3);
-            this.PassTXT.Name = "PassTXT";
-            this.PassTXT.Size = new System.Drawing.Size(188, 24);
-            this.PassTXT.TabIndex = 3;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(8, 7);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(76, 16);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Password";
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.label19);
-            this.panel23.Controls.Add(this.IdAccTXT);
-            this.panel23.Location = new System.Drawing.Point(796, 161);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(316, 31);
-            this.panel23.TabIndex = 22;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(8, 9);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(103, 16);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Mã Tài Khoản";
-            // 
-            // IdAccTXT
-            // 
-            this.IdAccTXT.Location = new System.Drawing.Point(125, 4);
-            this.IdAccTXT.Name = "IdAccTXT";
-            this.IdAccTXT.ReadOnly = true;
-            this.IdAccTXT.Size = new System.Drawing.Size(188, 24);
-            this.IdAccTXT.TabIndex = 0;
-            // 
-            // timKiemAccBTN
-            // 
-            this.timKiemAccBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.timKiemAccBTN.ForeColor = System.Drawing.Color.White;
-            this.timKiemAccBTN.Location = new System.Drawing.Point(796, 117);
-            this.timKiemAccBTN.Name = "timKiemAccBTN";
-            this.timKiemAccBTN.Size = new System.Drawing.Size(151, 35);
-            this.timKiemAccBTN.TabIndex = 19;
-            this.timKiemAccBTN.Text = "Tìm kiếm";
-            this.timKiemAccBTN.UseVisualStyleBackColor = false;
-            this.timKiemAccBTN.Click += new System.EventHandler(this.timKiemAccBTN_Click);
-            this.timKiemAccBTN.MouseLeave += new System.EventHandler(this.timKiemAccBTN_MouseLeave);
-            this.timKiemAccBTN.MouseHover += new System.EventHandler(this.timKiemAccBTN_MouseHover);
-            // 
-            // xoaAccBTN
-            // 
-            this.xoaAccBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.xoaAccBTN.ForeColor = System.Drawing.Color.White;
-            this.xoaAccBTN.Location = new System.Drawing.Point(139, 21);
-            this.xoaAccBTN.Name = "xoaAccBTN";
-            this.xoaAccBTN.Size = new System.Drawing.Size(97, 35);
-            this.xoaAccBTN.TabIndex = 16;
-            this.xoaAccBTN.Text = "Xóa";
-            this.xoaAccBTN.UseVisualStyleBackColor = false;
-            this.xoaAccBTN.Click += new System.EventHandler(this.xoaAccBTN_Click);
-            this.xoaAccBTN.MouseLeave += new System.EventHandler(this.xoaAccBTN_MouseLeave);
-            this.xoaAccBTN.MouseHover += new System.EventHandler(this.xoaAccBTN_MouseHover);
-            // 
-            // capNhatAcc
-            // 
-            this.capNhatAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.capNhatAcc.ForeColor = System.Drawing.Color.White;
-            this.capNhatAcc.Location = new System.Drawing.Point(254, 21);
-            this.capNhatAcc.Name = "capNhatAcc";
-            this.capNhatAcc.Size = new System.Drawing.Size(97, 35);
-            this.capNhatAcc.TabIndex = 17;
-            this.capNhatAcc.Text = "Cập Nhật";
-            this.capNhatAcc.UseVisualStyleBackColor = false;
-            this.capNhatAcc.Click += new System.EventHandler(this.capNhatAcc_Click);
-            this.capNhatAcc.MouseLeave += new System.EventHandler(this.capNhatAcc_MouseLeave);
-            this.capNhatAcc.MouseHover += new System.EventHandler(this.capNhatAcc_MouseHover);
+            this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAccount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccount.Location = new System.Drawing.Point(26, 84);
+            this.dgvAccount.Name = "dgvAccount";
+            this.dgvAccount.RowHeadersWidth = 51;
+            this.dgvAccount.Size = new System.Drawing.Size(753, 457);
+            this.dgvAccount.TabIndex = 29;
+            this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick_1);
             // 
             // themAccBTN
             // 
@@ -305,65 +177,185 @@ namespace DoAnOOP.PView
             this.themAccBTN.MouseLeave += new System.EventHandler(this.themAccBTN_MouseLeave);
             this.themAccBTN.MouseHover += new System.EventHandler(this.themAccBTN_MouseHover);
             // 
-            // dgvAccount
+            // capNhatAcc
             // 
-            this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAccount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccount.Location = new System.Drawing.Point(26, 84);
-            this.dgvAccount.Name = "dgvAccount";
-            this.dgvAccount.RowHeadersWidth = 51;
-            this.dgvAccount.Size = new System.Drawing.Size(753, 457);
-            this.dgvAccount.TabIndex = 29;
-            this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick_1);
+            this.capNhatAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.capNhatAcc.ForeColor = System.Drawing.Color.White;
+            this.capNhatAcc.Location = new System.Drawing.Point(254, 21);
+            this.capNhatAcc.Name = "capNhatAcc";
+            this.capNhatAcc.Size = new System.Drawing.Size(97, 35);
+            this.capNhatAcc.TabIndex = 17;
+            this.capNhatAcc.Text = "Cập Nhật";
+            this.capNhatAcc.UseVisualStyleBackColor = false;
+            this.capNhatAcc.Click += new System.EventHandler(this.capNhatAcc_Click);
+            this.capNhatAcc.MouseLeave += new System.EventHandler(this.capNhatAcc_MouseLeave);
+            this.capNhatAcc.MouseHover += new System.EventHandler(this.capNhatAcc_MouseHover);
             // 
-            // menuStrip1
+            // xoaAccBTN
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(28)))), ((int)(((byte)(104)))));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.managerToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.manageAccountsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 10, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1155, 32);
-            this.menuStrip1.TabIndex = 54;
-            this.menuStrip1.Text = "menuStrip1";
+            this.xoaAccBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.xoaAccBTN.ForeColor = System.Drawing.Color.White;
+            this.xoaAccBTN.Location = new System.Drawing.Point(139, 21);
+            this.xoaAccBTN.Name = "xoaAccBTN";
+            this.xoaAccBTN.Size = new System.Drawing.Size(97, 35);
+            this.xoaAccBTN.TabIndex = 16;
+            this.xoaAccBTN.Text = "Xóa";
+            this.xoaAccBTN.UseVisualStyleBackColor = false;
+            this.xoaAccBTN.Click += new System.EventHandler(this.xoaAccBTN_Click);
+            this.xoaAccBTN.MouseLeave += new System.EventHandler(this.xoaAccBTN_MouseLeave);
+            this.xoaAccBTN.MouseHover += new System.EventHandler(this.xoaAccBTN_MouseHover);
             // 
-            // managerToolStripMenuItem
+            // timKiemAccBTN
             // 
-            this.managerToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.managerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.managerToolStripMenuItem.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
-            this.managerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.managerToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.managerToolStripMenuItem.Text = "Admin";
-            this.managerToolStripMenuItem.Click += new System.EventHandler(this.managerToolStripMenuItem_Click);
+            this.timKiemAccBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.timKiemAccBTN.ForeColor = System.Drawing.Color.White;
+            this.timKiemAccBTN.Location = new System.Drawing.Point(796, 117);
+            this.timKiemAccBTN.Name = "timKiemAccBTN";
+            this.timKiemAccBTN.Size = new System.Drawing.Size(151, 35);
+            this.timKiemAccBTN.TabIndex = 19;
+            this.timKiemAccBTN.Text = "Tìm kiếm";
+            this.timKiemAccBTN.UseVisualStyleBackColor = false;
+            this.timKiemAccBTN.Click += new System.EventHandler(this.timKiemAccBTN_Click);
+            this.timKiemAccBTN.MouseLeave += new System.EventHandler(this.timKiemAccBTN_MouseLeave);
+            this.timKiemAccBTN.MouseHover += new System.EventHandler(this.timKiemAccBTN_MouseHover);
             // 
-            // toolStripMenuItem1
+            // IdAccTXT
             // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(97, 20);
-            this.toolStripMenuItem1.Text = "Logout";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.IdAccTXT.Location = new System.Drawing.Point(125, 4);
+            this.IdAccTXT.Name = "IdAccTXT";
+            this.IdAccTXT.ReadOnly = true;
+            this.IdAccTXT.Size = new System.Drawing.Size(188, 24);
+            this.IdAccTXT.TabIndex = 0;
             // 
-            // manageAccountsToolStripMenuItem
+            // label19
             // 
-            this.manageAccountsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.manageAccountsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.manageAccountsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.manageAccountsToolStripMenuItem.Name = "manageAccountsToolStripMenuItem";
-            this.manageAccountsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 4, 0);
-            this.manageAccountsToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
-            this.manageAccountsToolStripMenuItem.Text = "Manage Data";
-            this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.manageAccountsToolStripMenuItem_Click);
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(8, 9);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(102, 16);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Mã Tài Khoản";
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.label19);
+            this.panel23.Controls.Add(this.IdAccTXT);
+            this.panel23.Location = new System.Drawing.Point(796, 161);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(316, 31);
+            this.panel23.TabIndex = 22;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(8, 7);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(75, 16);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Password";
+            // 
+            // PassTXT
+            // 
+            this.PassTXT.Location = new System.Drawing.Point(128, 3);
+            this.PassTXT.Name = "PassTXT";
+            this.PassTXT.Size = new System.Drawing.Size(188, 24);
+            this.PassTXT.TabIndex = 3;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.PassTXT);
+            this.panel22.Controls.Add(this.label16);
+            this.panel22.Location = new System.Drawing.Point(796, 243);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(316, 31);
+            this.panel22.TabIndex = 24;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(8, 7);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 16);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Tài Khoản";
+            // 
+            // userNameTXT
+            // 
+            this.userNameTXT.Location = new System.Drawing.Point(128, 4);
+            this.userNameTXT.Name = "userNameTXT";
+            this.userNameTXT.Size = new System.Drawing.Size(188, 24);
+            this.userNameTXT.TabIndex = 2;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.userNameTXT);
+            this.panel20.Controls.Add(this.label14);
+            this.panel20.Location = new System.Drawing.Point(796, 202);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(316, 31);
+            this.panel20.TabIndex = 23;
+            // 
+            // xemAccBTN
+            // 
+            this.xemAccBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.xemAccBTN.ForeColor = System.Drawing.Color.White;
+            this.xemAccBTN.Location = new System.Drawing.Point(961, 117);
+            this.xemAccBTN.Name = "xemAccBTN";
+            this.xemAccBTN.Size = new System.Drawing.Size(151, 35);
+            this.xemAccBTN.TabIndex = 20;
+            this.xemAccBTN.Text = "Xem";
+            this.xemAccBTN.UseVisualStyleBackColor = false;
+            this.xemAccBTN.Click += new System.EventHandler(this.xemAccBTN_Click);
+            this.xemAccBTN.MouseHover += new System.EventHandler(this.xemAccBTN_MouseHover);
+            // 
+            // timkiemAccTXT
+            // 
+            this.timkiemAccTXT.Location = new System.Drawing.Point(796, 84);
+            this.timkiemAccTXT.Name = "timkiemAccTXT";
+            this.timkiemAccTXT.Size = new System.Drawing.Size(316, 24);
+            this.timkiemAccTXT.TabIndex = 18;
+            // 
+            // huongDanMonTXT
+            // 
+            this.huongDanMonTXT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.huongDanMonTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.huongDanMonTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.huongDanMonTXT.Location = new System.Drawing.Point(796, 437);
+            this.huongDanMonTXT.Multiline = true;
+            this.huongDanMonTXT.Name = "huongDanMonTXT";
+            this.huongDanMonTXT.ReadOnly = true;
+            this.huongDanMonTXT.Size = new System.Drawing.Size(316, 104);
+            this.huongDanMonTXT.TabIndex = 30;
+            this.huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+            this.huongDanMonTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(918, 418);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 16);
+            this.label20.TabIndex = 31;
+            this.label20.Text = "Hướng dẫn";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(8, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Auth";
             // 
             // cbmAuth
             // 
@@ -377,41 +369,53 @@ namespace DoAnOOP.PView
             this.cbmAuth.TabIndex = 2;
             this.cbmAuth.SelectedIndexChanged += new System.EventHandler(this.cbmAuth_SelectedIndexChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbmAuth);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(796, 280);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(316, 31);
+            this.panel1.TabIndex = 25;
+            // 
             // FAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(28)))), ((int)(((byte)(104)))));
-            this.ClientSize = new System.Drawing.Size(1155, 613);
+            this.ClientSize = new System.Drawing.Size(1155, 702);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.txtHelp);
             this.Name = "FAccount";
             this.Text = "FAccount";
             this.Load += new System.EventHandler(this.FAccount_Load);
-            this.txtHelp.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.txtHelp.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl txtHelp;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem manageAccountsToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cbmAuth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox huongDanMonTXT;
@@ -431,10 +435,6 @@ namespace DoAnOOP.PView
         private System.Windows.Forms.Button capNhatAcc;
         private System.Windows.Forms.Button themAccBTN;
         private System.Windows.Forms.DataGridView dgvAccount;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem manageAccountsToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbmAuth;
+        private System.Windows.Forms.TabControl txtHelp;
     }
 }

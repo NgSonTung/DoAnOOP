@@ -66,18 +66,22 @@ namespace DoAnOOP.PView
 
         private void themAccBTN_Click_1(object sender, EventArgs e)
         {
-
-            if (userNameTXT.Text != "" && PassTXT.Text != null && cbmAuth.Text != null)
+            if(ControlAccount.db.Accounts.FirstOrDefault(x => x.UserName == userNameTXT.Text) == null)
             {
-                Account acc = new Account {UserName = userNameTXT.Text, Password = PassTXT.Text, Auth = cbmAuth.SelectedIndex == 0 ? 1 : 0 };
-                ControlAccount.Add(acc);
-                LoadDSAccount();
-                IdAccTXT.Clear();
-                userNameTXT.Clear();
-                PassTXT.Clear();
+                if (userNameTXT.Text != "" && PassTXT.Text != null && cbmAuth.Text != null)
+                {
+                    Account acc = new Account { UserName = userNameTXT.Text, Password = PassTXT.Text, Auth = cbmAuth.SelectedIndex == 0 ? 1 : 0 };
+                    ControlAccount.Add(acc);
+                    LoadDSAccount();
+                    IdAccTXT.Clear();
+                    userNameTXT.Clear();
+                    PassTXT.Clear();
+                }
+                else
+                    MessageBox.Show("Hãy nhập lại thông tin");
             }
             else
-                MessageBox.Show("Hãy nhập lại thông tin");
+                MessageBox.Show("Tên người dùng đã được sử dụng");
         }
 
         private void xoaAccBTN_Click(object sender, EventArgs e)
