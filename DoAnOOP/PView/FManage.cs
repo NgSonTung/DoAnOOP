@@ -35,7 +35,7 @@ namespace DoAnOOP
             dgvMon.Columns[0].Visible = false;
             dgvThi.Columns[0].Visible = false;
             dgvThi.Columns[1].Visible = false;
-            doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu());
+            doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu())+"đ";
             ControlThi.FindAll();
             CheckAuth();    
         }
@@ -241,7 +241,7 @@ namespace DoAnOOP
         {
             List<MonHoc> dsmonhoc = ctrlMH.FindAllMH();
             lop_monCB.DataSource = dsmonhoc;
-            lop_monCB.DisplayMember = "TenMon";
+            lop_monCB.DisplayMember = "TenMonHoc";
         }
 
         // END TAB LOP
@@ -542,7 +542,7 @@ namespace DoAnOOP
 
         private void timKiemBienLaiBTN_MouseHover(object sender, EventArgs e)
         {
-            huongDanBLTXT.Text = "Hiển thị danh sách biên lai theo mã biên lai hoặc mã học viên";
+            huongDanBLTXT.Text = "Hiển thị danh sách biên lai theo mã biên lai hoặc tên học viên";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
