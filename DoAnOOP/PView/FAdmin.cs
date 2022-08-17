@@ -17,10 +17,12 @@ namespace DoAnOOP
         public FAdmin()
         {
             InitializeComponent();
-            //loadAutocomplete();
+            loadAutocomplete();
             loadCbMaLop();
             CheckAuth();
-           // loadDGVAD();
+            loadDgvADFirst();
+            
+            
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,13 +78,9 @@ namespace DoAnOOP
             var rs = from t in ctrClass.FindLop() select t.MaLop;
             maLopcb.DataSource = rs.ToList();
             maLopcb.DisplayMember = "MaLop";
-            tenLopTXT.ReadOnly = true;
-            hocPhiTXT.ReadOnly = true;
-            hocPhanTXT.ReadOnly = true;
+            maLopcb.DropDownStyle = ComboBoxStyle.DropDownList;
             Montxt.ReadOnly = true;
-            var rst = from s in ctrHV.FindAll() select s.MaHocVien;
-            cbmahv.DataSource = rs.ToList();
-            cbmahv.DisplayMember = "MaHocVien";
+            
         }
         void loadInforLop()
         {
@@ -95,18 +93,67 @@ namespace DoAnOOP
             TimeSpan ts = l.TKB;
             tkbDP.Value = dt + ts;
             Montxt.Text = l.MonHoc.TenMonHoc;
-
-
-
         }
-        void loadInforHV(string mahv)
+        void loadInforHVbyMahv(string s)
         {
-            HocVien hv = ctrHV.FindHV(mahv);
+            HocVien hv = ctrHV.FindHV(s);
             hoTenTXT.Text = hv.HoTen;
             ngaySinhDP.Value = hv.NgaySinh;
             ngheNghiepTXT.Text = hv.NgheNghiep;
             noiSinhTXT.Text = hv.NoiSinh;
-
+        }
+        void loadInforHVbyName(string name)
+        {
+            List<HocVien> hv = ctrHV.FindHVByName(name);
+            foreach (var i in hv)
+            {
+                cbmahv.Text = i.MaHocVien.ToString();
+                ngaySinhDP.Value = i.NgaySinh;
+                ngheNghiepTXT.Text = i.NgheNghiep;
+                noiSinhTXT.Text = i.NoiSinh;
+            }
+            
+        }
+        void loadInforLopbyName(string n)
+        {
+            List<Lop> l = ctrClass.findLopByName(n);
+            foreach (var i in l)
+            {
+                maLopcb.SelectedItem = i.MaLop;
+                khaiGiangDP.Value = i.NgayKhaiGiang;
+                hocPhiTXT.Text = i.HocPhi.ToString();
+                hocPhanTXT.Text = i.HocPhan.ToString();
+                DateTime dt = DateTime.Today;
+                TimeSpan ts = i.TKB;
+                tkbDP.Value = dt + ts;
+                Montxt.Text = i.MonHoc.TenMonHoc;
+            }
+        }
+        void loadDgvADFirst()
+        {
+            var rs = from t in ctrHV.FindAll() select new { t.HoTen, t.NgaySinh, t.NoiSinh, t.NgheNghiep };
+            dgvAD.DataSource = rs.ToList();
+        }
+        void loadAutocomplete()
+        {
+            List<HocVien> hv = ctrHV.FindAll();
+            AutoCompleteStringCollection lst = new AutoCompleteStringCollection();
+            string a = "";
+            foreach (HocVien i in hv)
+            {
+                a = i.HoTen;
+                lst.Add(a);
+            }
+            hoTenTXT.AutoCompleteCustomSource = lst;
+            List<Lop> lop = ctrClass.FindLop();
+            AutoCompleteStringCollection lstlop = new AutoCompleteStringCollection();
+            string b = "";
+            foreach (Lop j in lop)
+            {
+                b = j.TenLop;
+                lstlop.Add(b);
+            }
+            tenLopTXT.AutoCompleteCustomSource = lstlop;
         }
         private void ChoBietSLHVKGKhoaNgayNaoDo_Click(object sender, EventArgs e)
         {
@@ -128,18 +175,7 @@ namespace DoAnOOP
             dgvAD.DataSource = rs.ToList();
             paneltongsl.Visible = true;
         }
-        void loadAutocomplete()
-        {
-            doAnEntities db = new doAnEntities();
-            var rs = db.HocViens.Select(t => t.HoTen).Distinct().ToArray();
-            
-            AutoCompleteStringCollection lst = new AutoCompleteStringCollection();
-            lst.AddRange(rs);
-
-            hoTenTXT.AutoCompleteCustomSource = lst;
-            dgvAD.DataSource = lst;
-            //maHvTXT.AutoCompleteCustomSource = lst;
-        }
+        
         private void huyDangKyBTN_Click(object sender, EventArgs e)
         {
             ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
@@ -152,14 +188,14 @@ namespace DoAnOOP
         {
             //add ? => fill infor 2 cbx
             paneltongsl.Visible = false;
-            if (checkHsToLop(int.Parse(cbmahv.SelectedItem.ToString())) == false)
+            if (checkHsToLop(int.Parse(cbmahv.Text)) == false)
             {
                 MessageBox.Show("Học viên đã tham gia lớp này !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                ctrTG.addHsToLop(cbmahv.SelectedItem.ToString(), maLopcb.SelectedItem.ToString());
-                HocVien hv = ctrHV.FindHV(cbmahv.SelectedItem.ToString());
+                ctrTG.addHsToLop(cbmahv.Text, maLopcb.SelectedItem.ToString());
+                HocVien hv = ctrHV.FindHV(cbmahv.Text);
                 ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
             }
 
@@ -170,12 +206,6 @@ namespace DoAnOOP
             if (lst.Count > 1) return false;
             else return true;
         }
-        private void maLopcb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadInforLop();
-        }
-
-
 
         private void maHvTXT_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -195,11 +225,7 @@ namespace DoAnOOP
             }
         }
 
-        private void cbmahv_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadInforHV(cbmahv.SelectedItem.ToString());
-        }
-
+      
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -222,6 +248,37 @@ namespace DoAnOOP
                 toolStripMenuItem1.Enabled = true;
             else
                 toolStripMenuItem1.Enabled = false;
+        }
+        private void hoTenTXT_Leave(object sender, EventArgs e)
+        {
+                loadInforHVbyName(hoTenTXT.Text);
+        }
+        private void cbmahv_Leave(object sender, EventArgs e)
+        {
+                loadInforHVbyMahv(cbmahv.Text);
+        }
+        private void tenLopTXT_Leave(object sender, EventArgs e)
+        {
+            loadInforLopbyName(tenLopTXT.Text);
+        }
+        private void maLopcb_Leave(object sender, EventArgs e)
+        {
+            loadInforLop();
+        }
+        private void hoTenTXT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loadInforHVbyName(hoTenTXT.Text);
+            }
+        }
+
+        private void tenLopTXT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loadInforLopbyName(tenLopTXT.Text);
+            }
         }
     }
 }

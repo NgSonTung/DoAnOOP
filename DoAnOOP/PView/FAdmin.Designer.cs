@@ -68,7 +68,7 @@
             this.tenLopTXT = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.cbmahv = new System.Windows.Forms.ComboBox();
+            this.cbmahv = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.maLopcb = new System.Windows.Forms.ComboBox();
@@ -288,16 +288,14 @@
             // 
             // hoTenTXT
             // 
-            this.hoTenTXT.AutoCompleteCustomSource.AddRange(new string[] {
-            "abc"});
-            this.hoTenTXT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.hoTenTXT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.hoTenTXT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.hoTenTXT.Location = new System.Drawing.Point(127, 7);
-            this.hoTenTXT.Multiline = true;
+            this.hoTenTXT.Location = new System.Drawing.Point(127, 13);
             this.hoTenTXT.Name = "hoTenTXT";
-            this.hoTenTXT.Size = new System.Drawing.Size(279, 26);
-            this.hoTenTXT.TabIndex = 2;
-            this.hoTenTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hoTenTXT_KeyPress);
+            this.hoTenTXT.Size = new System.Drawing.Size(279, 20);
+            this.hoTenTXT.TabIndex = 3;
+            this.hoTenTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.hoTenTXT_KeyDown);
+            this.hoTenTXT.Leave += new System.EventHandler(this.hoTenTXT_Leave);
             // 
             // label1
             // 
@@ -490,11 +488,14 @@
             // 
             // tenLopTXT
             // 
+            this.tenLopTXT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tenLopTXT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tenLopTXT.Location = new System.Drawing.Point(127, 7);
-            this.tenLopTXT.Multiline = true;
             this.tenLopTXT.Name = "tenLopTXT";
-            this.tenLopTXT.Size = new System.Drawing.Size(279, 26);
+            this.tenLopTXT.Size = new System.Drawing.Size(279, 20);
             this.tenLopTXT.TabIndex = 2;
+            this.tenLopTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tenLopTXT_KeyDown);
+            this.tenLopTXT.Leave += new System.EventHandler(this.tenLopTXT_Leave);
             // 
             // label14
             // 
@@ -520,13 +521,11 @@
             // 
             // cbmahv
             // 
-            this.cbmahv.FormattingEnabled = true;
             this.cbmahv.Location = new System.Drawing.Point(127, 8);
-            this.cbmahv.MaxDropDownItems = 100;
             this.cbmahv.Name = "cbmahv";
-            this.cbmahv.Size = new System.Drawing.Size(279, 21);
+            this.cbmahv.Size = new System.Drawing.Size(279, 20);
             this.cbmahv.TabIndex = 2;
-            this.cbmahv.SelectedIndexChanged += new System.EventHandler(this.cbmahv_SelectedIndexChanged);
+            this.cbmahv.Leave += new System.EventHandler(this.cbmahv_Leave);
             // 
             // label15
             // 
@@ -557,7 +556,7 @@
             this.maLopcb.Name = "maLopcb";
             this.maLopcb.Size = new System.Drawing.Size(279, 21);
             this.maLopcb.TabIndex = 2;
-            this.maLopcb.SelectedIndexChanged += new System.EventHandler(this.maLopcb_SelectedIndexChanged);
+            this.maLopcb.Leave += new System.EventHandler(this.maLopcb_Leave);
             // 
             // label16
             // 
@@ -816,7 +815,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox hoTenTXT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button dangKyBTN;
         private System.Windows.Forms.Button huyDangKyBTN;
@@ -834,7 +832,6 @@
         private System.Windows.Forms.TextBox hocPhiTXT;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox tenLopTXT;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label15;
@@ -852,12 +849,14 @@
         private System.Windows.Forms.DataGridView dgvAD;
         private System.Windows.Forms.ComboBox maLopcb;
         private System.Windows.Forms.TextBox Montxt;
-        private System.Windows.Forms.ComboBox cbmahv;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Panel paneltongsl;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label test1;
+        private System.Windows.Forms.TextBox hoTenTXT;
+        private System.Windows.Forms.TextBox cbmahv;
+        private System.Windows.Forms.TextBox tenLopTXT;
     }
 }
 

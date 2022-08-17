@@ -72,7 +72,17 @@ namespace DoAnOOP.PControl
                 return db.HocViens.Find(int.Parse("1"));
             }
         }
-
+        public List<HocVien> FindHVByName(string s)
+        {
+            try
+            {
+                return db.HocViens.Where(t =>t.HoTen == s).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<HocVien> AscHV(List<HocVien> list)
         {
             return list.OrderBy(hv => hv.NgaySinh).ToList();

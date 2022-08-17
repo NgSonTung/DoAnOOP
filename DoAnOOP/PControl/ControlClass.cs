@@ -116,9 +116,18 @@ namespace DoAnOOP.PControl
         {
             return db.Lops.Find(malop); 
         }
-        public void addmore()
+        public List<Lop> findLopByName(string s)
         {
-          // db.Lops.a
+            try
+            {
+                return db.Lops.Where(t => t.TenLop.ToString() == s).ToList();
+
+            }
+            catch 
+            {
+
+                return null;
+            }
         }
     }
 }
