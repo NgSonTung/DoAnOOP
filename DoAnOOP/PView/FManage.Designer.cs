@@ -277,6 +277,7 @@
             // 
             // lop_monCB
             // 
+            this.lop_monCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lop_monCB.FormattingEnabled = true;
             this.lop_monCB.Location = new System.Drawing.Point(133, 3);
             this.lop_monCB.Name = "lop_monCB";
@@ -497,6 +498,7 @@
             this.huongDanMonTXT.Location = new System.Drawing.Point(796, 437);
             this.huongDanMonTXT.Multiline = true;
             this.huongDanMonTXT.Name = "huongDanMonTXT";
+            this.huongDanMonTXT.ReadOnly = true;
             this.huongDanMonTXT.Size = new System.Drawing.Size(316, 104);
             this.huongDanMonTXT.TabIndex = 30;
             this.huongDanMonTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
@@ -816,6 +818,7 @@
             this.huongDanHVTXT.Location = new System.Drawing.Point(796, 418);
             this.huongDanHVTXT.Multiline = true;
             this.huongDanHVTXT.Name = "huongDanHVTXT";
+            this.huongDanHVTXT.ReadOnly = true;
             this.huongDanHVTXT.Size = new System.Drawing.Size(309, 123);
             this.huongDanHVTXT.TabIndex = 16;
             this.huongDanHVTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
@@ -1084,6 +1087,7 @@
             this.txtHuongDan.Location = new System.Drawing.Point(796, 442);
             this.txtHuongDan.Multiline = true;
             this.txtHuongDan.Name = "txtHuongDan";
+            this.txtHuongDan.ReadOnly = true;
             this.txtHuongDan.Size = new System.Drawing.Size(326, 104);
             this.txtHuongDan.TabIndex = 17;
             this.txtHuongDan.Text = "Hover nút bất kì để hiện hướng dẫn";
@@ -1177,6 +1181,7 @@
             this.huongDanBLTXT.Margin = new System.Windows.Forms.Padding(4);
             this.huongDanBLTXT.Multiline = true;
             this.huongDanBLTXT.Name = "huongDanBLTXT";
+            this.huongDanBLTXT.ReadOnly = true;
             this.huongDanBLTXT.Size = new System.Drawing.Size(234, 123);
             this.huongDanBLTXT.TabIndex = 62;
             this.huongDanBLTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
@@ -1214,7 +1219,7 @@
             this.timKiemBienLaiBTN.Location = new System.Drawing.Point(33, 489);
             this.timKiemBienLaiBTN.Margin = new System.Windows.Forms.Padding(2);
             this.timKiemBienLaiBTN.Name = "timKiemBienLaiBTN";
-            this.timKiemBienLaiBTN.Size = new System.Drawing.Size(233, 35);
+            this.timKiemBienLaiBTN.Size = new System.Drawing.Size(234, 35);
             this.timKiemBienLaiBTN.TabIndex = 59;
             this.timKiemBienLaiBTN.Text = "Tìm kiếm";
             this.timKiemBienLaiBTN.UseVisualStyleBackColor = false;
@@ -1383,6 +1388,7 @@
             this.HuongDanThiTXT.Location = new System.Drawing.Point(802, 449);
             this.HuongDanThiTXT.Multiline = true;
             this.HuongDanThiTXT.Name = "HuongDanThiTXT";
+            this.HuongDanThiTXT.ReadOnly = true;
             this.HuongDanThiTXT.Size = new System.Drawing.Size(316, 104);
             this.HuongDanThiTXT.TabIndex = 42;
             this.HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
@@ -1413,6 +1419,7 @@
             // 
             // HV_ThiCB
             // 
+            this.HV_ThiCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.HV_ThiCB.FormattingEnabled = true;
             this.HV_ThiCB.Location = new System.Drawing.Point(125, 6);
             this.HV_ThiCB.Margin = new System.Windows.Forms.Padding(2);
@@ -1480,6 +1487,7 @@
             // 
             // Mon_ThiCB
             // 
+            this.Mon_ThiCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Mon_ThiCB.FormattingEnabled = true;
             this.Mon_ThiCB.Location = new System.Drawing.Point(124, 5);
             this.Mon_ThiCB.Margin = new System.Windows.Forms.Padding(2);
