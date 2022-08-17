@@ -45,8 +45,7 @@ namespace DoAnOOP
                 hvs.AddRange(l.HocViens.ToList());
                 //addrange add can list 
             }
-            
-            return hvs.ToList();
+            return hvs;
         }
         void loadFindHvByMaLop(string s)
         {
@@ -56,17 +55,20 @@ namespace DoAnOOP
             {
                 hvs.AddRange(l.HocViens.ToList());
             }
-            dgvAD.DataSource = hvs.ToList();
+            var rs = from t in loadFindKG() select new { t.HoTen,t.NgaySinh,t.NoiSinh,t.NgheNghiep };
+            dgvAD.DataSource = rs.ToList();
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            dgvAD.DataSource = loadFindKG();
+            paneltongsl.Visible = false;
+            var rs = from t in loadFindKG() select new { t.HoTen,t.NgaySinh,t.NoiSinh,t.NgheNghiep };
+            dgvAD.DataSource = rs.ToList();
         }
 
         private void LapDsHvCuaMotLop_Click(object sender, EventArgs e)
         {
-
+            paneltongsl.Visible = false;
             loadFindHvByMaLop(maLopcb.SelectedItem.ToString());
         }
         void loadCbMaLop()
@@ -106,11 +108,6 @@ namespace DoAnOOP
             noiSinhTXT.Text = hv.NoiSinh;
 
         }
-        void loadDGVAD()
-        {
-            var hv = from t in ctrHV.FindAll() select t;
-            dgvAD.DataSource = hv.ToList();
-        }
         private void ChoBietSLHVKGKhoaNgayNaoDo_Click(object sender, EventArgs e)
         {
             var lst = ctrClass.findLopKG(khaiGiangDP.Value);
@@ -129,6 +126,7 @@ namespace DoAnOOP
             }
             test1.Text = hvs.Count.ToString();
             dgvAD.DataSource = rs.ToList();
+            paneltongsl.Visible = true;
         }
         void loadAutocomplete()
         {
@@ -146,13 +144,14 @@ namespace DoAnOOP
         {
             ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
             loadCbMaLop();
+            paneltongsl.Visible = false;
 
         }
 
         private void dangKyBTN_Click(object sender, EventArgs e)
         {
             //add ? => fill infor 2 cbx
-           
+            paneltongsl.Visible = false;
             if (checkHsToLop(int.Parse(cbmahv.SelectedItem.ToString())) == false)
             {
                 MessageBox.Show("Học viên đã tham gia lớp này !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);

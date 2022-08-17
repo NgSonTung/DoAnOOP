@@ -83,9 +83,10 @@
             this.Montxt = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvAD = new System.Windows.Forms.DataGridView();
-            this.test1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtTongSL = new System.Windows.Forms.TextBox();
+            this.paneltongsl = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.test1 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -101,6 +102,7 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.paneltongsl.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -682,17 +684,6 @@
             this.dgvAD.Size = new System.Drawing.Size(886, 295);
             this.dgvAD.TabIndex = 71;
             // 
-            // test1
-            // 
-            this.test1.AutoSize = true;
-            this.test1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.test1.ForeColor = System.Drawing.Color.White;
-            this.test1.Location = new System.Drawing.Point(422, 280);
-            this.test1.Name = "test1";
-            this.test1.Size = new System.Drawing.Size(29, 20);
-            this.test1.TabIndex = 72;
-            this.test1.Text = "SL";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(28)))), ((int)(((byte)(104)))));
@@ -704,14 +695,36 @@
             this.pictureBox1.TabIndex = 73;
             this.pictureBox1.TabStop = false;
             // 
-            // txtTongSL
+            // paneltongsl
             // 
-            this.txtTongSL.Location = new System.Drawing.Point(380, 308);
-            this.txtTongSL.Multiline = true;
-            this.txtTongSL.Name = "txtTongSL";
-            this.txtTongSL.ReadOnly = true;
-            this.txtTongSL.Size = new System.Drawing.Size(279, 26);
-            this.txtTongSL.TabIndex = 6;
+            this.paneltongsl.Controls.Add(this.label19);
+            this.paneltongsl.Controls.Add(this.test1);
+            this.paneltongsl.Location = new System.Drawing.Point(262, 263);
+            this.paneltongsl.Name = "paneltongsl";
+            this.paneltongsl.Size = new System.Drawing.Size(250, 38);
+            this.paneltongsl.TabIndex = 75;
+            this.paneltongsl.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(8, 10);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(112, 20);
+            this.label19.TabIndex = 76;
+            this.label19.Text = "Tổng Số lượng";
+            // 
+            // test1
+            // 
+            this.test1.AutoSize = true;
+            this.test1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.test1.ForeColor = System.Drawing.Color.White;
+            this.test1.Location = new System.Drawing.Point(141, 10);
+            this.test1.Name = "test1";
+            this.test1.Size = new System.Drawing.Size(0, 20);
+            this.test1.TabIndex = 75;
             // 
             // FAdmin
             // 
@@ -719,8 +732,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.ClientSize = new System.Drawing.Size(1177, 733);
-            this.Controls.Add(this.txtTongSL);
-            this.Controls.Add(this.test1);
+            this.Controls.Add(this.paneltongsl);
             this.Controls.Add(this.dgvAD);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel11);
@@ -779,6 +791,8 @@
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.paneltongsl.ResumeLayout(false);
+            this.paneltongsl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -836,13 +850,14 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridView dgvAD;
-        private System.Windows.Forms.Label test1;
         private System.Windows.Forms.ComboBox maLopcb;
         private System.Windows.Forms.TextBox Montxt;
         private System.Windows.Forms.ComboBox cbmahv;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.TextBox txtTongSL;
+        private System.Windows.Forms.Panel paneltongsl;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label test1;
     }
 }
 
