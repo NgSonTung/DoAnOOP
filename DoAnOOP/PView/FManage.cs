@@ -900,5 +900,10 @@ namespace DoAnOOP
         {
             HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
         }
+
+        private void lop_monCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

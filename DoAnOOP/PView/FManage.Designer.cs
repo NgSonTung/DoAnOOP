@@ -187,7 +187,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(8, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 16);
+            this.label8.Size = new System.Drawing.Size(37, 16);
             this.label8.TabIndex = 1;
             this.label8.Text = "TKB";
             // 
@@ -216,7 +216,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 16);
+            this.label7.Size = new System.Drawing.Size(74, 16);
             this.label7.TabIndex = 1;
             this.label7.Text = "Học phần";
             // 
@@ -243,7 +243,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(8, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 16);
+            this.label5.Size = new System.Drawing.Size(121, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "Ngày khai giảng";
             // 
@@ -271,7 +271,7 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(8, 6);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 16);
+            this.label18.Size = new System.Drawing.Size(37, 16);
             this.label18.TabIndex = 21;
             this.label18.Text = "Môn";
             // 
@@ -291,7 +291,7 @@
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(8, 6);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 16);
+            this.label17.Size = new System.Drawing.Size(61, 16);
             this.label17.TabIndex = 19;
             this.label17.Text = "Học phí";
             // 
@@ -350,7 +350,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(8, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
+            this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "Tên lớp";
             // 
@@ -381,7 +381,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGray;
             this.label1.Location = new System.Drawing.Point(974, 664);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 16);
+            this.label1.Size = new System.Drawing.Size(146, 16);
             this.label1.TabIndex = 56;
             this.label1.Text = "Connect to another app";
             // 
@@ -392,7 +392,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkGray;
             this.label9.Location = new System.Drawing.Point(914, 647);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(210, 16);
+            this.label9.Size = new System.Drawing.Size(211, 16);
             this.label9.TabIndex = 55;
             this.label9.Text = "All questions please contact email";
             // 
@@ -403,7 +403,7 @@
             this.label10.ForeColor = System.Drawing.Color.DarkGray;
             this.label10.Location = new System.Drawing.Point(1085, 630);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 16);
+            this.label10.Size = new System.Drawing.Size(55, 16);
             this.label10.TabIndex = 54;
             this.label10.Text = "Support";
             // 
@@ -414,7 +414,7 @@
             this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(96, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(97, 20);
             this.toolStripMenuItem1.Text = "Logout";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -425,7 +425,7 @@
             this.managerToolStripMenuItem.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
             this.managerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.managerToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.managerToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.managerToolStripMenuItem.Text = "Admin";
             this.managerToolStripMenuItem.Click += new System.EventHandler(this.managerToolStripMenuItem_Click);
             // 
@@ -451,7 +451,7 @@
             this.manageAccountsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.manageAccountsToolStripMenuItem.Name = "manageAccountsToolStripMenuItem";
             this.manageAccountsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 4, 0);
-            this.manageAccountsToolStripMenuItem.Size = new System.Drawing.Size(133, 20);
+            this.manageAccountsToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.manageAccountsToolStripMenuItem.Text = "Manage Accounts";
             this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.manageAccountsToolStripMenuItem_Click);
             // 
@@ -486,7 +486,7 @@
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(918, 418);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(82, 16);
+            this.label20.Size = new System.Drawing.Size(83, 16);
             this.label20.TabIndex = 31;
             this.label20.Text = "Hướng dẫn";
             // 
@@ -546,7 +546,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(8, 7);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 16);
+            this.label14.Size = new System.Drawing.Size(96, 16);
             this.label14.TabIndex = 1;
             this.label14.Text = "Tiết lý thuyết";
             this.label14.Click += new System.EventHandler(this.label14_Click);
@@ -579,7 +579,7 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(8, 7);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(103, 16);
+            this.label16.Size = new System.Drawing.Size(104, 16);
             this.label16.TabIndex = 1;
             this.label16.Text = "Tiết thực hành";
             // 
@@ -599,7 +599,7 @@
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(8, 9);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 16);
+            this.label19.Size = new System.Drawing.Size(68, 16);
             this.label19.TabIndex = 1;
             this.label19.Text = "Tên môn";
             // 
@@ -806,7 +806,7 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(913, 399);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 16);
+            this.label13.Size = new System.Drawing.Size(83, 16);
             this.label13.TabIndex = 25;
             this.label13.Text = "Hướng dẫn";
             // 
@@ -862,7 +862,7 @@
             this.lopSV.ForeColor = System.Drawing.Color.White;
             this.lopSV.Location = new System.Drawing.Point(20, 6);
             this.lopSV.Name = "lopSV";
-            this.lopSV.Size = new System.Drawing.Size(95, 16);
+            this.lopSV.Size = new System.Drawing.Size(96, 16);
             this.lopSV.TabIndex = 24;
             this.lopSV.Text = "Nghề nghiệp";
             // 
@@ -896,7 +896,7 @@
             this.DienthoaiSV.ForeColor = System.Drawing.Color.White;
             this.DienthoaiSV.Location = new System.Drawing.Point(20, 10);
             this.DienthoaiSV.Name = "DienthoaiSV";
-            this.DienthoaiSV.Size = new System.Drawing.Size(63, 16);
+            this.DienthoaiSV.Size = new System.Drawing.Size(64, 16);
             this.DienthoaiSV.TabIndex = 23;
             this.DienthoaiSV.Text = "Nơi sinh";
             // 
@@ -930,7 +930,7 @@
             this.KhoaSV.ForeColor = System.Drawing.Color.White;
             this.KhoaSV.Location = new System.Drawing.Point(20, 7);
             this.KhoaSV.Name = "KhoaSV";
-            this.KhoaSV.Size = new System.Drawing.Size(52, 16);
+            this.KhoaSV.Size = new System.Drawing.Size(53, 16);
             this.KhoaSV.TabIndex = 21;
             this.KhoaSV.Text = "Họ tên";
             // 
@@ -958,7 +958,7 @@
             this.NameSV.ForeColor = System.Drawing.Color.White;
             this.NameSV.Location = new System.Drawing.Point(20, 7);
             this.NameSV.Name = "NameSV";
-            this.NameSV.Size = new System.Drawing.Size(76, 16);
+            this.NameSV.Size = new System.Drawing.Size(77, 16);
             this.NameSV.TabIndex = 22;
             this.NameSV.Text = "Ngày sinh";
             // 
@@ -1075,7 +1075,7 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(926, 423);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 16);
+            this.label12.Size = new System.Drawing.Size(83, 16);
             this.label12.TabIndex = 32;
             this.label12.Text = "Hướng dẫn";
             // 
@@ -1169,7 +1169,7 @@
             this.label15.Location = new System.Drawing.Point(112, 293);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(82, 16);
+            this.label15.Size = new System.Drawing.Size(83, 16);
             this.label15.TabIndex = 63;
             this.label15.Text = "Hướng dẫn";
             // 
@@ -1366,7 +1366,7 @@
             this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(8, 7);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(64, 16);
+            this.label24.Size = new System.Drawing.Size(65, 16);
             this.label24.TabIndex = 1;
             this.label24.Text = "Ngày thi";
             // 
@@ -1377,7 +1377,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(924, 430);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.Size = new System.Drawing.Size(83, 16);
             this.label2.TabIndex = 43;
             this.label2.Text = "Hướng dẫn";
             // 
@@ -1435,7 +1435,7 @@
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(8, 7);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(96, 16);
+            this.label21.Size = new System.Drawing.Size(97, 16);
             this.label21.TabIndex = 1;
             this.label21.Text = "Tên học viên";
             // 
@@ -1473,7 +1473,7 @@
             this.label22.ForeColor = System.Drawing.Color.White;
             this.label22.Location = new System.Drawing.Point(8, 7);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(42, 16);
+            this.label22.Size = new System.Drawing.Size(43, 16);
             this.label22.TabIndex = 1;
             this.label22.Text = "Điểm";
             // 
@@ -1503,7 +1503,7 @@
             this.label23.ForeColor = System.Drawing.Color.White;
             this.label23.Location = new System.Drawing.Point(8, 9);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(67, 16);
+            this.label23.Size = new System.Drawing.Size(68, 16);
             this.label23.TabIndex = 1;
             this.label23.Text = "Tên môn";
             // 

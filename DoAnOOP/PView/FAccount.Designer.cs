@@ -32,7 +32,6 @@ namespace DoAnOOP.PView
             this.txtHelp = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.AuthTXT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.huongDanMonTXT = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@ namespace DoAnOOP.PView
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbmAuth = new System.Windows.Forms.ComboBox();
             this.txtHelp.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -95,29 +95,22 @@ namespace DoAnOOP.PView
             this.tabPage1.Controls.Add(this.themAccBTN);
             this.tabPage1.Controls.Add(this.dgvAccount);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1147, 580);
             this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Môn học";
+            this.tabPage1.Text = "Account";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.AuthTXT);
+            this.panel1.Controls.Add(this.cbmAuth);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(796, 280);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(316, 31);
             this.panel1.TabIndex = 25;
-            // 
-            // AuthTXT
-            // 
-            this.AuthTXT.Location = new System.Drawing.Point(128, 3);
-            this.AuthTXT.Name = "AuthTXT";
-            this.AuthTXT.Size = new System.Drawing.Size(188, 24);
-            this.AuthTXT.TabIndex = 3;
             // 
             // label1
             // 
@@ -372,6 +365,18 @@ namespace DoAnOOP.PView
             this.manageAccountsToolStripMenuItem.Text = "Manage Data";
             this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.manageAccountsToolStripMenuItem_Click);
             // 
+            // cbmAuth
+            // 
+            this.cbmAuth.FormattingEnabled = true;
+            this.cbmAuth.Items.AddRange(new object[] {
+            "Quản Trị Viên",
+            "Giáo Viên"});
+            this.cbmAuth.Location = new System.Drawing.Point(128, 7);
+            this.cbmAuth.Name = "cbmAuth";
+            this.cbmAuth.Size = new System.Drawing.Size(188, 26);
+            this.cbmAuth.TabIndex = 2;
+            this.cbmAuth.SelectedIndexChanged += new System.EventHandler(this.cbmAuth_SelectedIndexChanged);
+            // 
             // FAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,7 +412,6 @@ namespace DoAnOOP.PView
         private System.Windows.Forms.TabControl txtHelp;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox AuthTXT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox huongDanMonTXT;
@@ -431,5 +435,6 @@ namespace DoAnOOP.PView
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem manageAccountsToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbmAuth;
     }
 }

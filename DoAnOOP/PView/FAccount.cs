@@ -18,6 +18,7 @@ namespace DoAnOOP.PView
             InitializeComponent();
             LoadDSAccount();
             dgvAccount.Columns[0].Visible = false;
+            /*LoadCBAcc();*/
         }
 
 
@@ -43,18 +44,13 @@ namespace DoAnOOP.PView
             IdAccTXT.Text = Acc.MaTaiKhoan.ToString();
             userNameTXT.Text = Acc.UserName;
             PassTXT.Text = Acc.Password;
-            AuthTXT.Text = Acc.Auth.ToString();
+            int vitri = dgvAccount.CurrentCell.RowIndex;
+            int lastcell = int.Parse(dgvAccount.Rows[vitri].Cells["Auth"].Value + "");
+            cbmAuth.Text = lastcell == 0 ? "Giáo Viên" : "Quản Trị Viên"; 
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = dgvAccount.CurrentCell.RowIndex;
-            string ma = dgvAccount.Rows[index].Cells[0].Value + "";
-
-            if (ControlAccount.DefineAcc(ma) != null)
-            {
-                LoadAcc(ControlAccount.DefineAcc(ma));
-            }
         }
 
         private void dgvAccount_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -70,15 +66,15 @@ namespace DoAnOOP.PView
 
         private void themAccBTN_Click_1(object sender, EventArgs e)
         {
-            if (userNameTXT.Text != "" && PassTXT.Text != null && AuthTXT.Text != null)
+
+            if (userNameTXT.Text != "" && PassTXT.Text != null && cbmAuth.Text != null)
             {
-                Account acc = new Account {UserName = userNameTXT.Text, Password = PassTXT.Text, Auth = int.Parse(PassTXT.Text) };
+                Account acc = new Account {UserName = userNameTXT.Text, Password = PassTXT.Text, Auth = cbmAuth.SelectedIndex == 0 ? 1 : 0 };
                 ControlAccount.Add(acc);
                 LoadDSAccount();
                 IdAccTXT.Clear();
                 userNameTXT.Clear();
                 PassTXT.Clear();
-                AuthTXT.Clear();
             }
             else
                 MessageBox.Show("Hãy nhập lại thông tin");
@@ -101,7 +97,7 @@ namespace DoAnOOP.PView
             Account acc = ControlAccount.DefineAcc(idacc);
             acc.UserName = userNameTXT.Text;
             acc.Password = PassTXT.Text;
-            acc.Auth = int.Parse(AuthTXT.Text);
+            acc.Auth = int.Parse(cbmAuth.Text);
             ControlAccount.Update(acc);
             LoadDSAccount();
         }
@@ -188,6 +184,18 @@ namespace DoAnOOP.PView
         private void xemAccBTN_MouseHover(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbmAuth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        void LoadCBAcc()
+        {
+            List<Account> dsacc = ControlAccount.FindAll();
+            cbmAuth.DataSource = dsacc;
+            cbmAuth.DisplayMember = "Auth";
         }
     }
 }
