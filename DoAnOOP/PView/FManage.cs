@@ -35,7 +35,7 @@ namespace DoAnOOP
             dgvMon.Columns[0].Visible = false;
             dgvThi.Columns[0].Visible = false;
             dgvThi.Columns[1].Visible = false;
-            doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu());
+            doanhThuTXT.Text = "Tổng doanh thu: " + String.Format("{0:n0}", ctrBL.TongDoanhThu())+"đ";
             ControlThi.FindAll();
             CheckAuth();    
         }
@@ -241,25 +241,29 @@ namespace DoAnOOP
         {
             List<MonHoc> dsmonhoc = ctrlMH.FindAllMH();
             lop_monCB.DataSource = dsmonhoc;
-            lop_monCB.DisplayMember = "TenMon";
+            lop_monCB.DisplayMember = "TenMonHoc";
         }
 
         // END TAB LOP
 
         private void capnhatlopBTN_Click(object sender, EventArgs e)
         {
-            // Xac dinh vi tri can update
-            int index = dgvLop.CurrentCell.RowIndex;
-            string lop = dgvLop.Rows[index].Cells[0].Value + "";
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn cập nhật thông tin lớp?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                // Xac dinh vi tri can update
+                int index = dgvLop.CurrentCell.RowIndex;
+                string lop = dgvLop.Rows[index].Cells[0].Value + "";
 
-            Lop s = ctrlLop.DefineLop(lop); // Tim kiem lop can thay doi
-            s.TenLop = txtTenLop.Text;
-            s.NgayKhaiGiang = dtpNKG.Value.Date;
-            s.TKB = dtpTKB.Value.TimeOfDay;
-            s.HocPhan = int.Parse(nmrHocPhan.Value+"");
-            s.HocPhi = float.Parse(txtHocPhi.Text);
-            ctrlLop.update(s);
-            LoadDSLop();
+                Lop s = ctrlLop.DefineLop(lop); // Tim kiem lop can thay doi
+                s.TenLop = txtTenLop.Text;
+                s.NgayKhaiGiang = dtpNKG.Value.Date;
+                s.TKB = dtpTKB.Value.TimeOfDay;
+                s.HocPhan = int.Parse(nmrHocPhan.Value + "");
+                s.HocPhi = float.Parse(txtHocPhi.Text);
+                ctrlLop.update(s);
+                LoadDSLop();
+            }
         }
 
         bool CheckLop()
@@ -275,25 +279,28 @@ namespace DoAnOOP
 
         private void themlopBTN_Click(object sender, EventArgs e)
         {
-            if (txtTenLop.Text != "" && txtHocPhi.Text != "" && lop_monCB.SelectedItem != null && CheckLop())
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm lớp?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                Lop blop = new Lop
+                if (txtTenLop.Text != "" && txtHocPhi.Text != "" && lop_monCB.SelectedItem != null && CheckLop())
                 {
-                    TenLop = txtTenLop.Text,
-                    NgayKhaiGiang = dtpNKG.Value,
-                    HocPhan = (int)nmrHocPhan.Value,
-                    TKB = dtpTKB.Value.TimeOfDay,
-                    HocPhi = float.Parse(txtHocPhi.Text),
-                    MaMonHoc = (lop_monCB.SelectedItem as MonHoc).MaMonHoc
-                    // ép kiểu giá trị cmb và lấy mã môn học dựa trên giá trị cmb
-                };
-                ctrlLop.add(blop);
-                LoadDSLop();
-                txtTenLop.Clear();
-                txtHocPhi.Clear();
+                    Lop blop = new Lop
+                    {
+                        TenLop = txtTenLop.Text,
+                        NgayKhaiGiang = dtpNKG.Value,
+                        HocPhan = (int)nmrHocPhan.Value,
+                        TKB = dtpTKB.Value.TimeOfDay,
+                        HocPhi = float.Parse(txtHocPhi.Text),
+                        MaMonHoc = (lop_monCB.SelectedItem as MonHoc).MaMonHoc
+                    };
+                    ctrlLop.add(blop);
+                    LoadDSLop();
+                    txtTenLop.Clear();
+                    txtHocPhi.Clear();
+                }
+                else
+                    MessageBox.Show("Hãy nhập lại thông tin");
             }
-            else
-                MessageBox.Show("Hãy nhập lại thông tin");
         }
 
         private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -315,19 +322,21 @@ namespace DoAnOOP
         }
 
         private void themhvBTN_Click(object sender, EventArgs e)
-        {   
-            if(hotenhvTXT.Text != "" && noisinhhvTXT.Text != "" && nghenghiephvTXT.Text != "")
+        {
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm học viên?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                HocVien hv = new HocVien {HoTen = hotenhvTXT.Text, NgaySinh = ngaysinhhvDP.Value, NoiSinh = noisinhhvTXT.Text, NgheNghiep = nghenghiephvTXT.Text };
-                ctrHV.Add(hv);
-                loadDSHV();
-                hotenhvTXT.Clear();
-                noisinhhvTXT.Clear();
-                nghenghiephvTXT.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Hãy nhập lại thông tin");
+                if (hotenhvTXT.Text != "" && noisinhhvTXT.Text != "" && nghenghiephvTXT.Text != "")
+                {
+                    HocVien hv = new HocVien { HoTen = hotenhvTXT.Text, NgaySinh = ngaysinhhvDP.Value, NoiSinh = noisinhhvTXT.Text, NgheNghiep = nghenghiephvTXT.Text };
+                    ctrHV.Add(hv);
+                    loadDSHV();
+                    hotenhvTXT.Clear();
+                    noisinhhvTXT.Clear();
+                    nghenghiephvTXT.Clear();
+                }
+                else
+                    MessageBox.Show("Hãy nhập lại thông tin");
             }
         }
 
@@ -341,10 +350,14 @@ namespace DoAnOOP
 
         private void xoahvBTN_Click(object sender, EventArgs e)
         {
-            int index = dgvHV.CurrentCell.RowIndex;
-            string id = dgvHV.Rows[index].Cells[0].Value + "";
-            ctrHV.Delete(ctrHV.FindHV(id));
-            loadDSHV();
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn xóa học viên?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int index = dgvHV.CurrentCell.RowIndex;
+                string id = dgvHV.Rows[index].Cells[0].Value + "";
+                ctrHV.Delete(ctrHV.FindHV(id));
+                loadDSHV();
+            }
         }
 
         private void lietkehvBTN_Click(object sender, EventArgs e)
@@ -360,15 +373,19 @@ namespace DoAnOOP
 
         private void capnhathvBTN_Click(object sender, EventArgs e)
         {
-            int index = dgvHV.CurrentCell.RowIndex;
-            string id = dgvHV.Rows[index].Cells[0].Value + "";
-            HocVien hv = ctrHV.FindHV(id);
-            hv.HoTen = hotenhvTXT.Text;
-            hv.NgaySinh = ngaysinhhvDP.Value;
-            hv.NoiSinh = noisinhhvTXT.Text;
-            hv.NgheNghiep = nghenghiephvTXT.Text;
-            ctrHV.Update(hv);
-            loadDSHV();
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn cập nhật thông tin học viên?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int index = dgvHV.CurrentCell.RowIndex;
+                string id = dgvHV.Rows[index].Cells[0].Value + "";
+                HocVien hv = ctrHV.FindHV(id);
+                hv.HoTen = hotenhvTXT.Text;
+                hv.NgaySinh = ngaysinhhvDP.Value;
+                hv.NoiSinh = noisinhhvTXT.Text;
+                hv.NgheNghiep = nghenghiephvTXT.Text;
+                ctrHV.Update(hv);
+                loadDSHV();
+            }
         }
 
         private void timKiemHVBTN_Click(object sender, EventArgs e)
@@ -446,10 +463,14 @@ namespace DoAnOOP
 
         private void xoalopBTN_Click(object sender, EventArgs e)
         {
-            int index = dgvLop.CurrentCell.RowIndex;
-            string idlop = dgvLop.Rows[index].Cells[0].Value + "";
-            ctrlLop.delete(ctrlLop.DefineLop(idlop));
-            LoadDSLop();
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn xóa lớp?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int index = dgvLop.CurrentCell.RowIndex;
+                string idlop = dgvLop.Rows[index].Cells[0].Value + "";
+                ctrlLop.delete(ctrlLop.DefineLop(idlop));
+                LoadDSLop();
+            }
         }
 
         private void btnAsc_Click(object sender, EventArgs e)
@@ -469,21 +490,24 @@ namespace DoAnOOP
         }
 
         private void themMonBTN_Click(object sender, EventArgs e)
-        {   
-            if (CheckMon(tenMonTXT.Text))
+        {
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                MonHoc mh = new MonHoc
+                if (CheckMon(tenMonTXT.Text))
                 {
-                    TenMonHoc = tenMonTXT.Text,
-                    SoTietLyThuyet = (int)lythuyetMonNUM.Value,
-                    SoTietThucHanh = (int)thuchanhMonNUM.Value
-                };
-                ctrlMH.Add(mh);
-                LoadDSMonHoc();
+                    MonHoc mh = new MonHoc
+                    {
+                        TenMonHoc = tenMonTXT.Text,
+                        SoTietLyThuyet = (int)lythuyetMonNUM.Value,
+                        SoTietThucHanh = (int)thuchanhMonNUM.Value
+                    };
+                    ctrlMH.Add(mh);
+                    LoadDSMonHoc();
+                }
+                else
+                    MessageBox.Show("Trùng tên môn học");
             }
-            else
-                MessageBox.Show("Trùng tên môn học");
-
         }
 
         private void hienThiBienLaiBTN_Click(object sender, EventArgs e)
@@ -518,7 +542,7 @@ namespace DoAnOOP
 
         private void timKiemBienLaiBTN_MouseHover(object sender, EventArgs e)
         {
-            huongDanBLTXT.Text = "Hiển thị danh sách biên lai theo mã biên lai hoặc mã học viên";
+            huongDanBLTXT.Text = "Hiển thị danh sách biên lai theo mã biên lai hoặc tên học viên";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -553,22 +577,30 @@ namespace DoAnOOP
 
         private void xoaMonBTN_Click(object sender, EventArgs e)
         {
-            int index = dgvMon.CurrentCell.RowIndex;
-            string mamh = dgvMon.Rows[index].Cells[0].Value + "";
-            ctrlMH.Delete(ctrlMH.FindMH(mamh));
-            LoadDSMonHoc();
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn xóa môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int index = dgvMon.CurrentCell.RowIndex;
+                string mamh = dgvMon.Rows[index].Cells[0].Value + "";
+                ctrlMH.Delete(ctrlMH.FindMH(mamh));
+                LoadDSMonHoc();
+            }
         }
 
         private void capNhatMon_Click(object sender, EventArgs e)
         {
-            int index = dgvMon.CurrentCell.RowIndex;
-            string mamh = dgvMon.Rows[index].Cells[0].Value + "";
-            MonHoc mh = ctrlMH.FindMH(mamh);
-            mh.TenMonHoc = tenMonTXT.Text;
-            mh.SoTietLyThuyet = (int)lythuyetMonNUM.Value;
-            mh.SoTietThucHanh = (int)thuchanhMonNUM.Value;
-            ctrlMH.Update(mh);
-            LoadDSMonHoc();
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn cập nhật môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int index = dgvMon.CurrentCell.RowIndex;
+                string mamh = dgvMon.Rows[index].Cells[0].Value + "";
+                MonHoc mh = ctrlMH.FindMH(mamh);
+                mh.TenMonHoc = tenMonTXT.Text;
+                mh.SoTietLyThuyet = (int)lythuyetMonNUM.Value;
+                mh.SoTietThucHanh = (int)thuchanhMonNUM.Value;
+                ctrlMH.Update(mh);
+                LoadDSMonHoc();
+            }
         }
 
         private void timKiemMonBTN_Click(object sender, EventArgs e)
@@ -740,31 +772,35 @@ namespace DoAnOOP
 
         private void ThemThiBTN_Click(object sender, EventArgs e)
         {
-            int maHV = (HV_ThiCB.SelectedItem as HocVien).MaHocVien;
-            int maMH = (Mon_ThiCB.SelectedItem as MonHoc).MaMonHoc;
-            if (ControlThi.FindThi(maHV, maMH) == null)
-            {   
-                if(!ControlThamGia.CheckLopTheoHV(maHV, maMH))
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm điểm thi?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int maHV = (HV_ThiCB.SelectedItem as HocVien).MaHocVien;
+                int maMH = (Mon_ThiCB.SelectedItem as MonHoc).MaMonHoc;
+                if (ControlThi.FindThi(maHV, maMH) == null)
                 {
-                    MessageBox.Show("Học viên không học môn này");
+                    if (!ControlThamGia.CheckLopTheoHV(maHV, maMH))
+                    {
+                        MessageBox.Show("Học viên không học môn này");
 
+                    }
+                    else
+                    {
+                        Thi thi = new Thi
+                        {
+                            MaMonHoc = maMH,
+                            MaHocVien = maHV,
+                            DiemThi = double.Parse(DiemThiNUM.Value.ToString()),
+                            NgayThi = ThiDP.Value,
+                        };
+                        ControlThi.Add(thi);
+                        ControlThamGia.RemoveLopTheoMonHV(maHV, maMH);
+                        LoadDSDiem();
+                    }
                 }
                 else
-                {
-                    Thi thi = new Thi
-                    {
-                        MaMonHoc = maMH,
-                        MaHocVien = maHV,
-                        DiemThi = double.Parse(DiemThiNUM.Value.ToString()),
-                        NgayThi = ThiDP.Value,
-                    };
-                    ControlThi.Add(thi);
-                    ControlThamGia.RemoveLopTheoMonHV(maHV, maMH);
-                    LoadDSDiem();
-                }
+                    MessageBox.Show("Học viên đã có điểm");
             }
-            else
-                MessageBox.Show("Học viên đã có điểm");
         }
 
         private void dgvThi_SelectionChanged(object sender, EventArgs e)
@@ -782,26 +818,30 @@ namespace DoAnOOP
 
         private void CapNhatThiBTN_Click(object sender, EventArgs e)
         {
-            int maHV = (HV_ThiCB.SelectedItem as HocVien).MaHocVien;
-            int maMH = (Mon_ThiCB.SelectedItem as MonHoc).MaMonHoc;
-            if (ControlThi.FindThi(maHV, maMH) != null)
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn cập nhật thông tin điểm thi?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (!ControlThamGia.CheckLopTheoHV(maHV, maMH))
+                int maHV = (HV_ThiCB.SelectedItem as HocVien).MaHocVien;
+                int maMH = (Mon_ThiCB.SelectedItem as MonHoc).MaMonHoc;
+                if (ControlThi.FindThi(maHV, maMH) != null)
                 {
-                    MessageBox.Show("Học viên không học môn này");
+                    if (!ControlThamGia.CheckLopTheoHV(maHV, maMH))
+                    {
+                        MessageBox.Show("Học viên không học môn này");
 
+                    }
+                    else
+                    {
+                        Thi thi = ControlThi.FindThi(maHV, maMH);
+                        thi.DiemThi = double.Parse(DiemThiNUM.Value.ToString());
+                        thi.NgayThi = ThiDP.Value;
+                        ControlThi.Update(thi);
+                        LoadDSDiem();
+                    }
                 }
                 else
-                {
-                    Thi thi = ControlThi.FindThi(maHV, maMH);
-                    thi.DiemThi = double.Parse(DiemThiNUM.Value.ToString());
-                    thi.NgayThi = ThiDP.Value;
-                    ControlThi.Update(thi);
-                    LoadDSDiem();
-                }
+                    MessageBox.Show("Học viên chưa có điểm");
             }
-            else
-                MessageBox.Show("Học viên chưa có điểm");
         }
         void CheckAuth()
         {
@@ -859,6 +899,11 @@ namespace DoAnOOP
         private void XemThiBTN_MouseLeave(object sender, EventArgs e)
         {
             HuongDanThiTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+        }
+
+        private void lop_monCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

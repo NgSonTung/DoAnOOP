@@ -79,7 +79,7 @@ namespace DoAnOOP.PControl
         public List<BienLai> SearchBL(string search)
         {
             List<BienLai> listId = (from s in FindAll().ToList() where s.MaBL.ToString().Contains(search) select s).ToList();
-            List<BienLai> listName = (from s in FindAll().ToList() where s.MaHocVien.ToString().Contains(search) select s).ToList();
+            List<BienLai> listName = (from s in FindAll().ToList() where s.HocVien.HoTen.ToString().Contains(search) select s).ToList();
             if (listId.Count > 0)
             {
                 MessageBox.Show($"Tìm được {listId.Count} kết quả");
