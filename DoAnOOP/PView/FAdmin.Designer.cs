@@ -87,6 +87,7 @@
             this.paneltongsl = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.test1 = new System.Windows.Forms.Label();
+            this.huongDanHVTXT = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -297,6 +298,8 @@
             this.hoTenTXT.TabIndex = 3;
             this.hoTenTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.hoTenTXT_KeyDown);
             this.hoTenTXT.Leave += new System.EventHandler(this.hoTenTXT_Leave);
+            this.hoTenTXT.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.hoTenTXT.MouseHover += new System.EventHandler(this.hoTenTXT_MouseHover);
             // 
             // label1
             // 
@@ -323,6 +326,8 @@
             this.dangKyBTN.Text = "Đăng ký học";
             this.dangKyBTN.UseVisualStyleBackColor = false;
             this.dangKyBTN.Click += new System.EventHandler(this.dangKyBTN_Click);
+            this.dangKyBTN.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.dangKyBTN.MouseHover += new System.EventHandler(this.dangKyBTN_MouseHover);
             // 
             // huyDangKyBTN
             // 
@@ -337,6 +342,8 @@
             this.huyDangKyBTN.Text = "Hủy đăng ký";
             this.huyDangKyBTN.UseVisualStyleBackColor = false;
             this.huyDangKyBTN.Click += new System.EventHandler(this.huyDangKyBTN_Click);
+            this.huyDangKyBTN.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.huyDangKyBTN.MouseHover += new System.EventHandler(this.huyDangKyBTN_MouseHover);
             // 
             // textBox2
             // 
@@ -498,6 +505,8 @@
             this.tenLopTXT.TabIndex = 2;
             this.tenLopTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tenLopTXT_KeyDown);
             this.tenLopTXT.Leave += new System.EventHandler(this.tenLopTXT_Leave);
+            this.tenLopTXT.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.tenLopTXT.MouseHover += new System.EventHandler(this.tenLopTXT_MouseHover);
             // 
             // label14
             // 
@@ -528,6 +537,8 @@
             this.cbmahv.Size = new System.Drawing.Size(279, 20);
             this.cbmahv.TabIndex = 2;
             this.cbmahv.Leave += new System.EventHandler(this.cbmahv_Leave);
+            this.cbmahv.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.cbmahv.MouseHover += new System.EventHandler(this.cbmahv_MouseHover);
             // 
             // label15
             // 
@@ -559,6 +570,8 @@
             this.maLopcb.Size = new System.Drawing.Size(279, 21);
             this.maLopcb.TabIndex = 2;
             this.maLopcb.Leave += new System.EventHandler(this.maLopcb_Leave);
+            this.maLopcb.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.maLopcb.MouseHover += new System.EventHandler(this.maLopcb_MouseHover);
             // 
             // label16
             // 
@@ -585,6 +598,8 @@
             this.button1.Text = "Lọc học viên";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // LapDsHvCuaMotLop
             // 
@@ -599,6 +614,8 @@
             this.LapDsHvCuaMotLop.Text = "Tìm lớp học viên";
             this.LapDsHvCuaMotLop.UseVisualStyleBackColor = false;
             this.LapDsHvCuaMotLop.Click += new System.EventHandler(this.LapDsHvCuaMotLop_Click);
+            this.LapDsHvCuaMotLop.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.LapDsHvCuaMotLop.MouseHover += new System.EventHandler(this.LapDsHvCuaMotLop_MouseHover);
             // 
             // ChoBietSLHVKGKhoaNgayNaoDo
             // 
@@ -613,6 +630,8 @@
             this.ChoBietSLHVKGKhoaNgayNaoDo.Text = "Lọc lớp";
             this.ChoBietSLHVKGKhoaNgayNaoDo.UseVisualStyleBackColor = false;
             this.ChoBietSLHVKGKhoaNgayNaoDo.Click += new System.EventHandler(this.ChoBietSLHVKGKhoaNgayNaoDo_Click);
+            this.ChoBietSLHVKGKhoaNgayNaoDo.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.ChoBietSLHVKGKhoaNgayNaoDo.MouseHover += new System.EventHandler(this.ChoBietSLHVKGKhoaNgayNaoDo_MouseHover);
             // 
             // panel11
             // 
@@ -727,12 +746,27 @@
             this.test1.Size = new System.Drawing.Size(0, 20);
             this.test1.TabIndex = 75;
             // 
+            // huongDanHVTXT
+            // 
+            this.huongDanHVTXT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.huongDanHVTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.huongDanHVTXT.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.huongDanHVTXT.Location = new System.Drawing.Point(3, 429);
+            this.huongDanHVTXT.Multiline = true;
+            this.huongDanHVTXT.Name = "huongDanHVTXT";
+            this.huongDanHVTXT.ReadOnly = true;
+            this.huongDanHVTXT.Size = new System.Drawing.Size(200, 165);
+            this.huongDanHVTXT.TabIndex = 76;
+            this.huongDanHVTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+            this.huongDanHVTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.ClientSize = new System.Drawing.Size(1177, 733);
+            this.Controls.Add(this.huongDanHVTXT);
             this.Controls.Add(this.paneltongsl);
             this.Controls.Add(this.dgvAD);
             this.Controls.Add(this.panel12);
@@ -859,6 +893,7 @@
         private System.Windows.Forms.TextBox hoTenTXT;
         private System.Windows.Forms.TextBox cbmahv;
         private System.Windows.Forms.TextBox tenLopTXT;
+        private System.Windows.Forms.TextBox huongDanHVTXT;
     }
 }
 

@@ -79,7 +79,6 @@ namespace DoAnOOP
             maLopcb.DataSource = rs.ToList();
             maLopcb.DisplayMember = "MaLop";
             maLopcb.DropDownStyle = ComboBoxStyle.DropDownList;
-            Montxt.ReadOnly = true;
             
         }
         void loadInforLop()
@@ -178,30 +177,44 @@ namespace DoAnOOP
         
         private void huyDangKyBTN_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn hủy đăng ký ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
-                ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
-                loadCbMaLop();
-                paneltongsl.Visible = false;
+                if (cbmahv.Text =="" )
+                {
+                    MessageBox.Show("Oops! Đã xảy ra lỗi !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
+                    loadCbMaLop();
+                    paneltongsl.Visible = false;
+                }
             }
         }
 
         private void dangKyBTN_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn đăng ký ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
                 paneltongsl.Visible = false;
-                if (checkHsToLop(int.Parse(cbmahv.Text)) == false)
+                try
                 {
-                    MessageBox.Show("Học viên đã tham gia lớp này !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (checkHsToLop(int.Parse(cbmahv.Text)) == false)
+                    {
+                        MessageBox.Show("Học viên đã tham gia lớp này !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        ctrTG.addHsToLop(cbmahv.Text, maLopcb.SelectedItem.ToString());
+                        HocVien hv = ctrHV.FindHV(cbmahv.Text);
+                        ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
+                    }
                 }
-                else
+                catch 
                 {
-                    ctrTG.addHsToLop(cbmahv.Text, maLopcb.SelectedItem.ToString());
-                    HocVien hv = ctrHV.FindHV(cbmahv.Text);
-                    ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
+                        MessageBox.Show("Oops! Đã xảy ra lỗi !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -284,6 +297,65 @@ namespace DoAnOOP
             {
                 loadInforLopbyName(tenLopTXT.Text);
             }
+        }
+
+        private void hoTenTXT_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể tìm kiếm thông tin học viên bằng cách ghi đầy đủ họ tên có dấu";
+        }
+
+        private void hoTenTXT_MouseLeave(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
+
+        }
+
+        private void tenLopTXT_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể tìm kiếm thông tin lớp học bằng cách ghi chữ cái đầu tiên của tên lớp";
+
+        }
+
+        private void dangKyBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể đăng ký lớp học cho học viên";
+
+        }
+
+        private void huyDangKyBTN_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể hủy đăng ký lớp học cho học viên";
+
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể tìm danh sách những học viên khai giảng khóa ngày nào đó ( sử dụng khung lựa chọn ngày tháng ở phần lớp )";
+
+        }
+
+        private void LapDsHvCuaMotLop_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể tìm danh sách những học viên của một lớp học ngày nào đó ( sử dụng khung lựa chọn tên hoặc mã lớp ở phần lớp )";
+
+        }
+
+        private void ChoBietSLHVKGKhoaNgayNaoDo_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể biết số lượng học viên của mỗi lớp khai giảng khóa ngày nào đó ( sử dụng khung lựa chọn ngày tháng và mã hoặc tên lớp ở phần lớp )";
+
+        }
+
+        private void cbmahv_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể tìm kiếm thông tin học viên bằng cách ghi mã học viên";
+
+        }
+
+        private void maLopcb_MouseHover(object sender, EventArgs e)
+        {
+            huongDanHVTXT.Text = "Bạn có thể tìm kiếm thông tin lớp học bằng cách lựa chọn mã lớp";
+
         }
     }
 }
