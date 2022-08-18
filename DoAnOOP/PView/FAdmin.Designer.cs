@@ -152,6 +152,7 @@
             // 
             // ngaySinhDP
             // 
+            this.ngaySinhDP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.ngaySinhDP.Location = new System.Drawing.Point(127, 11);
             this.ngaySinhDP.Name = "ngaySinhDP";
             this.ngaySinhDP.Size = new System.Drawing.Size(279, 20);
@@ -428,6 +429,7 @@
             // 
             // khaiGiangDP
             // 
+            this.khaiGiangDP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.khaiGiangDP.Location = new System.Drawing.Point(127, 11);
             this.khaiGiangDP.Name = "khaiGiangDP";
             this.khaiGiangDP.Size = new System.Drawing.Size(279, 20);

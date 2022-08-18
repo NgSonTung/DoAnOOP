@@ -178,27 +178,32 @@ namespace DoAnOOP
         
         private void huyDangKyBTN_Click(object sender, EventArgs e)
         {
-            ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
-            loadCbMaLop();
-            paneltongsl.Visible = false;
-
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
+                loadCbMaLop();
+                paneltongsl.Visible = false;
+            }
         }
 
         private void dangKyBTN_Click(object sender, EventArgs e)
         {
-            //add ? => fill infor 2 cbx
-            paneltongsl.Visible = false;
-            if (checkHsToLop(int.Parse(cbmahv.Text)) == false)
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn thêm môn học?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Học viên đã tham gia lớp này !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                paneltongsl.Visible = false;
+                if (checkHsToLop(int.Parse(cbmahv.Text)) == false)
+                {
+                    MessageBox.Show("Học viên đã tham gia lớp này !", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    ctrTG.addHsToLop(cbmahv.Text, maLopcb.SelectedItem.ToString());
+                    HocVien hv = ctrHV.FindHV(cbmahv.Text);
+                    ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
+                }
             }
-            else
-            {
-                ctrTG.addHsToLop(cbmahv.Text, maLopcb.SelectedItem.ToString());
-                HocVien hv = ctrHV.FindHV(cbmahv.Text);
-                ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
-            }
-
         }
         bool checkHsToLop(int mahv)
         {
