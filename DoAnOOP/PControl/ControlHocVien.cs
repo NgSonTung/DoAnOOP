@@ -63,14 +63,14 @@ namespace DoAnOOP.PControl
 
         public HocVien FindHV(string s)
         {
-            try
-            {
+            
                 return db.HocViens.Find(int.Parse(s));
-            }
-            catch 
-            {
-                return db.HocViens.Find(int.Parse("1"));
-            }
+            
+           
+        }
+        public List<HocVien> findHVByMaHv(string s)
+        {
+            return db.HocViens.Where(t => t.MaHocVien.ToString() == s).ToList();
         }
         public List<HocVien> FindHVByName(string s)
         {

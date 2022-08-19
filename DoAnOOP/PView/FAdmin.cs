@@ -84,59 +84,85 @@ namespace DoAnOOP
             else
                 loadFindHvByMaLop(maLopcb.Text);
         }
-        /*void loadCbMaLop()
-        {
-            var rs = from t in ctrClass.FindLop() select t.MaLop;
-            maLopcb.DataSource = rs.ToList();
-            maLopcb.DisplayMember = "MaLop";
-            maLopcb.DropDownStyle = ComboBoxStyle.DropDownList;
-            
-        }*/
         void loadInforLop()
         {
-            Lop l = ctrClass.findInfoLop(int.Parse(maLopcb.Text));
-            tenLopTXT.Text = l.TenLop;
-            khaiGiangDP.Value = l.NgayKhaiGiang;
-            hocPhiTXT.Text = l.HocPhi.ToString();
-            hocPhanTXT.Text = l.HocPhan.ToString();
-            DateTime dt = DateTime.Today;
-            TimeSpan ts = l.TKB;
-            tkbDP.Value = dt + ts;
-            Montxt.Text = l.MonHoc.TenMonHoc;
+            List<Lop> i = ctrClass.findLopByMaLop(maLopcb.Text);
+            foreach (var l in i)
+            {
+                tenLopTXT.Text = l.TenLop;
+                khaiGiangDP.Value = l.NgayKhaiGiang;
+                hocPhiTXT.Text = l.HocPhi.ToString();
+                hocPhanTXT.Text = l.HocPhan.ToString();
+                DateTime dt = DateTime.Today;
+                TimeSpan ts = l.TKB;
+                tkbDP.Value = dt + ts;
+                Montxt.Text = l.MonHoc.TenMonHoc;
+            }
         }
         void loadInforHVbyMahv(string s)
         {
-            HocVien hv = ctrHV.FindHV(s);
-            hoTenTXT.Text = hv.HoTen;
-            ngaySinhDP.Value = hv.NgaySinh;
-            ngheNghiepTXT.Text = hv.NgheNghiep;
-            noiSinhTXT.Text = hv.NoiSinh;
+            List<HocVien> h = ctrHV.findHVByMaHv(cbmahv.Text);
+            if (h.Count <1 && cbmahv.ReadOnly == false)
+            {
+                MessageBox.Show("Không tìm thấy học viên này!", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbmahv.Text = "";
+                return;
+            }
+            foreach (var  hv in h)
+            {
+                hoTenTXT.Text = hv.HoTen;
+                ngaySinhDP.Value = hv.NgaySinh;
+                ngheNghiepTXT.Text = hv.NgheNghiep;
+                noiSinhTXT.Text = hv.NoiSinh;
+            }
+            
         }
         void loadInforHVbyName(string name)
         {
             List<HocVien> hv = ctrHV.FindHVByName(name);
-            foreach (var i in hv)
+            if (hv.Count > 1)
             {
-                cbmahv.Text = i.MaHocVien.ToString();
-                ngaySinhDP.Value = i.NgaySinh;
-                ngheNghiepTXT.Text = i.NgheNghiep;
-                noiSinhTXT.Text = i.NoiSinh;
+                MessageBox.Show("Hiện tại đang có 2 học viên trùng tên nhau gây xung đột dữ liệu bạn nên chỉnh sửa lại dữ liệu lớp học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult rss = MessageBox.Show("Bạn có muốn tìm bằng mã học viên ??!", "Thông báo !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rss == DialogResult.Yes)
+                {
+                    cbmahv.ReadOnly = false;
+                    hoTenTXT.Text = "";
+                }
+                return;
+            }else
+            {
+                foreach (var i in hv)
+                {
+                    cbmahv.Text = i.MaHocVien.ToString();
+                    ngaySinhDP.Value = i.NgaySinh;
+                    ngheNghiepTXT.Text = i.NgheNghiep;
+                    noiSinhTXT.Text = i.NoiSinh;
+                }
             }
             
         }
         void loadInforLopbyName(string n)
         {
             List<Lop> l = ctrClass.findLopByName(n);
-            foreach (var i in l)
+            if (l.Count > 1)
             {
-                maLopcb.Text = i.MaLop.ToString();
-                khaiGiangDP.Value = i.NgayKhaiGiang;
-                hocPhiTXT.Text = i.HocPhi.ToString();
-                hocPhanTXT.Text = i.HocPhan.ToString();
-                DateTime dt = DateTime.Today;
-                TimeSpan ts = i.TKB;
-                tkbDP.Value = dt + ts;
-                Montxt.Text = i.MonHoc.TenMonHoc;
+                MessageBox.Show("Hiện tại đang có 2 lớp trùng tên nhau gây xung đột dữ liệu bạn nên chỉnh sửa lại dữ liệu lớp học hoặc tìm kiếm bằng mã lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                foreach (var i in l)
+                {
+                    maLopcb.Text = i.MaLop.ToString();
+                    khaiGiangDP.Value = i.NgayKhaiGiang;
+                    hocPhiTXT.Text = i.HocPhi.ToString();
+                    hocPhanTXT.Text = i.HocPhan.ToString();
+                    DateTime dt = DateTime.Today;
+                    TimeSpan ts = i.TKB;
+                    tkbDP.Value = dt + ts;
+                    Montxt.Text = i.MonHoc.TenMonHoc;
+                }
             }
         }
         void loadDgvADFirst()
@@ -196,7 +222,7 @@ namespace DoAnOOP
             DialogResult dialogResult = MessageBox.Show("Chắc chắn muốn hủy đăng ký ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
-                if (cbmahv.Text =="" )
+                if (cbmahv.Text =="" || maLopcb.Text =="")
                 {
                     MessageBox.Show("Oops! Đã xảy ra lỗi !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -237,7 +263,7 @@ namespace DoAnOOP
         bool checkHsToLop(int mahv)
         {
           List<HocVien> lst = loadFindKG().Where(t => t.MaHocVien == mahv).ToList();
-            if (lst.Count > 1) return false;
+            if (lst.Count >= 1) return false;
             else return true;
         }
 
@@ -290,9 +316,13 @@ namespace DoAnOOP
         }
         private void cbmahv_Leave(object sender, EventArgs e)
         {
-           
-           
-                loadInforHVbyName(hoTenTXT.Text);
+
+            if (cbmahv.ReadOnly == false)
+            {
+                loadInforHVbyMahv(cbmahv.Text);
+                cbmahv.ReadOnly = true;
+            }
+            
         }
         private void tenLopTXT_Leave(object sender, EventArgs e)
         {
@@ -404,6 +434,15 @@ namespace DoAnOOP
 
                 }
                 else loadInforLop();
+            }
+        }
+
+        private void cbmahv_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter && cbmahv.ReadOnly == false)
+            {
+                loadInforHVbyMahv(cbmahv.Text);
+                cbmahv.ReadOnly = true;
             }
         }
     }

@@ -71,6 +71,7 @@
             this.cbmahv = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.maLopcb = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.LapDsHvCuaMotLop = new System.Windows.Forms.Button();
@@ -87,7 +88,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.test1 = new System.Windows.Forms.Label();
             this.huongDanHVTXT = new System.Windows.Forms.TextBox();
-            this.maLopcb = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -297,6 +297,7 @@
             this.hoTenTXT.Size = new System.Drawing.Size(279, 20);
             this.hoTenTXT.TabIndex = 3;
             this.hoTenTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.hoTenTXT_KeyDown);
+            this.hoTenTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hoTenTXT_KeyPress);
             this.hoTenTXT.Leave += new System.EventHandler(this.hoTenTXT_Leave);
             this.hoTenTXT.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
             this.hoTenTXT.MouseHover += new System.EventHandler(this.hoTenTXT_MouseHover);
@@ -537,6 +538,7 @@
             this.cbmahv.ReadOnly = true;
             this.cbmahv.Size = new System.Drawing.Size(279, 20);
             this.cbmahv.TabIndex = 2;
+            this.cbmahv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbmahv_KeyDown);
             this.cbmahv.Leave += new System.EventHandler(this.cbmahv_Leave);
             this.cbmahv.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
             this.cbmahv.MouseHover += new System.EventHandler(this.cbmahv_MouseHover);
@@ -562,6 +564,18 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(413, 40);
             this.panel10.TabIndex = 53;
+            // 
+            // maLopcb
+            // 
+            this.maLopcb.Location = new System.Drawing.Point(127, 11);
+            this.maLopcb.Name = "maLopcb";
+            this.maLopcb.Size = new System.Drawing.Size(279, 20);
+            this.maLopcb.TabIndex = 2;
+            this.maLopcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maLopcb_KeyDown);
+            this.maLopcb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maHvTXT_KeyPress);
+            this.maLopcb.Leave += new System.EventHandler(this.maLopcb_Leave);
+            this.maLopcb.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.maLopcb.MouseHover += new System.EventHandler(this.maLopcb_MouseHover);
             // 
             // label16
             // 
@@ -749,18 +763,6 @@
             this.huongDanHVTXT.TabIndex = 76;
             this.huongDanHVTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
             this.huongDanHVTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maLopcb
-            // 
-            this.maLopcb.Location = new System.Drawing.Point(127, 11);
-            this.maLopcb.Name = "maLopcb";
-            this.maLopcb.Size = new System.Drawing.Size(279, 20);
-            this.maLopcb.TabIndex = 2;
-            this.maLopcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maLopcb_KeyDown);
-            this.maLopcb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maHvTXT_KeyPress);
-            this.maLopcb.Leave += new System.EventHandler(this.maLopcb_Leave);
-            this.maLopcb.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
-            this.maLopcb.MouseHover += new System.EventHandler(this.maLopcb_MouseHover);
             // 
             // FAdmin
             // 
