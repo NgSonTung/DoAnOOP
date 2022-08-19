@@ -18,7 +18,7 @@ namespace DoAnOOP
         {
             InitializeComponent();
             loadAutocomplete();
-            loadCbMaLop();
+            //loadCbMaLop();
             CheckAuth();
             loadDgvADFirst();
             
@@ -59,31 +59,42 @@ namespace DoAnOOP
             }
             var rs = from t in loadFindKG() select new { t.HoTen,t.NgaySinh,t.NoiSinh,t.NgheNghiep };
             dgvAD.DataSource = rs.ToList();
+                if(rs.ToList().Count < 1)
+            {
+                MessageBox.Show("Danh sách rỗng !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
             paneltongsl.Visible = false;
             var rs = from t in loadFindKG() select new { t.HoTen,t.NgaySinh,t.NoiSinh,t.NgheNghiep };
             dgvAD.DataSource = rs.ToList();
+            if (rs.ToList().Count <1)
+            {
+                MessageBox.Show("Danh sách rỗng !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void LapDsHvCuaMotLop_Click(object sender, EventArgs e)
         {
             paneltongsl.Visible = false;
-            loadFindHvByMaLop(maLopcb.SelectedItem.ToString());
+            if(maLopcb.Text.Length <=0)
+                MessageBox.Show("Oops! Đã xảy ra lỗi !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                loadFindHvByMaLop(maLopcb.Text);
         }
-        void loadCbMaLop()
+        /*void loadCbMaLop()
         {
             var rs = from t in ctrClass.FindLop() select t.MaLop;
             maLopcb.DataSource = rs.ToList();
             maLopcb.DisplayMember = "MaLop";
             maLopcb.DropDownStyle = ComboBoxStyle.DropDownList;
             
-        }
+        }*/
         void loadInforLop()
         {
-            Lop l = ctrClass.findInfoLop(int.Parse(maLopcb.SelectedItem.ToString()));
+            Lop l = ctrClass.findInfoLop(int.Parse(maLopcb.Text));
             tenLopTXT.Text = l.TenLop;
             khaiGiangDP.Value = l.NgayKhaiGiang;
             hocPhiTXT.Text = l.HocPhi.ToString();
@@ -118,7 +129,7 @@ namespace DoAnOOP
             List<Lop> l = ctrClass.findLopByName(n);
             foreach (var i in l)
             {
-                maLopcb.SelectedItem = i.MaLop;
+                maLopcb.Text = i.MaLop.ToString();
                 khaiGiangDP.Value = i.NgayKhaiGiang;
                 hocPhiTXT.Text = i.HocPhi.ToString();
                 hocPhanTXT.Text = i.HocPhan.ToString();
@@ -173,6 +184,11 @@ namespace DoAnOOP
             test1.Text = hvs.Count.ToString();
             dgvAD.DataSource = rs.ToList();
             paneltongsl.Visible = true;
+            if (rs.ToList().Count < 1)
+            {
+                MessageBox.Show("Danh sách rỗng !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
         
         private void huyDangKyBTN_Click(object sender, EventArgs e)
@@ -187,7 +203,7 @@ namespace DoAnOOP
                 else
                 {
                     ctrTG.RemoveLopTheoHV(cbmahv.Text, maLopcb.Text);
-                    loadCbMaLop();
+                    //loadCbMaLop();
                     paneltongsl.Visible = false;
                 }
             }
@@ -207,9 +223,9 @@ namespace DoAnOOP
                     }
                     else
                     {
-                        ctrTG.addHsToLop(cbmahv.Text, maLopcb.SelectedItem.ToString());
+                        ctrTG.addHsToLop(cbmahv.Text, maLopcb.Text);
                         HocVien hv = ctrHV.FindHV(cbmahv.Text);
-                        ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.SelectedItem.ToString()));
+                        ctrBL.AddBLDK(hv, double.Parse(hocPhiTXT.Text), int.Parse(maLopcb.Text));
                     }
                 }
                 catch 
@@ -269,25 +285,34 @@ namespace DoAnOOP
         }
         private void hoTenTXT_Leave(object sender, EventArgs e)
         {
+
                 loadInforHVbyName(hoTenTXT.Text);
         }
         private void cbmahv_Leave(object sender, EventArgs e)
         {
-                loadInforHVbyMahv(cbmahv.Text);
+           
+           
+                loadInforHVbyName(hoTenTXT.Text);
         }
         private void tenLopTXT_Leave(object sender, EventArgs e)
         {
-            loadInforLopbyName(tenLopTXT.Text);
+      
+                loadInforLopbyName(tenLopTXT.Text);
+
         }
-        private void maLopcb_Leave(object sender, EventArgs e)
-        {
-            loadInforLop();
-        }
+        
         private void hoTenTXT_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                loadInforHVbyName(hoTenTXT.Text);
+                if (ctrHV.FindHVByName(hoTenTXT.Text).Count <1)
+                {
+                       MessageBox.Show("Oops! Không tìm thấy học viên này !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                    loadInforHVbyName(hoTenTXT.Text);
+
             }
         }
 
@@ -295,7 +320,12 @@ namespace DoAnOOP
         {
             if (e.KeyCode == Keys.Enter)
             {
-                loadInforLopbyName(tenLopTXT.Text);
+                if (ctrClass.findLopByName(tenLopTXT.Text).Count < 1)
+                {
+                    MessageBox.Show("Oops! Không tìm thấy lớp học này !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else loadInforLopbyName(tenLopTXT.Text);
             }
         }
 
@@ -356,6 +386,25 @@ namespace DoAnOOP
         {
             huongDanHVTXT.Text = "Bạn có thể tìm kiếm thông tin lớp học bằng cách lựa chọn mã lớp";
 
+        }
+
+        private void maLopcb_Leave(object sender, EventArgs e)
+        {
+            loadInforLop();
+
+        }
+
+        private void maLopcb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (ctrClass.findLopByMaLop(maLopcb.Text).Count < 1)
+                {
+                    MessageBox.Show("Oops! Không tìm thấy lớp học này !! Bạn có chắc chắn rằng mọi dữ liệu bạn nhập đều đã chính xác ?!!!", "Thông báo !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else loadInforLop();
+            }
         }
     }
 }

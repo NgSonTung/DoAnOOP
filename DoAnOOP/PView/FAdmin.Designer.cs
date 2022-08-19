@@ -71,7 +71,6 @@
             this.cbmahv = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.maLopcb = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.LapDsHvCuaMotLop = new System.Windows.Forms.Button();
@@ -88,6 +87,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.test1 = new System.Windows.Forms.Label();
             this.huongDanHVTXT = new System.Windows.Forms.TextBox();
+            this.maLopcb = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -283,7 +283,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.panel1.Controls.Add(this.hoTenTXT);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(262, 61);
+            this.panel1.Location = new System.Drawing.Point(262, 15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(413, 40);
             this.panel1.TabIndex = 51;
@@ -525,7 +525,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.panel9.Controls.Add(this.cbmahv);
             this.panel9.Controls.Add(this.label15);
-            this.panel9.Location = new System.Drawing.Point(262, 15);
+            this.panel9.Location = new System.Drawing.Point(262, 61);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(413, 40);
             this.panel9.TabIndex = 52;
@@ -534,6 +534,7 @@
             // 
             this.cbmahv.Location = new System.Drawing.Point(127, 8);
             this.cbmahv.Name = "cbmahv";
+            this.cbmahv.ReadOnly = true;
             this.cbmahv.Size = new System.Drawing.Size(279, 20);
             this.cbmahv.TabIndex = 2;
             this.cbmahv.Leave += new System.EventHandler(this.cbmahv_Leave);
@@ -561,17 +562,6 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(413, 40);
             this.panel10.TabIndex = 53;
-            // 
-            // maLopcb
-            // 
-            this.maLopcb.FormattingEnabled = true;
-            this.maLopcb.Location = new System.Drawing.Point(127, 12);
-            this.maLopcb.Name = "maLopcb";
-            this.maLopcb.Size = new System.Drawing.Size(279, 21);
-            this.maLopcb.TabIndex = 2;
-            this.maLopcb.Leave += new System.EventHandler(this.maLopcb_Leave);
-            this.maLopcb.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
-            this.maLopcb.MouseHover += new System.EventHandler(this.maLopcb_MouseHover);
             // 
             // label16
             // 
@@ -760,6 +750,18 @@
             this.huongDanHVTXT.Text = "Hover nút bất kì để hiện hướng dẫn";
             this.huongDanHVTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // maLopcb
+            // 
+            this.maLopcb.Location = new System.Drawing.Point(127, 11);
+            this.maLopcb.Name = "maLopcb";
+            this.maLopcb.Size = new System.Drawing.Size(279, 20);
+            this.maLopcb.TabIndex = 2;
+            this.maLopcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maLopcb_KeyDown);
+            this.maLopcb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maHvTXT_KeyPress);
+            this.maLopcb.Leave += new System.EventHandler(this.maLopcb_Leave);
+            this.maLopcb.MouseLeave += new System.EventHandler(this.hoTenTXT_MouseLeave);
+            this.maLopcb.MouseHover += new System.EventHandler(this.maLopcb_MouseHover);
+            // 
             // FAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -883,7 +885,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridView dgvAD;
-        private System.Windows.Forms.ComboBox maLopcb;
         private System.Windows.Forms.TextBox Montxt;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -894,6 +895,7 @@
         private System.Windows.Forms.TextBox cbmahv;
         private System.Windows.Forms.TextBox tenLopTXT;
         private System.Windows.Forms.TextBox huongDanHVTXT;
+        private System.Windows.Forms.TextBox maLopcb;
     }
 }
 
