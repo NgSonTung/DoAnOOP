@@ -97,11 +97,13 @@ namespace DoAnOOP.PView
         {
             int index = dgvAccount.CurrentCell.RowIndex;
             string idacc = dgvAccount.Rows[index].Cells[0].Value + "";
-
             Account acc = ControlAccount.DefineAcc(idacc);
             acc.UserName = userNameTXT.Text;
             acc.Password = PassTXT.Text;
-            acc.Auth = int.Parse(cbmAuth.Text);
+            if (cbmAuth.Text == "Giáo Viên")
+                acc.Auth = 0;
+            else
+                acc.Auth = 1;
             ControlAccount.Update(acc);
             LoadDSAccount();
         }

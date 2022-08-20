@@ -39,7 +39,6 @@ namespace DoAnOOP.PControl
                 if (dialogResult == DialogResult.Yes)
                 {
                     ControlThamGia ctrThamGia = new ControlThamGia();
-                    ctrThamGia.RemoveHVBLTheoLop(lop.MaLop);
                     db.Lops.Remove(lop);
                     db.SaveChanges();
                 }
