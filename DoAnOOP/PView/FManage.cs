@@ -158,12 +158,12 @@ namespace DoAnOOP
 
         void loadDSBL()
         {
-            var list = from s in ctrBL.FindAll() select new {s.MaBL, s.NgayDong, s.SoTien, s.HocVien.HoTen, s.Lop.TenLop};
+            var list = from s in ctrBL.FindAll() select new {s.MaBL, s.NgayDong, s.SoTien, s.HocVien.HoTen, TenLop = s.Lop?.TenLop ?? "[Đã xóa]"};
             dgvBienLai.DataSource = list.ToList();
         }
         void loadDSBL(List<BienLai> l)
         {
-            var list = from s in l select new { s.MaBL, s.NgayDong, s.SoTien, s.HocVien.HoTen, s.Lop.TenLop };
+            var list = from s in l select new { s.MaBL, s.NgayDong, s.SoTien, s.HocVien.HoTen, TenLop = s.Lop?.TenLop ?? "[Đã xóa]" };
                 dgvBienLai.DataSource = list.ToList();
         }
 

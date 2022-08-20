@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="doAnModel.BienLai" Width="1.5" PointX="3" PointY="7.625" />
         <EntityTypeShape EntityType="doAnModel.HocVien" Width="1.5" PointX="0.75" PointY="4.5" />
         <EntityTypeShape EntityType="doAnModel.Lop" Width="1.5" PointX="6" PointY="4.5" />
-        <EntityTypeShape EntityType="doAnModel.MonHoc" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doAnModel.MonHoc" Width="1.5" PointX="10.75" PointY="0.625" />
         <EntityTypeShape EntityType="doAnModel.Thi" Width="1.5" PointX="8.375" PointY="3" />
         <AssociationConnector Association="doAnModel.FK__BienLai__MaHocVi__234A136B" />
         <AssociationConnector Association="doAnModel.FK__Thi__MaHocVien__2902ECC1" />
